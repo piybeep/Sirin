@@ -1,0 +1,66 @@
+.rules {
+    margin: 0 auto;
+
+    margin-top: 127px;
+    margin-bottom: 117px;
+
+    width: 100%;
+    max-width: 1230px;
+
+    display: grid;
+    grid-template-areas:
+        'title subtitle'
+        'title button';
+
+    align-items: center;
+
+    &__title {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 85px;
+        line-height: 110%;
+
+        color: #1491FF;
+
+        width: 100%;
+        max-width: 600px;
+
+        grid-area: title;
+    }
+
+    &__subtitle {
+        grid-area: subtitle;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 34px;
+
+        color: #000000;
+    }
+
+    &__button {
+        grid-area: button;
+
+        width: fit-content;
+        height: fit-content;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+
+        color: #1D88E6;
+
+        border: 3px solid #118DFD;
+        border-radius: 30px;
+
+        background-color: transparent;
+
+        padding: 11px 20px;
+    }
+}
