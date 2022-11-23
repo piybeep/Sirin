@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import Slider from "react-slick";
+import React, { useState } from 'react';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+// Carousel
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 // img
 import img1 from '../../../../assets/main/preview/background-1.png'
 // Style
@@ -132,6 +131,7 @@ const Preview = () => {
         )
     })
 
+
     return (
         <div ref={ref} className={s.preview}>
             <div className={s.preview__menu}>
@@ -142,12 +142,25 @@ const Preview = () => {
                 <button className={s.preview__button}>ПОДРОБНЕЕ</button>
             </div>
 
-            <div className={s.preview__dots}>
-                {resultDots}
-            </div>
-
-            <div className={s.preview__slider}>
-                {resultImg}
+            {/* Рабочий вариант, только точки немного поднять */}
+            <div className={s.testSlider}>
+                <Carousel
+                // Эмуляция пальца по экрану
+                    emulateTouch={true} 
+                    // Скрывает стрелки
+                    showArrows={false} 
+                    // Бесконечная крутилка
+                    infiniteLoop={true} 
+                    // Убрать статус какая фотография
+                    showStatus={false} 
+                    // Убрать вывод фоток слева снизу
+                    showThumbs={false} 
+                    // Автоматическое прокручивание раз в 2.5с
+                    autoPlay={true} interval={2500} 
+                    // Время на прокрутку в 1с
+                    transitionTime={1000}>
+                    {resultImg}
+                </Carousel>
             </div>
         </div>
     );
