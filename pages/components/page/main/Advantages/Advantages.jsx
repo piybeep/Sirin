@@ -47,7 +47,7 @@ const Advantages = () => {
 
     const resultItem = data.map(current => {
         return (
-            <div className={s.item}>
+            <div key={current.text} className={s.item}>
                 <img className={s.item__img} src={current.img.src} alt="Картинка" />
                 <h4 className={s.item__slogan}>{current.text}</h4>
             </div>

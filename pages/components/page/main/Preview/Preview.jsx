@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 
 // Carousel
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -106,34 +106,15 @@ const Preview = () => {
         },
     ]
 
-    const [isSlide, setIsSlide] = useState(0)
-
     const resultImg = dataImg.map(current => {
         return (
-            <img key={current.text} style={{ transform: `translateX(${-isSlide}px)` }} className={s.preview__img} src={current.img.src} alt={current.id} />
+            <img key={current.text} className={s.preview__img} src={current.img.src} alt={current.id} />
         )
     })
-
-    const ref = React.createRef()
-
-    const changeRadio = (e) => {
-        const currentInputValue = e.target.attributes[1].textContent
-        const currentWidthImg = e.target.parentElement.parentElement.parentElement.offsetWidth
-        setIsSlide(currentInputValue * currentWidthImg)
-    }
-
-    const resultDots = dataImg.map(current => {
-        return (
-            <div key={current.text} className={s.dots}>
-                <input onChange={(e) => changeRadio(e)} className={s.dots__input} defaultChecked={current.active} id={current.id} name='radio' type="radio" />
-                <label className={s.dots__label} htmlFor={current.id}></label>
-            </div>
-        )
-    })
-
 
     return (
-        <div ref={ref} className={s.preview}>
+        // style={{minHeight:`${widthImg} px`}}
+        <div className={s.preview}>
             <div className={s.preview__menu}>
                 {resultLink}
             </div>
@@ -145,18 +126,18 @@ const Preview = () => {
             {/* Рабочий вариант, только точки немного поднять */}
             <div className={s.testSlider}>
                 <Carousel
-                // Эмуляция пальца по экрану
-                    emulateTouch={true} 
+                    // Эмуляция пальца по экрану
+                    emulateTouch={true}
                     // Скрывает стрелки
-                    showArrows={false} 
+                    showArrows={false}
                     // Бесконечная крутилка
-                    infiniteLoop={true} 
+                    infiniteLoop={true}
                     // Убрать статус какая фотография
-                    showStatus={false} 
+                    showStatus={false}
                     // Убрать вывод фоток слева снизу
-                    showThumbs={false} 
+                    showThumbs={false}
                     // Автоматическое прокручивание раз в 2.5с
-                    autoPlay={true} interval={2500} 
+                    autoPlay={true} interval={2500}
                     // Время на прокрутку в 1с
                     transitionTime={1000}>
                     {resultImg}
