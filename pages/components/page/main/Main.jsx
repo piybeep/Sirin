@@ -4,11 +4,13 @@ import React from 'react';
 import Header from './Header/Header';
 import Preview from './Preview/Preview';
 import About from './About/About';
+import Advantages from './Advantages/Advantages';
+import Rules from './Rules/Rules';
+import Video from './Video/Video';
+import Team from './Team/Team';
 
 // Style
 import s from './Main.module.scss'
-import Advantages from './Advantages/Advantages';
-import Rules from './Rules/Rules';
 
 const Main = () => {
     return (
@@ -18,6 +20,8 @@ const Main = () => {
             <About/>
             <Advantages/>
             <Rules/>
+            <Video/>
+            <Team/>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import CustomButton from '../../../ui/CustomButton/CustomButton';
 
 // Style
 import s from './About.module.scss'
@@ -11,7 +12,7 @@ const About = () => {
             <p className={s.about__text}>У нас большая концертная и гастрольная деятельность. Многие наши выпускники, являются студентами хореографических училищ: Школа-студия при ГААНТ имени Игоря Моисеева, МОКИ, даже успели открыть свои студии
                 и успешно работают.
             </p>
-            <button className={s.about__button}>ПОДРОБНЕЕ О НАС</button>
+            <div className={s.about__button}><CustomButton text='ПОДРОБНЕЕ О НАС'/></div>
         </div>
     );
 };
