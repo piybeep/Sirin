@@ -13,6 +13,7 @@ import Reviews from './Reviews/Reviews';
 // Style
 import s from './Main.module.scss'
 import Contact from './Contacts/Contact';
+import Footer from '../../Footer/Footer';
 
 const Main = () => {
     return (
@@ -26,6 +27,7 @@ const Main = () => {
             <Team/>
             <Reviews/>
             <Contact/>
+            <Footer/>
         </div>
     );
 };
