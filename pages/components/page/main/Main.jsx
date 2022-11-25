@@ -8,9 +8,11 @@ import Advantages from './Advantages/Advantages';
 import Rules from './Rules/Rules';
 import Video from './Video/Video';
 import Team from './Team/Team';
+import Reviews from './Reviews/Reviews';
 
 // Style
 import s from './Main.module.scss'
+import Contact from './Contacts/Contact';
 
 const Main = () => {
     return (
@@ -22,6 +24,8 @@ const Main = () => {
             <Rules/>
             <Video/>
             <Team/>
+            <Reviews/>
+            <Contact/>
         </div>
     );
 };

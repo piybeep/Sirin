@@ -55,7 +55,7 @@ const Team = () => {
 
     const resultTeachers = teachers.map(current => {
         return (
-            <div className={[s.teachers, current.id === 0 ? s.teachers_first : '', current.id === 5 ? s.teachers_last : ''].join(' ')}>
+            <div key={current.text} className={[s.teachers, current.id === 0 ? s.teachers_first : '', current.id === 5 ? s.teachers_last : ''].join(' ')}>
                 <img className={s.teachers__img} src={current.img.src} alt="" />
                 <h2 className={s.teachers__name}>{current.text}</h2>
             </div>

@@ -23,6 +23,18 @@ a {
   bottom: 47px !important;
 }
 
+.slick-dots li.slick-active button:before{
+  color: #fff !important;
+}
+.slick-dots{
+  bottom: -35px !important;
+}
+.slick-dots li button:before{
+  color: #fff !important;
+
+  transition: .3s;
+}
+
 @font-face {
   font-family: Indycton Ucs;
   src: url(../pages/assets/fonts/Indycton-Ucs.ttf);
