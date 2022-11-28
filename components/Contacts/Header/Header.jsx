@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Кнопка
-import CustomButton from '../../../../ui/CustomButton/CustomButton';
+import CustomButton from '../../CustomButton/CustomButton';
 // Style
 import s from './Header.module.scss'
 

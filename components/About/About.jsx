@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from '../../../ui/CustomButton/CustomButton';
+import CustomButton from '../CustomButton/CustomButton';
 
 // Style
 import s from './About.module.scss'
