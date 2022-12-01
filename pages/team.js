@@ -3,7 +3,7 @@ import Preview from '../components/Team-Direction/Preview/Preview';
 import List from '../components/Team-Direction/List/List'
 
 // Img
-import img from '../public/team/image.png'
+import img from '../public/images/team/image.png'
 
 const team = () => {
 

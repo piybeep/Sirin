@@ -5,7 +5,7 @@ import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 // img
-import img1 from '../../../public/main/preview/background-1.png'
+import img1 from '../../../public/images/main/preview/background-1.png'
 // Style
 import s from './Preview.module.scss'
 

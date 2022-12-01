@@ -2,12 +2,12 @@ import React from 'react';
 import { useRouter } from 'next/router'
 
 // img
-import logo from '../../public/miniHeader/sirin.svg'
-import textSirin from '../../public/miniHeader/textSirin.svg'
+import logo from '../../public/svg/secHeader/sirin.svg'
+import textSirin from '../../public/svg/secHeader/textSirin.svg'
 // Style
-import s from './MiniHeader.module.scss'
+import s from './SecHeader.module.scss'
 
-const MiniHeader = () => {
+const SecHeader = () => {
 
     const links = [
         {
@@ -59,19 +59,19 @@ const MiniHeader = () => {
         current.href === navigate.route ? current.active = true : current.active = false
 
         return (
-            <a key={current.text} className={[s.miniHeader__link, current.active && s.miniHeader__link_active].join(' ')} href={current.href}>{current.text}</a>
+            <a key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</a>
         )
     })
 
     return (
-        <div className={s.miniHeader}>
-            <div className={s.miniHeader__wrapper}>
-                <a href='/' className={s.miniHeader__info}>
-                    <img className={s.miniHeader__title} src={logo.src} alt="" />
-                    <img className={s.miniHeader__subtitle} src={textSirin.src} alt="" />
+        <div className={s.SecHeader}>
+            <div className={s.SecHeader__wrapper}>
+                <a href='/' className={s.SecHeader__info}>
+                    <img className={s.SecHeader__title} src={logo.src} alt="" />
+                    <img className={s.SecHeader__subtitle} src={textSirin.src} alt="" />
                 </a>
 
-                <div className={s.miniHeader__nav}>
+                <div className={s.SecHeader__nav}>
                     {resultLink}
                 </div>
             </div>
@@ -79,4 +79,4 @@ const MiniHeader = () => {
     );
 };
 
-export default MiniHeader;
+export default SecHeader;

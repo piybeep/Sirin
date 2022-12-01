@@ -7,12 +7,12 @@ import CustomButton from '../../CustomButton/CustomButton';
 import s from './Team.module.scss'
 
 // Img
-import ira from '../../../public/main/team/irina.png'
-import alex from '../../../public/main/team/alex.png'
-import valentine from '../../../public/main/team/valentine.png'
-import polina from '../../../public/main/team/polina.png'
-import artem from '../../../public/main/team/artem.png'
-import tanya from '../../../public/main/team/tanya.png'
+import ira from '../../../public/images/main/team/irina.png'
+import alex from '../../../public/images/main/team/alex.png'
+import valentine from '../../../public/images/main/team/valentine.png'
+import polina from '../../../public/images/main/team/polina.png'
+import artem from '../../../public/images/main/team/artem.png'
+import tanya from '../../../public/images/main/team/tanya.png'
 
 const Team = () => {
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
 // img
-import vk from '../../public/footer/vk.svg'
-import facebook from '../../public/footer/facebook.svg'
-import telegram from '../../public/footer/telegram.svg'
-import youtube from '../../public/footer/youtube.svg'
-import instagram from '../../public/footer/instagram.svg'
+import vk from '../../public/svg/footer/vk.svg'
+import facebook from '../../public/svg/footer/facebook.svg'
+import telegram from '../../public/svg/footer/telegram.svg'
+import youtube from '../../public/svg/footer/youtube.svg'
+import instagram from '../../public/svg/footer/instagram.svg'
 // Style
 import s from './Footer.module.scss'
 

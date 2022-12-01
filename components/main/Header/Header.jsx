@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Img
-import logo from '../../../public/main/header/Logo.png'
+import logo from '../../../public/images/main/header/Logo.png'
 // Style
 import s from './Header.module.scss'
 

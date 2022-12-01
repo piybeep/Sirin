@@ -1,5 +1,5 @@
 // Components
-import MiniHeader from '../components/MiniHeader/MiniHeader'
+import SecHeader from '../components/SecHeader/SecHeader'
 import Footer from '../components/Footer/Footer'
 
 // Style
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <MiniHeader />
+      <SecHeader />
       <div className='component'>
       <Component {...pageProps} />
       </div>
