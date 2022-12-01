@@ -1,6 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router'
 
+// img
+import logo from '../../public/miniHeader/sirin.svg'
+import textSirin from '../../public/miniHeader/textSirin.svg'
 // Style
 import s from './MiniHeader.module.scss'
 
@@ -63,10 +66,10 @@ const MiniHeader = () => {
     return (
         <div className={s.miniHeader}>
             <div className={s.miniHeader__wrapper}>
-                <div className={s.miniHeader__info}>
-                    <h2 className={s.miniHeader__title}>Сирин</h2>
-                    <p className={s.miniHeader__subtitle}>Образцовый хореографический ансамбль</p>
-                </div>
+                <a href='/' className={s.miniHeader__info}>
+                    <img className={s.miniHeader__title} src={logo.src} alt="" />
+                    <img className={s.miniHeader__subtitle} src={textSirin.src} alt="" />
+                </a>
 
                 <div className={s.miniHeader__nav}>
                     {resultLink}

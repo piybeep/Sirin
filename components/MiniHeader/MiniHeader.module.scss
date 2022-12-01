@@ -23,12 +23,16 @@
     &__info {
         display: flex;
         align-items: center;
-        column-gap: 12px;
+        column-gap: 10px;
 
-        border: 1px solid red;
+        width: 100%;
+        max-width: 255px;
     }
 
-    &__title {}
+    &__title {
+        width: 100%;
+        max-width: 133px;
+    }
 
     &__subtitle {
         width: 100%;

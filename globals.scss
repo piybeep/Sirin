@@ -18,6 +18,11 @@ a {
   padding: 0px;
 }
 
+// Пока тестовое, если не понравится уберу
+.component{
+  min-height: 100vh;
+}
+
 .control-dots {
   margin: 0px !important;
   bottom: 47px !important;

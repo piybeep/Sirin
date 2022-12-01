@@ -79,7 +79,7 @@ const Footer = () => {
 
     const resultLinks = links.map(current => {
         return (
-            <a className={s.footer__link}>{current.text}</a>
+            <a key={current.id} className={s.footer__link}>{current.text}</a>
         )
     })
 
@@ -113,7 +113,7 @@ const Footer = () => {
 
     const resultImg = imgs.map(current => {
         return (
-            <a href={current.href} target='blank' className={s.icon}>
+            <a key={current.id} href={current.href} target='blank' className={s.icon}>
                 <img className={s.icon__link} src={current.img.src} alt='Иконка' />
             </a>
         )

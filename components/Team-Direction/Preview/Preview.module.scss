@@ -10,7 +10,7 @@
 
     position: relative;
 
-    &::after{
+    &::after {
         content: '';
         display: inline-block;
 
@@ -39,7 +39,10 @@
         max-width: 1228px;
 
         margin: 0 auto;
-        
+
+        display: flex;
+        flex-direction: column;
+
         &_span {
             position: relative;
             z-index: 2;
@@ -48,7 +51,7 @@
 
             color: #1491FF;
 
-            &:before{
+            &:before {
                 content: '';
                 display: inline-block;
 

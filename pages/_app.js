@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <MiniHeader />
+      <div className='component'>
       <Component {...pageProps} />
+      </div>
       <Footer />
     </>
   )

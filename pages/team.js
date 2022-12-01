@@ -1,12 +1,37 @@
 import React from 'react';
-import List from '../components/Team/List/List';
-import Preview from '../components/Team/Preview/Preview';
+import Preview from '../components/Team-Direction/Preview/Preview';
+import List from '../components/Team-Direction/List/List'
+
+// Img
+import img from '../public/team/image.png'
 
 const team = () => {
+
+    const data = [
+        {
+            id: 0,
+            img: img,
+            FIO: 'Давыдова Ирина Сергеевна',
+            dolj: 'Балетмейстер, педагог-репетитор и основатель ансамбля'
+        },
+        {
+            id: 1,
+            img: img,
+            FIO: 'Фокина Екатерина Сергеевна',
+            dolj: 'Директор ансамбля, организатор и костюмер'
+        },
+        {
+            id: 2,
+            img: img,
+            FIO: 'Терентьева Валентина Валерьевна',
+            dolj: 'Педагог ансамбля по хореографии'
+        }
+    ]
+
     return (
         <div>
-            <Preview/>
-            <List/>
+            <Preview title='познакомьтесь' textOne='c' titleSpan='нашей' textTwo='командой'/>
+            <List text='узнать лучше' info={data}/>
         </div>
     );
 };
