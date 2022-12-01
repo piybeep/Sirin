@@ -1,0 +1,74 @@
+.list {
+    width: 100%;
+    max-width: 1228px;
+
+    margin: 0 auto;
+    margin-top: 117px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 600px);
+    gap: 30px;
+
+    margin-bottom: 100px;
+}
+
+.item {
+    display: grid;
+    grid-template-areas:
+        'img fio'
+        'img text'
+        'img button';
+    gap: 30px;
+
+    width: 100%;
+    max-width: 600px;
+
+    padding: 45px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+
+    &__img {
+        width: 240px;
+        height: 270px;
+
+        border-radius: 20px;
+
+        grid-area: img;
+    }
+
+    &__name {
+        grid-area: fio;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 105%;
+
+        color: #000000;
+
+        width: 100%;
+        max-width: 229px;
+    }
+
+    &__text {
+        grid-area: text;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+
+        color: #000000;
+
+        width: 100%;
+        max-width: 210px;
+    }
+
+    &__button {
+        grid-area: button;
+    }
+}

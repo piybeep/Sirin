@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 
 // img
-import img from '../../public/main/reviews/elena.png'
+import img from '../../../public/main/reviews/elena.png'
 // Style
 import s from './Reviews.module.scss'
 

@@ -1,18 +1,18 @@
 import React from 'react';
 
 // Components
-import CustomButton from '../CustomButton/CustomButton';
+import CustomButton from '../../CustomButton/CustomButton';
 
 // Style
 import s from './Team.module.scss'
 
 // Img
-import ira from '../../public/main/team/irina.png'
-import alex from '../../public/main/team/alex.png'
-import valentine from '../../public/main/team/valentine.png'
-import polina from '../../public/main/team/polina.png'
-import artem from '../../public/main/team/artem.png'
-import tanya from '../../public/main/team/tanya.png'
+import ira from '../../../public/main/team/irina.png'
+import alex from '../../../public/main/team/alex.png'
+import valentine from '../../../public/main/team/valentine.png'
+import polina from '../../../public/main/team/polina.png'
+import artem from '../../../public/main/team/artem.png'
+import tanya from '../../../public/main/team/tanya.png'
 
 const Team = () => {
 

@@ -1,30 +1,36 @@
 // Components
-import Header from '../components/Header/Header'
-import Preview from '../components/Preview/Preview'
-import About from '../components/About/About'
-import Advantages from '../components/Advantages/Advantages'
-import Rules from '../components/Rules/Rules'
-import Video from '../components/Video/Video'
-import Team from '../components/Team/Team'
-import Reviews from '../components/Reviews/Reviews'
-import Contact from '../components/Contacts/Contact'
+import Header from '../components/main/Header/Header'
+import Preview from '../components/main/Preview/Preview'
+import About from '../components/main/About/About'
+import Advantages from '../components/main/Advantages/Advantages'
+import Rules from '../components/main/Rules/Rules'
+import Video from '../components/main/Video/Video'
+import Team from '../components/main/Team/Team'
+import Reviews from '../components/main/Reviews/Reviews'
+import Contact from '../components/main/Contacts/Contact'
 import Footer from '../components/Footer/Footer'
-// Style
-import s from '../styles/Home.module.scss'
 
 export default function Home() {
   return (
-    <div className={s.container}>
-      <Header/>
-      <Preview/>
-      <About/>
-      <Advantages/>
-      <Rules/>
-      <Video/>
-      <Team/>
-      <Reviews/>
-      <Contact/>
-      <Footer/>
+    <div>
+      <Preview />
+      <About />
+      <Advantages />
+      <Rules />
+      <Video />
+      <Team />
+      <Reviews />
+      <Contact />
     </div>
+  )
+}
+
+Home.getLayout = function PageLayout(page) {
+  return (
+    <>
+      <Header />
+      {page}
+      <Footer />
+    </>
   )
 }

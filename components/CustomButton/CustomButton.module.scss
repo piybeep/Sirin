@@ -15,4 +15,14 @@
     
     background-color: transparent;
     padding: 11px 20px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    &:hover{
+        color: #fff;
+
+        background-color: #1491FF;
+    }
 }
