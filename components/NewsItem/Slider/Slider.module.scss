@@ -1,0 +1,42 @@
+.slider{
+    width: 100%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 80px;
+
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+
+    &__button{
+        border: none;
+        background-color: transparent;
+
+        width: 20px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        transition: .3s;
+
+        &:hover{
+            opacity: 0.3;
+        }
+    }
+
+    &__swiper{
+        // Пока ничего нет
+    }
+
+    &__img{
+        width: inherit;
+
+        border-radius: 20px;
+    }
+}

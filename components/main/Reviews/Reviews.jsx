@@ -52,15 +52,7 @@ const Reviews = () => {
     })
 
     const sliderRef = React.createRef()
-
-    const nextSlide = () => {
-        sliderRef.current.slickPrev()
-    }
-
-    const previousSlide = () => {
-        sliderRef.current.slickNext()
-    }
-
+        
     return (
         <div className={s.reviews}>
             <div className={s.reviews__info}>

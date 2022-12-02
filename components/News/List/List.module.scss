@@ -1,0 +1,50 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 30px;
+    row-gap: 100px;
+
+    width: 100%;
+    max-width: 1228px;
+
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    width: 100%;
+    max-width: 284px;
+
+    cursor: pointer;
+
+    &__img {
+        margin-bottom: 15px;
+
+        width: 100%;
+        max-width: 284px;
+    }
+
+    &__date {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+
+        color: #000000;
+    }
+
+    &__text {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+
+        color: #000000;
+    }
+}

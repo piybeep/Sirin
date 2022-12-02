@@ -1,5 +1,8 @@
 import React from 'react';
-import Link from 'next/link'
+// Component
+import Preview from '../../components/News/Preview/Preview';
+import List from '../../components/News/List/List';
+import Flags from '../../components/News/Flags/Flags';
 
 const news = () => {
 
@@ -20,11 +23,9 @@ const news = () => {
 
     return (
         <div>
-            {data.map(current => {
-                return (
-                    <Link key={current.id} href={`/news/${current.id}`}>{current.text}</Link>
-                )
-            })}
+            <Preview/>
+            <List/>
+            <Flags/>
         </div>
     );
 };
