@@ -1,4 +1,5 @@
 .reviews {
+    min-width: 320px;
     width: 100%;
     max-width: 1920px;
 
@@ -153,3 +154,5 @@
         color: #000000;
     }
 }
+
+@import './ReviewsMedia.module.scss';

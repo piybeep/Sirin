@@ -1,10 +1,10 @@
 import React from 'react';
-import Preview from '../components/Team-Direction/Preview/Preview';
-import List from '../components/Team-Direction/List/List'
+import Preview from '../../components/Team-Direction/Preview/Preview';
+import List from '../../components/Team-Direction/List/List'
 
 // Img
-import test1 from '../public/images/direction/1.png'
-import test2 from '../public/images/direction/2.png'
+import test1 from '../../public/images/direction/1.png'
+import test2 from '../../public/images/direction/2.png'
 
 const direction = () => {
 

@@ -1,0 +1,46 @@
+.slider {
+    margin: 0 auto;
+    margin-top: 75px;
+
+    width: 100%;
+    max-width: 1300px;
+
+    &__wrapper {
+        width: 100%;
+        max-width: 1300px;
+
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+    }
+
+    &__img {
+        width: inherit;
+
+        border-radius: 20px;
+    }
+
+    &__button {
+        background-color: transparent;
+        border: none;
+
+        cursor: pointer;
+
+        transition: .3s;
+
+        &:hover {
+            opacity: .3;
+        }
+    }
+
+    &__back{
+        margin-top: 30px;
+        margin-bottom: 80px;
+
+        width: 100%;
+        max-width: 1260px;
+
+        display: flex;
+        justify-content: flex-end;
+    }
+}

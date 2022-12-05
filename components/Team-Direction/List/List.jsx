@@ -12,14 +12,14 @@ const List = ({ info, text }) => {
     const resultData = info.map(current => {
         return (
             navigate.pathname === '/team' ?
-                <div key={current.id} className={s.item}>
+                <a href={`/team/${current.id}`} key={current.id} className={s.item}>
                     <img className={s.item__img} src={current.img.src} />
                     <h2 className={s.item__title}>{current.FIO}</h2>
                     <h3 className={s.item__subtitle}>{current.dolj}</h3>
                     <div className={s.item__button}>
                         <CustomButton text={text} />
                     </div>
-                </div>
+                </a>
                 :
                 <div key={current.id} className={s.item}>
                     <img className={s.item__img} src={current.img.src} />

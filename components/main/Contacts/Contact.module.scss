@@ -1,8 +1,5 @@
 .contact {
-    display: flex;
-    flex-direction: column;
-    row-gap: 119px;
-
+    min-width: 320px;
     width: 100%;
     max-width: 1920px;
 
@@ -26,6 +23,12 @@
         z-index: -1;
 
         background-color: #1491FF;
+    }
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: 119px;
     }
 
     &__info {
@@ -122,3 +125,5 @@
         overflow: hidden;
     }
 }
+
+@import './ContactMedia.module.scss';

@@ -9,11 +9,13 @@ import Team from '../components/main/Team/Team'
 import Reviews from '../components/main/Reviews/Reviews'
 import Contact from '../components/main/Contacts/Contact'
 import Footer from '../components/Footer/Footer'
+import Menu from '../components/main/Menu/Menu'
 
 export default function Home() {
   return (
     <div>
-      <Preview />
+      <Menu/>
+      <Preview /> 
       <About />
       <Advantages />
       <Rules />

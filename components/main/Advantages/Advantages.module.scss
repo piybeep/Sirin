@@ -1,9 +1,12 @@
 .advantages {
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 88px;
     padding-bottom: 156px;
 
     background-color: #1491FF;
 
+    min-width: 320px;
     width: 100%;
     max-width: 1920px;
 
@@ -40,17 +43,19 @@
             position: relative;
             z-index: 1;
 
+            // padding: 0px 15px;
+
             &::after {
                 content: '';
                 display: inline-block;
 
-                width: 405px;
-                height: 110px;
+                width: 110%;
+                height: 105%;
 
                 background-color: #fff;
 
                 position: absolute;
-                left: -20px;
+                left: -15px;
                 top: 0px;
 
                 z-index: -1;
@@ -92,3 +97,5 @@
         color: #FFFFFF;
     }
 }
+
+@import './AdvantagesMedia.module.scss';

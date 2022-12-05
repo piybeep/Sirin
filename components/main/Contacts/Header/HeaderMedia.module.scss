@@ -1,0 +1,33 @@
+@media screen and (max-width: 1420px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: unset;
+
+        max-width: 976px;
+
+        &__subtitle {
+            max-width: 600px;
+        }
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .header {
+        row-gap: 35px;
+
+        &__title {
+            font-size: 28px;
+            line-height: 105%;
+
+            max-width: 181px;
+        }
+
+        &__subtitle {
+            font-size: 20px;
+            line-height: 110%;
+
+            max-width: 387px;
+        }
+    }
+}

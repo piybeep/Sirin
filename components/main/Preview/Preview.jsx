@@ -15,38 +15,28 @@ const Preview = () => {
         {
             id: 0,
             text: 'Новости',
-            link: 'news'
+            link: '/news'
         },
         {
             id: 1,
             text: 'КОМАНДА',
-            link: 'team'
+            link: '/team'
         },
         {
             id: 2,
             text: 'Направления',
-            link: 'test'
+            link: '/direction'
         },
         {
             id: 3,
             text: 'Достижения',
-            link: 'test'
+            link: '/contacts'
         },
         {
             id: 4,
-            text: 'Расписание',
-            link: 'test'
-        },
-        {
-            id: 5,
-            text: 'Контакты',
-            link: 'test'
-        },
-        {
-            id: 6,
             text: 'О нас',
-            link: 'test'
-        }
+            link: '/about'
+        },
     ]
 
     const resultLink = link.map(current => {
@@ -124,7 +114,7 @@ const Preview = () => {
             </div>
 
             {/* Рабочий вариант, только точки немного поднять */}
-            <div className={s.testSlider}>
+            <div className={s.slider}>
                 <Carousel
                     // Эмуляция пальца по экрану
                     emulateTouch={true}

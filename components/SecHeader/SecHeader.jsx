@@ -30,26 +30,14 @@ const SecHeader = () => {
         },
         {
             id: 3,
-            text: 'Достижения',
-            href: '#',
+            text: 'Контакты',
+            href: '/contacts',
             active: false
         },
         {
             id: 4,
-            text: 'Расписание',
-            href: '#',
-            active: false
-        },
-        {
-            id: 5,
-            text: 'Контакты',
-            href: '/contact',
-            active: false
-        },
-        {
-            id: 5,
             text: 'О нас',
-            href: '#',
+            href: '/about',
             active: false
         },
     ]

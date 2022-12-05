@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 // img
 import vk from '../../public/svg/footer/vk.svg'
@@ -15,71 +16,38 @@ const Footer = () => {
         {
             id: 0,
             text: 'о нас',
-            href: 'test'
+            href: '/about'
         },
         {
             id: 1,
-            text: 'НОВОСТИ',
-            href: 'test'
+            text: 'ПЕДАГОГИ',
+            href: '/team'
         },
         {
             id: 2,
-            text: 'НОВОСТИ',
-            href: 'test'
+            text: 'НАПРАВЛЕНИЯ',
+            href: '/direction'
         },
         {
             id: 3,
-            text: 'ПЕДАГОГИ',
-            href: 'test'
+            text: 'контакты',
+            href: '/contacts'
         },
-
-
         {
             id: 4,
-            text: 'достижения',
-            href: 'test'
+            text: 'НОВОСТИ',
+            href: '/news'
         },
         {
             id: 5,
-            text: 'достижения',
-            href: 'test'
-        },
-        {
-            id: 6,
-            text: 'НАПРАВЛЕНИЯ',
-            href: 'test'
-        },
-        {
-            id: 7,
-            text: 'расписание',
-            href: 'test'
-        },
-
-        {
-            id: 8,
-            text: 'расписание',
-            href: 'test'
-        },
-        {
-            id: 9,
-            text: 'контакты',
-            href: 'test'
-        },
-        {
-            id: 10,
-            text: 'устав сирин',
-            href: 'test'
-        },
-        {
-            id: 11,
-            text: 'устав сирин',
-            href: 'test'
+            text: 'Устав Сирин',
+            href: '/info'
         }
     ]
 
     const resultLinks = links.map(current => {
         return (
-            <a key={current.id} className={s.footer__link}>{current.text}</a>
+            <Link key={current.id} href={current.href} className={s.footer__link}>{current.text}</Link>
         )
     })
 

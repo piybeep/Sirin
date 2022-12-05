@@ -1,9 +1,12 @@
 .rules {
     margin: 0 auto;
 
+    padding: 0px 24px;
+
     margin-top: 127px;
     margin-bottom: 117px;
 
+    min-width: 320px;
     width: 100%;
     max-width: 1230px;
 
@@ -45,3 +48,5 @@
         grid-area: button;
     }
 }
+
+@import './RulesMedia.module.scss';

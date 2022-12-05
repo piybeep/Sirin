@@ -1,4 +1,5 @@
 .preview {
+    min-width: 320px;
     width: 100%;
     max-width: 1920px;
 
@@ -13,8 +14,6 @@
     min-height: 848px;
 
     z-index: 1;
-
-    border: 1px solid red;
 
     &__menu {
         display: flex;
@@ -43,9 +42,8 @@
     &__info {
         display: flex;
         flex-direction: column;
-        row-gap: 68px;
         align-items: center;
-        justify-content: center;
+        row-gap: 68px;
     }
 
     &__title {
@@ -60,6 +58,8 @@
         line-height: 59px;
 
         color: #FFFFFF;
+
+        text-align: center;
     }
 
     &__button {
@@ -81,6 +81,9 @@
         mix-blend-mode: screen;
 
         cursor: pointer;
+
+        width: fit-content;
+        height: fit-content;
     }
 
     &__slider {
@@ -102,12 +105,18 @@
         width: inherit;
 
         object-fit: cover;
+
+        min-height: 848px !important;
     }
 }
 
-.testSlider{
+.slider{
     position: absolute;
     top: 0px;
 
     z-index: -1;
+
+    height: 100%;
 }
+
+@import './PreviewMedia.module.scss';
