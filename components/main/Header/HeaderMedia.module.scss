@@ -32,6 +32,8 @@
 
 @media screen and (max-width: 420px) {
     .header {
+        margin-top: 16px;
+        margin-bottom: 0px;
 
         &__logo {
             max-width: 46px;
@@ -50,6 +52,7 @@
 
 @media screen and (max-width: 320px) {
     .header {
+        margin-bottom: 5px;
 
         &__logo {
             max-width: 41px;

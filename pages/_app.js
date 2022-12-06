@@ -14,10 +14,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <SecHeader />
-      {/* <div className='component'>
+      <div className='component'>
       <Component {...pageProps} />
       </div>
-      <Footer /> */}
+      <Footer />
     </>
   )
 }
