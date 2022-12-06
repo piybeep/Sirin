@@ -1,6 +1,6 @@
 import React from 'react';
-import Preview from '../../components/Team-Direction/Preview/Preview';
-import List from '../../components/Team-Direction/List/List'
+import Preview from '../../components/Direction/Preview/Preview';
+import List from '../../components/Direction/List/List'
 
 // Img
 import test1 from '../../public/images/direction/1.png'
@@ -16,6 +16,16 @@ const direction = () => {
         },
         {
             id: 1,
+            img: test2,
+            title: 'Народно-сценический танец'
+        },
+        {
+            id: 2,
+            img: test1,
+            title: 'Основы классического танца'
+        },
+        {
+            id: 3,
             img: test2,
             title: 'Народно-сценический танец'
         }

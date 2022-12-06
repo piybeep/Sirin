@@ -1,6 +1,6 @@
 import React from 'react';
-import Preview from '../../components/Team-Direction/Preview/Preview';
-import List from '../../components/Team-Direction/List/List'
+import Preview from '../../components/Team/Preview/Preview';
+import List from '../../components/Team/List/List'
 
 // Img
 import img from '../../public/images/team/image.png'
