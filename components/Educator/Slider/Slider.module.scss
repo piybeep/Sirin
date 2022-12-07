@@ -2,6 +2,7 @@
     margin: 0 auto;
     margin-top: 75px;
 
+    min-width: 320px;
     width: 100%;
     max-width: 1300px;
 
@@ -44,3 +45,9 @@
         justify-content: flex-end;
     }
 }
+
+.swiper-slide{
+    border: 1px solid red !important;
+}
+
+@import './SliderMedia.module.scss';

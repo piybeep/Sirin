@@ -9,7 +9,9 @@ const id = () => {
         <div>
             <Preview/>
             <Info/>
-            <Slider/>
+            <Slider/> 
+            {/* 
+            */}
         </div>
     );
 };

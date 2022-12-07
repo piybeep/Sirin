@@ -42,6 +42,7 @@ const Slider = () => {
         )
     })
 
+    // window.screen.width > 1420 ? 30 : window.screen.width > 768 ? 20 : 15
 
     return (
         <div className={s.slider}>
@@ -57,10 +58,10 @@ const Slider = () => {
                     }}
                     slidesPerView={2}
                     spaceBetween={30}
+                    loop={true}
                     pagination={{
                         clickable: true,
-                    }}
-                    rewind={true}
+                      }}
                     className={s.slider__swiper}
                 >
                     {resultData}
@@ -73,7 +74,7 @@ const Slider = () => {
             </div>
             <div className={s.slider__back}>
                 <a className={s.slider__link} href="/team">
-                <CustomButton text='вся команда'/>
+                    <CustomButton text='вся команда' />
                 </a>
             </div>
         </div>

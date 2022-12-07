@@ -1,9 +1,9 @@
 .preview {
-
     background-image: url(../../../public/images/educator/backgroundImage.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     
+    min-width: 320px;
     width: 100%;
     max-width: 1920px;
     min-height: 368px;
@@ -68,3 +68,5 @@
         max-width: 517px;
     }
 }
+
+@import './PreviewMedia.module.scss';
