@@ -57,7 +57,7 @@ const Slider = () => {
                 pagination={{
                     clickable: true,
                 }}
-                rewind={true}
+                loop={true}
                 className={s.slider__swiper}
             >
                 {resultData}

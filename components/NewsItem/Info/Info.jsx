@@ -1,5 +1,8 @@
 import React from 'react';
 
+// component
+import Slider from '../Slider/Slider';
+
 // img
 import img from '../../../public/images/news/newsInfo.png'
 // Style
@@ -28,6 +31,11 @@ const Info = () => {
 
                     Поздравляем всех наших финалистов и победителей! Вы огромные молодцы!
                 </h2>
+
+                <div className={s.info__slider}>
+                    <Slider />
+                </div>
+
                 <h2 className={s.info__text}>
                     В этом году брифы для работы представили следующие бренды:
 

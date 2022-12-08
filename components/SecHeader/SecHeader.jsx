@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 
 // img
@@ -42,9 +42,18 @@ const SecHeader = () => {
         },
     ]
 
+    const navigate = useRouter()
+    const [thisPage, setThisPage] = useState()
+    useEffect(() => {
+        setThisPage(Array.from(navigate.route.split('/')))
+    }, [])
+
+    thisPage && console.log(thisPage[1])
+
     const resultLink = links.map(current => {
-        const navigate = useRouter()
-        current.href === navigate.route ? current.active = true : current.active = false
+        if (thisPage) {
+            current.href === '/' + thisPage[1] ? current.active = true : current.active = false
+        }
 
         return (
             <a key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</a>

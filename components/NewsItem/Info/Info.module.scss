@@ -1,4 +1,5 @@
 .info {
+    min-width: 320px;
     width: 100%;
     max-width: 1230px;
 
@@ -9,6 +10,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        column-gap: 40px;
     }
 
     &__title {
@@ -51,6 +53,10 @@
         width: 100%;
     }
 
+    &__slider{
+        display: none;
+    }
+
     &__text {
         font-family: 'Montserrat';
         font-style: normal;
@@ -61,3 +67,5 @@
         color: #000000;
     }
 }
+
+@import './InfoMedia.module.scss';

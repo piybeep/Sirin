@@ -1,4 +1,5 @@
 .slider{
+    min-width: 320px;
     width: 100%;
     max-width: 1300px;
 
@@ -40,3 +41,5 @@
         border-radius: 20px;
     }
 }
+
+@import './SliderMedia.module.scss';

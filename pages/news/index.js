@@ -25,7 +25,7 @@ const news = () => {
         <div>
             <Preview/>
             <List/>
-            <Flags/>
+            <Flags/> 
         </div>
     );
 };

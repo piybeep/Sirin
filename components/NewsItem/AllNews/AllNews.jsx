@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -79,6 +79,22 @@ const AllNews = () => {
         )
     })
 
+    const [windowWidth, setWindowWidth] = useState(0)
+
+    const windowScreen = () => {
+        if (window.screen.width < 1421 && window.screen.width > 1024){
+            setWindowWidth(57)
+        }
+        else{
+            setWindowWidth(27)
+        }
+    }
+
+    useEffect(() => {
+        windowScreen()
+    },[])
+
+
     return (
         <div className={s.allNews}>
             <h2 className={s.allNews__title}>другие новости</h2>
@@ -92,12 +108,12 @@ const AllNews = () => {
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper
                     }}
-                    slidesPerView={4}
-                    spaceBetween={30}
+                    slidesPerView={'auto'}
+                    spaceBetween={windowWidth}
                     pagination={{
                         clickable: true,
                     }}
-                    rewind={true}
+                    loop={true}
                     className={s.allNews__swiper}
                 >
                     {resultData}

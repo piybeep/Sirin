@@ -12,37 +12,37 @@ const List = () => {
 
     const data = [
         {
-            id: 0, 
+            id: 0,
             img: newsImg1,
             date: '15.02.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
         },
         {
-            id: 1, 
+            id: 1,
             img: newsImg2,
             date: '07.02.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
         },
         {
-            id: 2, 
+            id: 2,
             img: newsImg3,
             date: '28.01.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
         },
         {
-            id: 3, 
+            id: 3,
             img: newsImg1,
             date: '15.02.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
         },
         {
-            id: 4, 
+            id: 4,
             img: newsImg2,
             date: '07.02.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
         },
         {
-            id: 5, 
+            id: 5,
             img: newsImg3,
             date: '28.01.2022',
             text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»'
@@ -50,7 +50,7 @@ const List = () => {
     ]
 
     const resultData = data.map(current => {
-        return(
+        return (
             <Link key={current.id} href={`/news/${current.id}`} className={s.item}>
                 <img className={s.item__img} src={current.img.src} alt="Картинка" />
                 <p className={s.item__date}>{current.date}</p>
@@ -60,8 +60,16 @@ const List = () => {
     })
 
     return (
-        <div className={s.list}>
-            {resultData}
+        <div className={s.wrapper}>
+            <div className={s.info}>
+                <h2 className={s.info__date}>07.10.2022</h2>
+                <p className={s.info__text}>ГРАН-ПРИ на международном марафоне резидентов Melon Kids «Мы внуки Великой Победы»</p>
+                <button className={s.info__button}>Подробнее</button>
+            </div>
+
+            <div className={s.list}>
+                {resultData}
+            </div>
         </div>
     );
 };

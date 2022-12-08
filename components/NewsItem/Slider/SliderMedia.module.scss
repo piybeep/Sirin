@@ -1,0 +1,55 @@
+@media screen and (max-width: 1420px){
+    .slider{
+        max-width: 1050px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .slider{
+        max-width: unset;
+
+        padding: 0px 24px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .slider{
+
+        &__button{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .slider{
+        margin: 0px;
+        padding: 0px;
+
+        min-width: 690px;
+
+        &__img{
+            min-width: 344px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px){
+    .slider{
+        min-width: 550px;
+
+        &__img{
+            min-width: 274px;
+        }
+    }
+}
+
+@media screen and (max-width: 340px){
+    .slider{
+        min-width: 530px;
+
+        &__img{
+            min-width: 270px;
+        }
+    }
+}
