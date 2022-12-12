@@ -48,7 +48,7 @@ const SecHeader = () => {
         setThisPage(Array.from(navigate.route.split('/')))
     }, [])
 
-    thisPage && console.log(thisPage[1])
+    // thisPage && console.log(thisPage[1])
 
     const resultLink = links.map(current => {
         if (thisPage) {

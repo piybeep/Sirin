@@ -24,7 +24,7 @@ const Menu = () => {
         },
         {
             id: 3,
-            text: 'Достижения',
+            text: 'Контакты',
             link: '/contacts'
         },
         {

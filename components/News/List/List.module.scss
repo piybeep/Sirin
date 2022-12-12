@@ -88,6 +88,8 @@
 
         width: 100%;
         max-width: 284px;
+
+        object-fit: contain;
     }
 
     &__date {
