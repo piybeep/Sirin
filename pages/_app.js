@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <SecHeader />
+      <Form/>
       <div className='component'>
         <Component {...pageProps} />
       </div>

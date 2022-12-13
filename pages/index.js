@@ -10,6 +10,8 @@ import Reviews from '../components/main/Reviews/Reviews'
 import Contact from '../components/main/Contacts/Contact'
 import Footer from '../components/Footer/Footer'
 import Menu from '../components/main/Menu/Menu'
+// Form
+import Form from '../components/Form/Form'
 
 export default function Home() {
   return (
@@ -19,7 +21,7 @@ export default function Home() {
       <About />
       <Advantages />
       <Rules />
-      <Video />
+      {/* <Video /> */}
       <Team />
       <Reviews />
       <Contact />
@@ -31,6 +33,7 @@ Home.getLayout = function PageLayout(page) {
   return (
     <>
       <Header />
+      <Form/>
       {page}
       <Footer />
     </>
