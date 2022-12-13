@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { newsAPI } from '../../src/news/newsService';
+import React, { useState } from 'react';
+import { fetchAllNews, newsAPI } from '../../src/news/newsService';
+import { wrapper } from '../../src/store/store';
 // Component
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
 
-const news = () => {
-    const { data: allNews, isLoading, error } = newsAPI.useFetchAllNewsQuery()
+export const getServerSideProps = wrapper.getServerSideProps(
+    (store) => async (context) => {
+        store.dispatch(fetchAllNews.initiate());
 
+        const data = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
+
+        return {
+            props: { allNews: data[0].data },
+        };
+    }
+);
+
+
+const news = ({ allNews }) => {
     const [countryPerPage] = useState(12)
     const [currentPage, setCurrentPage] = useState(1)
 
     const lastCountryIndex = currentPage * countryPerPage
     const firstCountryIndex = lastCountryIndex - countryPerPage
     const currentCountries = allNews?.slice(firstCountryIndex, lastCountryIndex)
-
-    console.log(allNews)
 
     return (
         <div>

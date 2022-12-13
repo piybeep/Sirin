@@ -6,6 +6,7 @@ import logo from '../../public/svg/secHeader/sirin.svg'
 import textSirin from '../../public/svg/secHeader/textSirin.svg'
 // Style
 import s from './SecHeader.module.scss'
+import Link from 'next/link';
 
 const SecHeader = () => {
 
@@ -48,25 +49,23 @@ const SecHeader = () => {
         setThisPage(Array.from(navigate.route.split('/')))
     }, [])
 
-    // thisPage && console.log(thisPage[1])
-
     const resultLink = links.map(current => {
         if (thisPage) {
             current.href === '/' + thisPage[1] ? current.active = true : current.active = false
         }
 
         return (
-            <a key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</a>
+            <Link key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
         )
     })
 
     return (
         <div className={s.SecHeader}>
             <div className={s.SecHeader__wrapper}>
-                <a href='/' className={s.SecHeader__info}>
+                <Link href='/' className={s.SecHeader__info}>
                     <img className={s.SecHeader__title} src={logo.src} alt="" />
                     <img className={s.SecHeader__subtitle} src={textSirin.src} alt="" />
-                </a>
+                </Link>
 
                 <div className={s.SecHeader__nav}>
                     {resultLink}

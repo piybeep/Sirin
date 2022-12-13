@@ -1,3 +1,4 @@
+import { createWrapper } from "next-redux-wrapper";
 import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { teamAPI } from '../team/teamService'
 import { personAPI } from '../team/CurrentPerson'
@@ -23,3 +24,6 @@ export const setupStore = () => {
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
+
+
+export const wrapper = createWrapper<AppStore>(setupStore, { debug: true });

@@ -11,8 +11,6 @@ const Form = () => {
     const open = useAppSelector(state => state.openSlice.value)
     const dispatch = useAppDispatch()
 
-    console.log(open)
-
     const ref = React.createRef()
 
     const SignupSchema = Yup.object().shape({
@@ -42,7 +40,6 @@ const Form = () => {
             else {
                 values.adress = 'ул. Чечулина, д.10, ГБУ ЦКС «Южное Измайлово»'
             }
-            console.log(values)
             formik.resetForm()
             ref.current.checked = true
         },

@@ -12,10 +12,11 @@ const List = ({ news }) => {
 
     const resultData = news?.map(current => {
         return (
-            <Link key={current.area} href={`/news/${current.area}`} className={s.item}>
-                <img className={s.item__img} src={current.coatOfArms.svg} alt="Картинка" />
+            <Link key={current.id} href={`/news/${current.id}`} className={s.item}>
+                {/* <img className={s.item__img} src={current.coatOfArms.svg} alt="Картинка" />
                 <p className={s.item__date}>test</p>
-                <h2 className={s.item__text}>{current.name.common}</h2>
+                <h2 className={s.item__text}>{current.name.common}</h2> */}
+                {current.id}
             </Link>
         )
     })
