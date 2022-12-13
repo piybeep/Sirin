@@ -1,11 +1,18 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import React, { useEffect } from 'react';
-
+import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
+import { setOpen } from '../../src/form/form';
 // Style
 import s from './Form.module.scss'
 
 const Form = () => {
+
+    const open = useAppSelector(state => state.openSlice.value)
+    const dispatch = useAppDispatch()
+
+    console.log(open)
+
     const ref = React.createRef()
 
     const SignupSchema = Yup.object().shape({
@@ -42,7 +49,7 @@ const Form = () => {
     })
 
     return (
-        <div className={s.form} onClick={() => console.log('закрыть')}>
+        <div className={[s.form, open && s.form_open].join(' ')} onClick={() => dispatch(setOpen(false))}>
             <div className={s.form__wrapper} onClick={(e) => e.stopPropagation()}>
                 <h2 className={s.form__header}><span className={s.form__header_span}>заявка</span>  на обучение</h2>
                 <form onSubmit={formik.handleSubmit} className={s.form__info}>
@@ -50,6 +57,7 @@ const Form = () => {
                         <div className={[s.form__item, s.form__item_applicant].join(' ')}>
                             <h2 className={s.form__title}>ФИО ЗАЯВИТЕЛЯ</h2>
                             <input className={[s.form__input, formik.errors.applicant && formik.touched.applicant && s.form__input_error].join(' ')}
+                                autoComplete='off'
                                 onChange={(formik.handleChange)}
                                 type='text'
                                 name='applicant'
@@ -61,6 +69,7 @@ const Form = () => {
                         <div className={[s.form__item, s.form__item_student].join(' ')}>
                             <h2 className={s.form__title}>ФИО ОБУЧАЮЩЕГОСЯ</h2>
                             <input className={[s.form__input, formik.errors.student && formik.touched.student && s.form__input_error].join(' ')}
+                                autoComplete='off'
                                 onChange={(formik.handleChange)}
                                 type='text'
                                 name='student'
@@ -72,6 +81,7 @@ const Form = () => {
                         <div className={[s.form__item, s.form__item_age].join(' ')}>
                             <h2 className={s.form__title}>ВОЗРАСТ ОБУЧАЮЩЕГОСЯ</h2>
                             <input className={[s.form__input, formik.errors.age && formik.touched.age && s.form__input_error].join(' ')}
+                                autoComplete='off'
                                 onChange={(formik.handleChange)}
                                 type='text'
                                 name='age'
@@ -83,6 +93,7 @@ const Form = () => {
                         <div className={[s.form__item, s.form__item_contact].join(' ')}>
                             <h2 className={s.form__title}>КОНТАКТЫ СВЯЗИ</h2>
                             <input className={[s.form__input, formik.errors.contact && formik.touched.contact && s.form__input_error].join(' ')}
+                                autoComplete='off'
                                 onChange={(formik.handleChange)}
                                 type='text'
                                 name='contact'

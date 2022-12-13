@@ -4,6 +4,8 @@ import { setupStore } from '../src/store/store'
 // Components
 import SecHeader from '../components/SecHeader/SecHeader'
 import Footer from '../components/Footer/Footer'
+// form 
+import Form from '../components/Form/Form'
 
 // Style
 import '../globals.scss'

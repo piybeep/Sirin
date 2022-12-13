@@ -1,11 +1,11 @@
 import React from 'react';
-
 // Img
 import logo from '../../../public/images/main/header/Logo.png'
 // Style
 import s from './Header.module.scss'
 
 const Header = () => {
+
     return (
         <div className={s.header}>
             <img className={s.header__logo} src={logo.src} alt="Логотип" />

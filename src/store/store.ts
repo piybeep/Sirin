@@ -3,14 +3,16 @@ import { teamAPI } from '../team/teamService'
 import { personAPI } from '../team/CurrentPerson'
 import { newsAPI } from "../news/newsService";
 
+import openSlice from '../form/form'
+
 const rootReducer = combineReducers({
     [teamAPI.reducerPath]: teamAPI.reducer,
     [personAPI.reducerPath]: personAPI.reducer,
-    [newsAPI.reducerPath] : newsAPI.reducer,
+    [newsAPI.reducerPath]: newsAPI.reducer,
+
+    openSlice: openSlice
 })
 
-// middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(teamAPI.middleware),
-// middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(personAPI.middleware)
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,

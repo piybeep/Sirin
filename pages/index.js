@@ -12,6 +12,8 @@ import Footer from '../components/Footer/Footer'
 import Menu from '../components/main/Menu/Menu'
 // Form
 import Form from '../components/Form/Form'
+import { Provider } from 'react-redux'
+import { setupStore } from '../src/store/store'
 
 export default function Home() {
   return (
@@ -30,12 +32,13 @@ export default function Home() {
 }
 
 Home.getLayout = function PageLayout(page) {
+  const store = setupStore()
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Form/>
       {page}
       <Footer />
-    </>
+    </Provider>
   )
 }
