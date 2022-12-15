@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// redux
+import { wrapper } from '../../src/store/store';
+import { fetchCurrentTeam, teamAPI } from '../../src/team/teamService';
 // component
 import Preview from '../../components/Educator/Preview/Preview';
 import Info from '../../components/Educator/Info/Info';
 import Slider from '../../components/Educator/Slider/Slider'
-import { useRouter } from 'next/router';
-import { personAPI } from '../../src/team/CurrentPerson';
 
-const id = () => {
-    const router = useRouter()
-    const [id, setId] = useState(0)
-    const { data: person } = personAPI.useFetchPersonQuery(id)
+export const getServerSideProps = wrapper.getServerSideProps(
+    (store) => async (context) => {
+        const id = context.params.id
+        store.dispatch(fetchCurrentTeam.initiate(id))
 
-    useEffect(() => {
-        if (router.isReady) {
-            setId(router.query.id)
+        const person = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
+
+        return {
+            props: { person: person[0].data }
         }
-    }, [router.isReady])
+    }
+)
 
-
+const id = ({ person }) => {
     return (
         <>
-            <Preview info={person} />
+            <Preview
+            personInfo={person} 
+            />
             <Info />
             <Slider />
         </>

@@ -47,7 +47,7 @@ const SecHeader = () => {
     const [thisPage, setThisPage] = useState()
     useEffect(() => {
         setThisPage(Array.from(navigate.route.split('/')))
-    }, [])
+    }, [navigate])
 
     const resultLink = links.map(current => {
         if (thisPage) {

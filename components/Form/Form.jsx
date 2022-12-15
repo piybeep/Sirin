@@ -1,17 +1,30 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
 import { setOpen } from '../../src/form/form';
 // Style
 import s from './Form.module.scss'
 
 const Form = () => {
-
     const open = useAppSelector(state => state.openSlice.value)
     const dispatch = useAppDispatch()
 
     const ref = React.createRef()
+    const refForm = React.createRef()
+
+    let [placeholder, setPlaceholder] = useState('');
+    useEffect(() => {
+        window.screen.width > 420 ? setPlaceholder('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL') : setPlaceholder('НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL')
+    }, [open])
+
+    console.log(placeholder)
+
+    useEffect(() => {
+        if (open === true) refForm.current.scrollTo({
+            top:0,
+        })
+    }, [open])
 
     const SignupSchema = Yup.object().shape({
         applicant: Yup.string().trim().required('Вы не ввели имя'),
@@ -30,7 +43,7 @@ const Form = () => {
             contact: '',
             adress: 'м. Курская ул. Земляной Вал д.27, стр.3',
         },
-        validateOnChange: false,
+        validateOnChange: true,
         validationSchema: SignupSchema,
         onSubmit: (values) => {
 
@@ -46,7 +59,7 @@ const Form = () => {
     })
 
     return (
-        <div className={[s.form, open && s.form_open].join(' ')} onClick={() => dispatch(setOpen(false))}>
+        <div ref={refForm} className={[s.form, open && s.form_open].join(' ')} onClick={() => dispatch(setOpen(false))}>
             <div className={s.form__wrapper} onClick={(e) => e.stopPropagation()}>
                 <h2 className={s.form__header}><span className={s.form__header_span}>заявка</span>  на обучение</h2>
                 <form onSubmit={formik.handleSubmit} className={s.form__info}>
@@ -71,13 +84,13 @@ const Form = () => {
                                 type='text'
                                 name='student'
                                 value={formik.values.student}
-                                onBlur={formik.handleBlur}
-                                placeholder='ВВЕДИТЕ ФИО ЗАЯВИТЕЛЯ' />
+                                // onBlur={formik.handleBlur}
+                                placeholder='ВВЕДИТЕ ФИО ОБУЧАЮЩЕГОСЯ'/>
                         </div>
 
                         <div className={[s.form__item, s.form__item_age].join(' ')}>
                             <h2 className={s.form__title}>ВОЗРАСТ ОБУЧАЮЩЕГОСЯ</h2>
-                            <input className={[s.form__input, formik.errors.age && formik.touched.age && s.form__input_error].join(' ')}
+                            <input className={[s.form__input, formik.touched.age && formik.touched.age && s.form__input_error].join(' ')}
                                 autoComplete='off'
                                 onChange={(formik.handleChange)}
                                 type='text'
@@ -96,7 +109,9 @@ const Form = () => {
                                 name='contact'
                                 value={formik.values.contact}
                                 onBlur={formik.handleBlur}
-                                placeholder='ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL' />
+                                placeholder={placeholder}
+                                // placeholder={window.screen.width > 420 ? 'ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL' : ' НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL'} 
+                                />
                         </div>
 
                         <div className={[s.form__item, s.form__item_adress].join(' ')}>

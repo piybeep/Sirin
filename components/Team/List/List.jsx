@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 // components
 import CustomButton from '../../CustomButton/CustomButton'
 // Style
 import s from './List.module.scss'
-import { teamAPI } from '../../../src/team/teamService';
 
-const List = ({ info, text }) => {
-    const { data: team, isLoading, error } = teamAPI.useFetchAllTeamQuery()
-
-    const resultData = team?.map(current => {
+const List = ({ data, text }) => {
+    const resultData = data?.map(current => {
         return (
             <div key={current.id} className={s.item}>
                 <img className={s.item__img} src='' />
@@ -26,8 +23,6 @@ const List = ({ info, text }) => {
 
     return (
         <div className={s.list}>
-            {isLoading && <h2>Загрузка...</h2>}
-            {error && <h2>Произошла ошибка</h2>}
             {resultData}
         </div>
     );
