@@ -11,6 +11,8 @@ const openSlice = createSlice({
     initialState,
     reducers: {
         setOpen(state, action){
+            // Тестовый вариант
+            action.payload === true ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset' 
             state.value = action.payload
             return state
         },
