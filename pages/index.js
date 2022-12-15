@@ -17,9 +17,9 @@ import { setupStore } from '../src/store/store'
 
 export default function Home() {
   return (
-    <div>
-      <Menu/>
-      <Preview /> 
+    <div className='component'>
+      <Menu />
+      <Preview />
       <About />
       <Advantages />
       <Rules />
@@ -36,7 +36,7 @@ Home.getLayout = function PageLayout(page) {
   return (
     <Provider store={store}>
       <Header />
-      <Form/>
+      <Form />
       {page}
       <Footer />
     </Provider>
