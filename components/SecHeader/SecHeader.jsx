@@ -32,7 +32,8 @@ const SecHeader = () => {
         {
             id: 3,
             text: 'Контакты',
-            href: '/contacts',
+            href: '/',
+            to: 'contacts',
             active: false
         },
         {
@@ -55,7 +56,10 @@ const SecHeader = () => {
         }
 
         return (
-            <Link key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
+            !current.to ?
+                <Link key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
+                :
+                <a href='/#contacts' key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')}>{current.text}</a>
         )
     })
 

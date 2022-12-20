@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import {setOpen} from '../../../../src/form/form'
 
 // Кнопка
 import CustomButton from '../../../CustomButton/CustomButton';
@@ -6,11 +8,14 @@ import CustomButton from '../../../CustomButton/CustomButton';
 import s from './Header.module.scss'
 
 const Header = () => {
+
+    const dispatch = useDispatch()
+
     return (
         <div className={s.header}>
             <h2 className={s.header__title}>ЗАПИШИСЬ НА КУРСЫ</h2>
             <p className={s.header__subtitle}>Запишитесь на курсы и реализуйте свой творческий потенциал!</p>
-            <div className={s.header__button}>
+            <div className={s.header__button} onClick={() => dispatch(setOpen(true))}>
                 <CustomButton text='ПОДАТЬ ЗАЯВКУ' />
             </div>
         </div>

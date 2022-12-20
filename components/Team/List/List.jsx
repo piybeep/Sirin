@@ -1,5 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+
+// Пока хардкод картинка
+import img from '../../../public/images/team/image.png'
 // components
 import CustomButton from '../../CustomButton/CustomButton'
 // Style
@@ -9,10 +12,10 @@ const List = ({ data, text }) => {
     const resultData = data?.map(current => {
         return (
             <div key={current.id} className={s.item}>
-                <img className={s.item__img} src='' />
+                <img className={s.item__img} src={img.src} />
                 <div className={s.item__info}>
-                    <h2 className={s.item__title}>{current.name}</h2>
-                    <h3 className={s.item__subtitle}>{current.website}</h3>
+                    <h2 className={s.item__title}>{current.fullname}</h2>
+                    <h3 className={s.item__subtitle}>{current.vacancy}</h3>
                     <Link href={`/team/${current.id}`} className={s.item__button}>
                         <CustomButton text={text} />
                     </Link>

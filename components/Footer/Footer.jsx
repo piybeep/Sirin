@@ -11,7 +11,6 @@ import instagram from '../../public/svg/footer/instagram.svg'
 import s from './Footer.module.scss'
 
 const Footer = () => {
-
     const links = [
         {
             id: 0,
@@ -112,7 +111,12 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <h2 className={s.footer__root}>© 2011-2022 Ансамбль Сирин. Все права защищены</h2>
+                <div className={s.footer__root}>
+                    <span>
+                        © 2011-2022 Ансамбль Сирин. Все права защищены
+                    </span>
+                    <a target='_blank' href="https://piybeep.com" className={s.footer__piybeep}>Сделано в студии <span className={s.footer__piybeep_span}>Piybeep</span></a>
+                </div>
             </div>
         </div>
     );

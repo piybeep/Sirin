@@ -4,7 +4,7 @@ import { ITeam } from '../models/ITeam'
 
 export const teamAPI = createApi({
     reducerPath: 'teamApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL }),
     extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
             return action.payload[reducerPath]
@@ -12,16 +12,13 @@ export const teamAPI = createApi({
     },
     endpoints: (build) => ({
         fetchAllTeam: build.query<ITeam[], number>({
-            query: (limit: number) => ({
-                url: '/users',
-                params: {
-                    _limit: limit
-                }
+            query: () => ({
+                url: '/crew',
             })
         }),
         fetchCurrentTeam: build.query({
             query: (id: number) => ({
-                url: `/users/${id}`
+                url: `/crew/${id}`
             })
         })
     })

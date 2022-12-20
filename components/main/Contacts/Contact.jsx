@@ -6,9 +6,9 @@ import Header from './Header/Header';
 // Style
 import s from './Contact.module.scss'
 
-const Contact = () => {
+const Contact = ({phoneOne, phoneTwo, email}) => {
     return (
-        <div className={s.contact}>
+        <div className={s.contact} id='contacts'>
             <div className={s.contact__wrapper}>
                 <Header />
 
@@ -25,15 +25,15 @@ const Contact = () => {
                         <div className={[s.contact__item, s.contact__item_phone].join(' ')}>
                             <h2 className={s.contact__title}>НОМЕР ДЛЯ СВЯЗИ</h2>
                             <div className={s.contact__subtitle}>
-                                <a href='tel: +7 (967) 042-21-04' className={s.contact__text}>+7 (967) 042-21-04</a>
-                                <a href='tel: +7 (917) 595-12-88' className={s.contact__text}>+7 (917) 595-12-88</a>
+                                <a href={`tel: ${phoneOne}`} className={s.contact__text}>{phoneOne}</a>
+                                <a href={`tel: ${phoneTwo}`} className={s.contact__text}>{phoneTwo}</a>
                             </div>
                         </div>
 
                         <div className={[s.contact__item, s.contact__item_email].join(' ')}>
                             <h2 className={s.contact__title}>ЭЛЕКТРОННЫЙ АДРЕC</h2>
                             <div className={s.contact__subtitle}>
-                                <a href='email: ef.sirin@mail.ru' className={[s.contact__text, s.contact__text_email].join(' ')}>ef.sirin@mail.ru</a>
+                                <a href={`mailto: ${email}`} className={[s.contact__text, s.contact__text_email].join(' ')}>{email}</a>
                             </div>
                         </div>
                     </div>

@@ -24,9 +24,11 @@ const id = ({ person }) => {
     return (
         <>
             <Preview
-            personInfo={person} 
+                personInfo={person}
             />
-            <Info />
+            <Info
+                personInfo={person}
+            />
             <Slider />
         </>
     );

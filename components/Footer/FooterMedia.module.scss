@@ -33,6 +33,11 @@
             font-size: 16px;
             line-height: 110%;
         }
+
+        &__root{
+            flex-direction: column;
+            row-gap: 30px;
+        }
     }
 }
 

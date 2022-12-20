@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Link from 'next/link';
 
 // Components
 import CustomButton from '../../CustomButton/CustomButton';
@@ -14,50 +15,14 @@ import polina from '../../../public/images/main/team/polina.png'
 import artem from '../../../public/images/main/team/artem.png'
 import tanya from '../../../public/images/main/team/tanya.png'
 
-const Team = () => {
+const Team = ({ team }) => {
+    const teachers = team?.slice(0, 6)
 
-    const teachers = [
-        {
-            id: 0,
-            text: 'Давыдова Ирина',
-            img: ira
-        },
-        {
-            id: 1,
-            text: 'Тихонов Александр',
-            img: alex
-        }
-        ,
-        {
-            id: 2,
-            text: 'Терентьева Валентина',
-            img: valentine
-        }
-        ,
-        {
-            id: 3,
-            text: 'Брунова Полина',
-            img: polina
-        }
-        ,
-        {
-            id: 4,
-            text: 'Давыдов Артём',
-            img: artem
-        }
-        ,
-        {
-            id: 5,
-            text: 'Автухова Татьяна',
-            img: tanya
-        }
-    ]
-
-    const resultTeachers = teachers.map(current => {
+    const resultTeachers = teachers?.map((current, index) => {
         return (
-            <div key={current.text} className={[s.teachers, current.id === 0 ? s.teachers_first : '', current.id === 5 ? s.teachers_last : ''].join(' ')}>
-                <img className={s.teachers__img} src={current.img.src} alt="" />
-                <h2 className={s.teachers__name}>{current.text}</h2>
+            <div key={current.id} className={[s.teachers, index === 0 ? s.teachers_first : '', index === 5 ? s.teachers_last : ''].join(' ')}>
+                <img className={s.teachers__img} src={alex.src} alt="" />
+                <h2 className={s.teachers__name}>{current.fullname}</h2>
             </div>
         )
     })
@@ -67,9 +32,9 @@ const Team = () => {
                 <header className={s.team__header}>
                     <h2 className={s.team__title}>НАША КОМАНДА</h2>
                     <p className={s.team__subtitle}>Каждый из нас — талантливый педагог и признанный эксперт в своей области</p>
-                    <div className={s.team__button}>
+                    <Link href='/team' className={s.team__button}>
                         <CustomButton text='УЗНАТЬ ЛУЧШЕ' />
-                    </div>
+                    </Link>
                 </header>
                 <div className={s.team__list}>
                     {resultTeachers}

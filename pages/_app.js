@@ -11,7 +11,6 @@ import Form from '../components/Form/Form'
 import '../globals.scss'
 
 function MyApp({ Component, pageProps }) {
-
   const store = setupStore()
 
   if (Component.getLayout) {
@@ -21,7 +20,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <SecHeader />
-      <Form/>
+      <Form />
       <div className='component'>
         <Component {...pageProps} />
       </div>

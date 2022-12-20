@@ -131,6 +131,16 @@
         line-height: 22px;
 
         color: #FFFFFF;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__piybeep{
+
+        &_span{
+            text-decoration: underline;
+        }
     }
 }
 

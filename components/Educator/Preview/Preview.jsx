@@ -13,8 +13,8 @@ const Preview = ({ personInfo }) => {
                     personInfo ?
                         <>
                             < img className={s.preview__img} src={currentImg.src} alt="" />
-                            <h2 className={s.preview__title}>{personInfo.name}</h2>
-                            <p className={s.preview__text}>{personInfo.website}</p>
+                            <h2 className={s.preview__title}>{personInfo.fullname}</h2>
+                            <p className={s.preview__text}>{personInfo.vacancy}</p>
                         </>
                         :
                         <h2>Загрузка...</h2>

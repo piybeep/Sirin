@@ -18,8 +18,6 @@ const Form = () => {
         window.screen.width > 420 ? setPlaceholder('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL') : setPlaceholder('НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL')
     }, [open])
 
-    console.log(placeholder)
-
     useEffect(() => {
         if (open === true) refForm.current.scrollTo({
             top:0,

@@ -4,18 +4,20 @@ import { teamAPI } from '../team/teamService'
 import { newsAPI } from "../news/newsService";
 
 import openSlice from '../form/form'
+import { contactsAPI } from "../contacts/contacts";
 
 const rootReducer = combineReducers({
     [teamAPI.reducerPath]: teamAPI.reducer,
     [newsAPI.reducerPath]: newsAPI.reducer,
+    [contactsAPI.reducerPath]: contactsAPI.reducer,
 
-    openSlice: openSlice
+    openSlice: openSlice,
 })
 
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(teamAPI.middleware, newsAPI.middleware)
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(teamAPI.middleware, newsAPI.middleware, contactsAPI.middleware)
     })
 }
 
