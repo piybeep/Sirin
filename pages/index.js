@@ -19,7 +19,6 @@ import { contactsAPI, fetchContact } from '../src/contacts/contacts'
 // for SSR
 import { fetchAllTeam, teamAPI } from '../src/team/teamService'
 import { wrapper } from '../src/store/store'
-import { useAppSelector } from '../src/hooks/redux'
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(

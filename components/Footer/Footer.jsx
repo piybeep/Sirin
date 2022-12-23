@@ -10,7 +10,14 @@ import instagram from '../../public/svg/footer/instagram.svg'
 // Style
 import s from './Footer.module.scss'
 
+// Пока тестовая версия
+import { useFetchContactQuery } from '../../src/contacts/contacts';
+
 const Footer = () => {
+    const { data } = useFetchContactQuery()
+    const phoneOne = data && data[0].data
+    const phoneTwo = data && data[1].data
+
     const links = [
         {
             id: 0,
@@ -102,8 +109,8 @@ const Footer = () => {
                             </div>
                             <div className={s.footer__item}>
                                 <h2 className={s.footer__title}>номера для связи</h2>
-                                <a className={s.footer__text} href="tel: +7 (967) 042-21-04">+7 (967) 042-21-04</a>
-                                <a className={s.footer__text} href="tel:  +7 (917) 595-12-88">+7 (917) 595-12-88</a>
+                                <a className={s.footer__text} href={`tel: ${phoneOne}`}>{phoneOne}</a>
+                                <a className={s.footer__text} href={`tel: ${phoneTwo}`}>{phoneTwo}</a>
                             </div>
                         </div>
                         <div className={s.footer__icon}>

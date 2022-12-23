@@ -19,7 +19,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
 );
 
 
-const news = ({ allNews }) => {
+const news = ({ allNews, test }) => {
+    console.log(test)
     const [countryPerPage] = useState(12)
     const [currentPage, setCurrentPage] = useState(1)
 
