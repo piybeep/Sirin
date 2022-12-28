@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
 import { setOpen } from '../../src/form/form';
 // Style
 import s from './Form.module.scss'
+import axios from 'axios';
 
 const Form = () => {
     const open = useAppSelector(state => state.openSlice.value)
@@ -20,14 +21,14 @@ const Form = () => {
 
     useEffect(() => {
         if (open === true) refForm.current.scrollTo({
-            top:0,
+            top: 0,
         })
     }, [open])
 
     const SignupSchema = Yup.object().shape({
         applicant: Yup.string().trim().required('Вы не ввели имя'),
         student: Yup.string().trim().required('Вы не ввели имя ученика'),
-        age: Yup.string().trim().required('Вы не ввели возраст'),
+        age: Yup.string().required('Вы не ввели возраст'),
         contact: Yup.string().matches(/^(\s*)?(\+7|7|8)+([- _():=+]?\d[- _():=+]?){10}(\s*)|[a-z0-9]+@[a-z]+\.[a-z]{2,3}?$/, 'Телефон или email не подходит').required('Вы не ввели контакт'),
     });
 
@@ -44,15 +45,29 @@ const Form = () => {
         validateOnChange: true,
         validationSchema: SignupSchema,
         onSubmit: (values) => {
+            axios.post(process.env.NEXT_PUBLIC_API_URL + 'courses', {
+                fullname_applicant: values.applicant,
+                fullname_student: values.student,
+                age_student: values.age,
+                contact: values.contact,
+                place: values.adress
+            })
+                .then((responce) => {
+                    console.log(responce)
+                    dispatch(setOpen(false))
+                })
+                .catch = (error) => {
+                    console.log(error)
+                }
 
-            if (ref.current.checked) {
+            ref.current.checked = true
+            if (ref.current.checked == true) {
                 values.adress = 'м. Курская ул. Земляной Вал д.27, стр.3'
             }
             else {
                 values.adress = 'ул. Чечулина, д.10, ГБУ ЦКС «Южное Измайлово»'
             }
             formik.resetForm()
-            ref.current.checked = true
         },
     })
 
@@ -83,7 +98,7 @@ const Form = () => {
                                 name='student'
                                 value={formik.values.student}
                                 // onBlur={formik.handleBlur}
-                                placeholder='ВВЕДИТЕ ФИО ОБУЧАЮЩЕГОСЯ'/>
+                                placeholder='ВВЕДИТЕ ФИО ОБУЧАЮЩЕГОСЯ' />
                         </div>
 
                         <div className={[s.form__item, s.form__item_age].join(' ')}>
@@ -108,8 +123,8 @@ const Form = () => {
                                 value={formik.values.contact}
                                 onBlur={formik.handleBlur}
                                 placeholder={placeholder}
-                                // placeholder={window.screen.width > 420 ? 'ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL' : ' НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL'} 
-                                />
+                            // placeholder={window.screen.width > 420 ? 'ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL' : ' НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL'} 
+                            />
                         </div>
 
                         <div className={[s.form__item, s.form__item_adress].join(' ')}>

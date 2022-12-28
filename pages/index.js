@@ -15,27 +15,31 @@ import Form from '../components/Form/Form'
 import { Provider } from 'react-redux'
 import { setupStore } from '../src/store/store'
 
-import { contactsAPI, fetchContact } from '../src/contacts/contacts'
 // for SSR
-import { fetchAllTeam, teamAPI } from '../src/team/teamService'
 import { wrapper } from '../src/store/store'
+import { fetchAllTeam, teamAPI } from '../src/team/teamService'
+import { contactsAPI, fetchContact } from '../src/contacts/contacts'
+import { getReviews, reviewsAPI } from '../src/reviews/reviews'
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     store.dispatch(fetchAllTeam.initiate())
-    const data = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
+    const team = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
     store.dispatch(fetchContact.initiate())
     const contacts = await Promise.all(store.dispatch(contactsAPI.util.getRunningQueriesThunk()))
 
+    store.dispatch(getReviews.initiate())
+    const reviews = await Promise.all(store.dispatch(reviewsAPI.util.getRunningQueriesThunk()))
+
     return {
-      props: { team: data[0].data, contacts: contacts[0].data }
+      props: { team: team[0].data, contacts: contacts[0].data, reviews: reviews[0].data[0] }
     }
   }
 )
 
-export default function Home({ team, contacts }) {
+export default function Home({ team, contacts, reviews }) {
   return (
     <div className='component'>
       <Menu />
@@ -45,7 +49,7 @@ export default function Home({ team, contacts }) {
       <Rules />
       {/* <Video /> */}
       <Team team={team} />
-      <Reviews />
+      <Reviews reviews={reviews}/>
       <Contact phoneOne={contacts[0].data} phoneTwo={contacts[1].data} email={contacts[2].data} />
     </div>
   )

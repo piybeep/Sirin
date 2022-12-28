@@ -46,6 +46,8 @@
 
     &__button {
         grid-area: button;
+
+        width: fit-content;
     }
 }
 

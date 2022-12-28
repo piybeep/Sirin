@@ -52,6 +52,8 @@
 
     &__button {
         grid-area: button;
+
+        width: fit-content;
     }
 
     &__list {

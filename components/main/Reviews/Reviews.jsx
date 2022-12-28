@@ -10,7 +10,7 @@ import img from '../../../public/images/main/reviews/elena.png'
 // Style
 import s from './Reviews.module.scss'
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
     // Настройки слайдера
     const settings = {
         dots: true,
@@ -21,38 +21,21 @@ const Reviews = () => {
         arrows: false
     };
 
-    const data = [
-        {
-            id: 0,
-            text: 'Вот уже четвёртый год с Вами. За это время мы очень сильно всех полюбили. С нетерпением ждём очередных занятий! Вот уже четвёртый год с Вами. За это время мы очень сильно всех полюбили. С нетерпением ждём очередных занятий!',
-            img: img,
-            name: 'Елена Батманова',
-            post: 'Ученица ансамбля'
-        },
-        {
-            id: 1,
-            text: '2',
-            img: img,
-            name: 'Елена Батманова',
-            post: 'Ученица ансамбля'
-        }
-    ]
-
-    const resultData = data.map(current => {
+    const resultData = reviews.map(current => {
         return (
             <div key={current.text} className={s.item}>
                 <p className={s.item__text}>{current.text}</p>
                 <div className={s.item__info}>
-                    <img className={s.item__img} src={current.img.src} alt="" />
-                    <h2 className={s.item__name}>{current.name}</h2>
-                    <p className={s.item__post}>{current.post}</p>
+                    <img className={s.item__img} src={img.src} alt="" />
+                    <h2 className={s.item__name}>{current.fullname}</h2>
+                    <p className={s.item__post}>{current.vacancy}</p>
                 </div>
             </div>
         )
     })
 
     const sliderRef = React.createRef()
-        
+
     return (
         <div className={s.reviews}>
             <div className={s.reviews__info}>
@@ -60,10 +43,10 @@ const Reviews = () => {
                 <div className={s.reviews__wrapper}>
                     <button onClick={() => sliderRef.current.slickPrev()} className={s.reviews__button}>
                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <mask id="path-1-inside-1_1_118" fill="white">
-                                    <path d="M0 17.021L17.0208 0.000160876L34.6985 17.6778L17.6777 34.6987L0 17.021Z" />
-                                </mask>
-                                <path d="M0 17.021L-2.12132 14.8997L-4.24264 17.021L-2.12132 19.1423L0 17.021ZM2.12132 19.1423L19.1422 2.12148L14.8995 -2.12116L-2.12132 14.8997L2.12132 19.1423ZM19.799 32.5773L2.12132 14.8997L-2.12132 19.1423L15.5563 36.82L19.799 32.5773Z" fill="white" mask="url(#path-1-inside-1_1_118)" />
+                            <mask id="path-1-inside-1_1_118" fill="white">
+                                <path d="M0 17.021L17.0208 0.000160876L34.6985 17.6778L17.6777 34.6987L0 17.021Z" />
+                            </mask>
+                            <path d="M0 17.021L-2.12132 14.8997L-4.24264 17.021L-2.12132 19.1423L0 17.021ZM2.12132 19.1423L19.1422 2.12148L14.8995 -2.12116L-2.12132 14.8997L2.12132 19.1423ZM19.799 32.5773L2.12132 14.8997L-2.12132 19.1423L15.5563 36.82L19.799 32.5773Z" fill="white" mask="url(#path-1-inside-1_1_118)" />
                         </svg>
                     </button>
                     <Slider ref={sliderRef} className={s.reviews__slider} {...settings}>

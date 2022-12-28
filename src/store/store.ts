@@ -5,11 +5,13 @@ import { newsAPI } from "../news/newsService";
 
 import openSlice from '../form/form'
 import { contactsAPI } from "../contacts/contacts";
+import { reviewsAPI } from "../reviews/reviews";
 
 const rootReducer = combineReducers({
     [teamAPI.reducerPath]: teamAPI.reducer,
     [newsAPI.reducerPath]: newsAPI.reducer,
     [contactsAPI.reducerPath]: contactsAPI.reducer,
+    [reviewsAPI.reducerPath]: reviewsAPI.reducer,
 
     openSlice: openSlice,
 })
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(teamAPI.middleware, newsAPI.middleware, contactsAPI.middleware,)
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
+            teamAPI.middleware, newsAPI.middleware, contactsAPI.middleware, reviewsAPI.middleware,
+        )
     })
 }
 
