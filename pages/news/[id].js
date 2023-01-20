@@ -17,9 +17,12 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
         const data = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
 
-        return {
-            props: { data: data[0].data, id: context.params.id },
-        };
+        if (data[0].data)
+        {
+            return {
+                props: { data: data[0].data, id: context.params.id },
+            };
+        }
     }
 );
 

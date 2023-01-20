@@ -6,7 +6,11 @@ import Header from './Header/Header';
 // Style
 import s from './Contact.module.scss'
 
-const Contact = ({phoneOne, phoneTwo, email}) => {
+const Contact = (contacts) => {
+    let phoneOne = contacts[0]?.data
+    let phoneTwo = contacts[1]?.data
+    let email = contacts[2]?.data
+
     return (
         <div className={s.contact} id='contacts'>
             <div className={s.contact__wrapper}>

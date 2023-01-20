@@ -21,7 +21,7 @@ const Reviews = ({ reviews }) => {
         arrows: false
     };
 
-    const resultData = reviews.map(current => {
+    const resultData = reviews?.map(current => {
         return (
             <div key={current.text} className={s.item}>
                 <p className={s.item__text}>{current.text}</p>

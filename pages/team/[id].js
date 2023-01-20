@@ -14,8 +14,10 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
         const person = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
-        return {
-            props: { person: person[0].data }
+        if (person[0].data){
+            return {
+                props: { person: person[0].data }
+            }
         }
     }
 )
