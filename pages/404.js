@@ -4,7 +4,7 @@ import SecHeader from '../components/SecHeader/SecHeader';
 
 export default function custom404() {
     return (
-            <Error />
+        <Error />
     )
 }
 
