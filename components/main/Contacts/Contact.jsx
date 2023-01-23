@@ -12,7 +12,8 @@ const Contact = (contacts) => {
     let email = contacts[2]?.data
 
     return (
-        <div className={s.contact} id='contacts'>
+        <div className={s.contact}>
+            <div className={s.anchor} id='contacts'></div>
             <div className={s.contact__wrapper}>
                 <Header />
 

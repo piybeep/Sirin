@@ -29,19 +29,19 @@ const Preview = () => {
         },
         {
             id: 3,
-            text: 'Достижения',
-            link: '/contacts'
+            text: 'Контакты',
+            link: '/#contacts'
         },
         {
             id: 4,
             text: 'О нас',
-            link: '/about'
+            link: '/#about'
         },
     ]
 
     const resultLink = link.map(current => {
         return (
-            <Link key={current.text} className={s.preview__link} href={current.link}>{current.text}</Link>
+            <a key={current.text} className={s.preview__link} href={current.link}>{current.text}</a>
         )
     })
 

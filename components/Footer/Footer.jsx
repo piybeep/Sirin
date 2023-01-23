@@ -22,7 +22,7 @@ const Footer = () => {
         {
             id: 0,
             text: 'о нас',
-            href: '/about'
+            href: '/#about'
         },
         {
             id: 1,
@@ -37,7 +37,7 @@ const Footer = () => {
         {
             id: 3,
             text: 'контакты',
-            href: '/contacts'
+            href: '/#contacts'
         },
         {
             id: 4,
@@ -53,7 +53,7 @@ const Footer = () => {
 
     const resultLinks = links.map(current => {
         return (
-            <Link key={current.id} href={current.href} className={s.footer__link}>{current.text}</Link>
+            <a key={current.id} href={current.href} className={s.footer__link}>{current.text}</a>
         )
     })
 

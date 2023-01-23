@@ -40,6 +40,7 @@ const SecHeader = () => {
             id: 4,
             text: 'О нас',
             href: '/about',
+            to: 'about',
             active: false
         },
     ]
@@ -59,7 +60,7 @@ const SecHeader = () => {
             !current.to ?
                 <Link key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
                 :
-                <a href='/#contacts' key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')}>{current.text}</a>
+                <a href={'/#' + current.to} key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')}>{current.text}</a>
         )
     })
 

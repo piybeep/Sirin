@@ -1,4 +1,18 @@
+.anchor{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+
+    width: 10px;
+    height: 100vh;
+
+    transform: translateY(-50%);
+
+    z-index: -9999;
+}
 .contact {
+    position: relative;
+
     min-width: 320px;
     width: 100%;
     max-width: 1920px;

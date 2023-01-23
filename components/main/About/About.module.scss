@@ -1,4 +1,18 @@
+.anchor{
+    width: 10px;
+    height: 100vh;
+
+    position: absolute;
+    top: 50%;
+    left: 0px;
+
+    transform: translateY(-50%);
+
+    z-index: -999999;
+}
 .about {
+    position: relative;
+
     margin: 0 auto;
     margin-top: 94px;
     margin-bottom: 113px;
