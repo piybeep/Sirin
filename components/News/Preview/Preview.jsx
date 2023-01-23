@@ -5,7 +5,7 @@ import img from '../../../public/images/news/preview.png'
 // Style
 import s from './Preview.module.scss'
 
-const Preview = () => {
+const Preview = ({previewNews}) => {
     return (
         <div className={s.preview}>
             <img className={s.preview__img} src={img.src} alt="Картинка" />

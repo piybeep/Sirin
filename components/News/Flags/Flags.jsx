@@ -3,20 +3,25 @@ import React from 'react';
 import { Pagination } from 'antd';
 // Style
 import s from './Flags.module.scss'
+import { useRouter } from 'next/router';
 
-const Flags = ({ countryPerPage, setCurrentPage, allNews }) => {
+const Flags = ({count}) => {
+    const router = useRouter()
 
     const handleChangePagination = (numberPage) => {
-        setCurrentPage(numberPage)
+        router.push(({
+            query:{page: numberPage}
+        }))
     }
 
     return (
         <div className={s.wrapper}>
             <Pagination
-                total={allNews && allNews.length}
-                pageSize={countryPerPage}
+                total={count}
+                pageSize={12}
                 showSizeChanger={false}
                 responsive={true}
+                defaultCurrent={router.query.page}
                 onChange={(numberPage) => handleChangePagination(numberPage)}
             />
         </div>

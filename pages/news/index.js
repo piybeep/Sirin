@@ -1,41 +1,48 @@
-import React, { useState } from 'react';
-import { fetchAllNews, newsAPI } from '../../src/news/newsService';
+import React, { useEffect, useState } from 'react';
+import { fetchAllNews, fetchPreviewNews, newsAPI } from '../../src/news/newsService';
 import { wrapper } from '../../src/store/store';
 // Component
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
+import axios from 'axios';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
-        store.dispatch(fetchAllNews.initiate());
+        store.dispatch(fetchAllNews.initiate(context.query.page ?? 1));
+        store.dispatch(fetchPreviewNews.initiate())
 
-        const data = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
+        const [allNews, previewNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
 
-        if (data[0].data)
-        {
+        // const preview = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()))
+
+        if (allNews.isError) {
             return {
-                props: { allNews: data[0].data },
-            };
+                props: { error: allNews.error }
+            }
+        }
+        if (previewNews.isError) {
+            return {
+                props: { error: previewNews.error }
+            }
+        }
+        return {
+            props: { allNews: allNews.data, previewNews: previewNews.data }
         }
     }
 );
 
-
-const news = ({ allNews, test }) => {
-    console.log(test)
-    const [countryPerPage] = useState(12)
-    const [currentPage, setCurrentPage] = useState(1)
-
-    const lastCountryIndex = currentPage * countryPerPage
-    const firstCountryIndex = lastCountryIndex - countryPerPage
-    const currentCountries = allNews?.slice(firstCountryIndex, lastCountryIndex)
-
+const news = ({ allNews, previewNews, error }) => {
+    if (error) {
+        return (
+            <div>Ты ошибка</div>
+        )
+    }
     return (
         <div>
-            <Preview />
-            <List news={currentCountries} />
-            <Flags countryPerPage={countryPerPage} setCurrentPage={setCurrentPage} allNews={allNews} />
+            <Preview previewNews={previewNews.data[0]} />
+            <List news={allNews.data} />
+            <Flags count={allNews.count} />
         </div>
     );
 };

@@ -53,7 +53,6 @@ const Form = () => {
                 place: values.adress
             })
                 .then((responce) => {
-                    console.log(responce)
                     dispatch(setOpen(false))
                 })
                 .catch = (error) => {

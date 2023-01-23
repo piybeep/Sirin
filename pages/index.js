@@ -33,7 +33,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     store.dispatch(getReviews.initiate())
     const reviews = await Promise.all(store.dispatch(reviewsAPI.util.getRunningQueriesThunk()))
 
-    if (team[0].data != undefined && contacts[0].data != undefined && reviews[0].data != undefined) {
+    if (team[0].data && contacts[0].data && reviews[0].data) {
       return {
         props: {
           team: team[0].data, contacts: contacts[0].data, reviews: reviews[0].data[0]

@@ -15,8 +15,14 @@ import { useFetchContactQuery } from '../../src/contacts/contacts';
 
 const Footer = () => {
     const { data } = useFetchContactQuery()
-    const phoneOne = data && data[0].data
-    const phoneTwo = data && data[1].data
+
+    let phones = data ? data.map(current => {
+        return (
+            <a key={current.id} className={s.footer__text} href={`tel: ${current.data}`}>{current.data}</a>
+        )
+    })
+        :
+        null
 
     const links = [
         {
@@ -109,8 +115,7 @@ const Footer = () => {
                             </div>
                             <div className={s.footer__item}>
                                 <h2 className={s.footer__title}>номера для связи</h2>
-                                <a className={s.footer__text} href={`tel: ${phoneOne}`}>{phoneOne}</a>
-                                <a className={s.footer__text} href={`tel: ${phoneTwo}`}>{phoneTwo}</a>
+                                {phones}
                             </div>
                         </div>
                         <div className={s.footer__icon}>

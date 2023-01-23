@@ -27,8 +27,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
 );
 
 const id = ({ data, id }) => {
-    console.log(data)
-    console.log(id)
 
     return (
         <div>

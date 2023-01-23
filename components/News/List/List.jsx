@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 import Link from 'next/link';
 import React from 'react';
 
@@ -13,10 +15,9 @@ const List = ({ news }) => {
     const resultData = news?.map(current => {
         return (
             <Link key={current.id} href={`/news/${current.id}`} className={s.item}>
-                {/* <img className={s.item__img} src={current.coatOfArms.svg} alt="Картинка" />
-                <p className={s.item__date}>test</p>
-                <h2 className={s.item__text}>{current.name.common}</h2> */}
-                {current.id}
+                {/* <img className={s.item__img} src={current.coatOfArms.svg} alt="Картинка" /> */}
+                <p className={s.item__date}>{format(new Date(current.createdAt), 'P', {locale: ru})}</p>
+                <h2 className={s.item__text}>{current.title}</h2>
             </Link>
         )
     })
