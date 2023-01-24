@@ -32,7 +32,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
 const news = ({ allNews, previewNews, error }) => {
     if (error) {
         return (
-            <div>Ты ошибка</div>
+            <div style={{display: 'flex', alignItems:'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
+                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
+                <p>{error.status}</p>
+                <p>{error.error}</p>
+            </div>
         )
     }
     return (

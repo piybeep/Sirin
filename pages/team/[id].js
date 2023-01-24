@@ -12,17 +12,30 @@ export const getServerSideProps = wrapper.getServerSideProps(
         const id = context.params.id
         store.dispatch(fetchCurrentTeam.initiate(id))
 
-        const person = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
+        const [person] = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
-        if (person[0].data){
+        if (person.isError) {
             return {
-                props: { person: person[0].data }
+                props: { error: person.error }
             }
+        }
+        return {
+            props: { person: person.data }
         }
     }
 )
 
-const id = ({ person }) => {
+const id = ({ person, error }) => {
+    if (error) {
+        return (
+            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
+                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
+                <p>{error.status}</p>
+                <p>{error.error}</p>
+            </div>
+        )
+    }
+
     return (
         <>
             <Preview

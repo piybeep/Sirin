@@ -6,10 +6,10 @@ import Header from './Header/Header';
 // Style
 import s from './Contact.module.scss'
 
-const Contact = (contacts) => {
-    let phoneOne = contacts[0]?.data
-    let phoneTwo = contacts[1]?.data
-    let email = contacts[2]?.data
+const Contact = ({ contacts, error }) => {
+    let phoneOne = contacts && contacts[0]?.data
+    let phoneTwo = contacts && contacts[0]?.data
+    let email = 'ef.sirin@mail.ru'
 
     return (
         <div className={s.contact}>
@@ -30,8 +30,18 @@ const Contact = (contacts) => {
                         <div className={[s.contact__item, s.contact__item_phone].join(' ')}>
                             <h2 className={s.contact__title}>НОМЕР ДЛЯ СВЯЗИ</h2>
                             <div className={s.contact__subtitle}>
-                                <a href={`tel: ${phoneOne}`} className={s.contact__text}>{phoneOne}</a>
-                                <a href={`tel: ${phoneTwo}`} className={s.contact__text}>{phoneTwo}</a>
+                                {error ?
+                                    <div>
+                                        <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
+                                        <p>{error.status}</p>
+                                        <p>{error.error}</p>
+                                    </div>
+                                    :
+                                    <>
+                                        <a href={`tel: ${phoneOne}`} className={s.contact__text}>{phoneOne}</a>
+                                        <a href={`tel: ${phoneTwo}`} className={s.contact__text}>{phoneTwo}</a>
+                                    </>
+                                }
                             </div>
                         </div>
 

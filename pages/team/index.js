@@ -11,17 +11,29 @@ export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
         store.dispatch(fetchAllTeam.initiate())
 
-        const data = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
+        const [data] = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
-        if (data[0].data){
+        if (data.isError){
             return {
-                props: { data: data[0].data }
+                props: { error: data.error }
             }
+        }
+        return {
+            props: { data: data.data }
         }
     }
 )
 
-const index = ({ data }) => {
+const index = ({ data, error }) => {
+    if (error){
+        return(
+            <div style={{display: 'flex', alignItems:'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
+                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
+                <p>{error.status}</p>
+                <p>{error.error}</p>
+            </div>
+            )
+    }
     return (
         <div>
             <Preview title='познакомьтесь' textOne='c' titleSpan='нашей' textTwo='командой' />

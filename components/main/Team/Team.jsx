@@ -15,7 +15,7 @@ import polina from '../../../public/images/main/team/polina.png'
 import artem from '../../../public/images/main/team/artem.png'
 import tanya from '../../../public/images/main/team/tanya.png'
 
-const Team = ({ team }) => {
+const Team = ({ team, error }) => {
     const teachers = team?.slice(0, 6)
 
     const resultTeachers = teachers?.map((current, index) => {
@@ -26,6 +26,7 @@ const Team = ({ team }) => {
             </div>
         )
     })
+
     return (
         <div className={s.team}>
             <div className={s.team__info}>
@@ -36,9 +37,18 @@ const Team = ({ team }) => {
                         <CustomButton text='УЗНАТЬ ЛУЧШЕ' />
                     </Link>
                 </header>
-                <div className={s.team__list}>
-                    {resultTeachers}
-                </div>
+                {
+                    error ?
+                        <div className={s.error}>
+                            <h2>Произошла ошибка на сервере, свяжитесь с нами и мы её решим</h2>
+                            <p>{error.status}</p>
+                            <p>{error.error}</p>
+                        </div>
+                        :
+                        <div className={s.team__list}>
+                            {resultTeachers}
+                        </div>
+                }
             </div>
         </div>
     );

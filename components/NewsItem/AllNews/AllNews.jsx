@@ -9,10 +9,9 @@ import { ru } from 'date-fns/locale';
 import { format } from 'date-fns';
 
 const AllNews = ({ allNews }) => {
-    console.log(allNews)
     const swiperRef = useRef()
 
-    const resultData = allNews.data?.map(current => {
+    const resultData = allNews && allNews.data?.map(current => {
         return (
             <SwiperSlide className={s.allNews__slide} key={current.id}>
                 <Link href={`/news/${current.id}`}>

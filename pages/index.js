@@ -25,25 +25,27 @@ import { getReviews, reviewsAPI } from '../src/reviews/reviews'
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     store.dispatch(fetchAllTeam.initiate())
-    const team = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
+    const [team] = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
     store.dispatch(fetchContact.initiate())
-    const contacts = await Promise.all(store.dispatch(contactsAPI.util.getRunningQueriesThunk()))
+    const [contacts] = await Promise.all(store.dispatch(contactsAPI.util.getRunningQueriesThunk()))
 
     store.dispatch(getReviews.initiate())
-    const reviews = await Promise.all(store.dispatch(reviewsAPI.util.getRunningQueriesThunk()))
+    const [reviews] = await Promise.all(store.dispatch(reviewsAPI.util.getRunningQueriesThunk()))
 
-    if (team[0].data && contacts[0].data && reviews[0].data) {
-      return {
-        props: {
-          team: team[0].data, contacts: contacts[0].data, reviews: reviews[0].data[0]
-        }
+    if (team.isError || contacts.isError || reviews.isError){
+      return{
+        props: {teamError: team.error, contactsError: contacts.error, reviewsError: contacts.error}
       }
+    }
+
+    return{
+      props: {team: team.data, contacts: contacts.data, reviews: reviews.data}
     }
   }
 )
 
-export default function Home({ team, contacts, reviews }) {
+export default function Home({ team, contacts, reviews, teamError, contactsError, reviewsError }) {
   return (
     <div className='component'>
       <Menu />
@@ -52,9 +54,9 @@ export default function Home({ team, contacts, reviews }) {
       <Advantages />
       <Rules />
       {/* <Video /> */}
-      <Team team={team} />
-      <Reviews reviews={reviews} />
-      <Contact contacts={contacts}/>
+      <Team team={team} error={teamError}/>
+      <Reviews reviews={reviews} error={reviewsError}/>
+      <Contact contacts={contacts} error={contactsError}/>
     </div>
   )
 }

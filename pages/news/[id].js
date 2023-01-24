@@ -17,12 +17,12 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
         if (currentNews.isError) {
             return {
-                props: { currentNewsError: currentNews.error }
+                props: { error: currentNews.error }
             }
         }
         if (allNews.isError) {
             return {
-                props: { allNewsError: allNews.error }
+                props: { error: allNews.error }
             }
         }
 
@@ -42,7 +42,18 @@ export const getServerSideProps = wrapper.getServerSideProps(
     }
 );
 
-const id = ({ currentNewsError, allNewsError, id, currentNews, allNews }) => {
+const id = ({ currentNews, allNews, error }) => {
+
+    if (error) {
+        return (
+            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
+                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
+                <p>{error.status}</p>
+                <p>{error.error}</p>
+            </div>
+        )
+    }
+
     return (
         <div>
             <Info currentNews={currentNews} />

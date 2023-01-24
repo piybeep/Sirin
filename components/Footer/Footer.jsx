@@ -14,7 +14,7 @@ import s from './Footer.module.scss'
 import { useFetchContactQuery } from '../../src/contacts/contacts';
 
 const Footer = () => {
-    const { data } = useFetchContactQuery()
+    const { data, error } = useFetchContactQuery()
 
     let phones = data ? data.map(current => {
         return (
@@ -22,7 +22,11 @@ const Footer = () => {
         )
     })
         :
-        null
+        <div className={s.error}>
+            <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
+            <p>{error && error.status}</p>
+            <p>{error && error.error}</p>
+        </div>
 
     const links = [
         {
