@@ -1,3 +1,6 @@
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
+import Link from 'next/link';
 import React from 'react';
 
 // img
@@ -10,9 +13,9 @@ const Preview = ({previewNews}) => {
         <div className={s.preview}>
             <img className={s.preview__img} src={img.src} alt="Картинка" />
             <div className={s.preview__info}>
-                <h2 className={s.preview__date}>07.10.2022</h2>
-                <h2 className={s.preview__text}>ГРАН-ПРИ на международном марафоне резидентов Melon Kids «Мы внуки Великой Победы»</h2>
-                <button className={s.preview__button}>ПОДРОБНЕЕ</button>
+                <h2 className={s.preview__date}>{format(new Date (previewNews?.createdAt), 'P', {locale: ru})}</h2>
+                <h2 className={s.preview__text}>{previewNews?.text}</h2>
+                <Link href={`/news/${previewNews?.id}`} className={s.preview__button}>ПОДРОБНЕЕ</Link>
             </div>
         </div>
     );

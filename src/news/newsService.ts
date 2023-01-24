@@ -1,6 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
+interface fetchAllNewsProps{
+    page?: number,
+    start?:number
+}
+
 export const newsAPI = createApi({
     reducerPath: 'newsAPI',
     baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL }),
@@ -11,12 +16,12 @@ export const newsAPI = createApi({
     },
     endpoints: (build) => ({
         fetchAllNews: build.query({
-            query: (page: number) => {
+            query: ({page, start}: fetchAllNewsProps) => {
                 return ({
                     url: `/news`,
                     params: {
                         count: 12,
-                        start: (((page ?? 0) - 1) * 12) + 1,
+                        start: start ?? (((page ?? 0) - 1) * 12) + 1,
                     }
                 })
             }

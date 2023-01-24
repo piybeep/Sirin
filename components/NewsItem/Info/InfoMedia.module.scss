@@ -32,12 +32,6 @@
     .info {
         margin-bottom: 54px;
 
-        &__slider{
-            display: flex;
-
-            overflow: hidden;
-        }
-
         &__list {
             flex-direction: column;
             row-gap: 40px;

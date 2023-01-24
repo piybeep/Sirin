@@ -5,75 +5,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 // Style
 import s from './AllNews.module.scss'
+import { ru } from 'date-fns/locale';
+import { format } from 'date-fns';
 
-// img
-import img1 from '../../../public/images/news/allNews/allNews1.png'
-import img2 from '../../../public/images/news/allNews/allNews2.png'
-import img3 from '../../../public/images/news/allNews/allNews3.png'
-import img4 from '../../../public/images/news/allNews/allNews4.png'
-
-const AllNews = () => {
-
+const AllNews = ({ allNews }) => {
+    console.log(allNews)
     const swiperRef = useRef()
 
-    const data = [
-        {
-            id: 0,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '21.01.2022',
-            img: img1
-        },
-        {
-            id: 1,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '18.01.2022',
-            img: img2
-        },
-        {
-            id: 2,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '31.12.2021',
-            img: img3
-        },
-        {
-            id: 3,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '21.01.2022',
-            img: img4
-        },
-        {
-            id: 4,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '21.01.2022',
-            img: img1
-        },
-        {
-            id: 5,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '18.01.2022',
-            img: img2
-        },
-        {
-            id: 6,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '31.12.2021',
-            img: img1
-        },
-        {
-            id: 7,
-            text: 'ГРАН-ПРИ на марафоне резидентов Melon Kids «Мы внуки Великой Победы»',
-            date: '21.01.2022',
-            img: img2
-        }
-    ]
-
-    const resultData = data.map(current => {
+    const resultData = allNews.data?.map(current => {
         return (
             <SwiperSlide className={s.allNews__slide} key={current.id}>
                 <Link href={`/news/${current.id}`}>
-                    <img className={s.allNews__img} src={current.img.src} alt="Картинка" />
-                    <p className={s.allNews__date}>{current.date}</p>
-                    <h2 className={s.allNews__text}>{current.text}</h2>
+                    {/* <img className={s.allNews__img} src={current.img.src} alt="Картинка" /> */}
+                    <p className={s.allNews__date}>{current && format(new Date(current.createdAt), 'P', {locale: ru})}</p>
+                    <h2 className={s.allNews__text}>{current.title}</h2>
                 </Link>
             </SwiperSlide >
         )
@@ -82,17 +27,17 @@ const AllNews = () => {
     const [windowWidth, setWindowWidth] = useState(0)
 
     const windowScreen = () => {
-        if (window.screen.width < 1421 && window.screen.width > 1024){
+        if (window.screen.width < 1421 && window.screen.width > 1024) {
             setWindowWidth(57)
         }
-        else{
+        else {
             setWindowWidth(27)
         }
     }
 
     useEffect(() => {
         windowScreen()
-    },[])
+    }, [])
 
 
     return (

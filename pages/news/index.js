@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { fetchAllNews, fetchPreviewNews, newsAPI } from '../../src/news/newsService';
 import { wrapper } from '../../src/store/store';
 // Component
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
-import axios from 'axios';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
-        store.dispatch(fetchAllNews.initiate(context.query.page ?? 1));
+        store.dispatch(fetchAllNews.initiate({page: context.query.page ?? 1}));
         store.dispatch(fetchPreviewNews.initiate())
 
         const [allNews, previewNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
-
-        // const preview = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()))
 
         if (allNews.isError) {
             return {
