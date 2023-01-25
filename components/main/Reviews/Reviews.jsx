@@ -11,7 +11,6 @@ import img from '../../../public/images/main/reviews/elena.png'
 import s from './Reviews.module.scss'
 
 const Reviews = ({ reviews, error }) => {
-    console.log(reviews[0].length)
     // Настройки слайдера
     const settings = {
         dots: true,
@@ -22,7 +21,7 @@ const Reviews = ({ reviews, error }) => {
         arrows: false
     };
 
-    const resultData = reviews[0]?.map(current => {
+    const resultData = reviews && reviews[0]?.map(current => {
         return (
             <div key={current.text} className={s.item}>
                 <p className={s.item__text}>{current.text}</p>

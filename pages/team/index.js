@@ -5,6 +5,7 @@ import List from '../../components/Team/List/List'
 // for SSR
 import { fetchAllTeam, teamAPI } from '../../src/team/teamService'
 import { wrapper } from '../../src/store/store';
+import ErrorServer from '../../components/ErrorServer/ErrorServer';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -13,7 +14,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
         const [data] = await Promise.all(store.dispatch(teamAPI.util.getRunningQueriesThunk()))
 
-        if (data.isError){
+        if (data.isError) {
             return {
                 props: { error: data.error }
             }
@@ -25,14 +26,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
 )
 
 const index = ({ data, error }) => {
-    if (error){
-        return(
-            <div style={{display: 'flex', alignItems:'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
-                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
-                <p>{error.status}</p>
-                <p>{error.error}</p>
-            </div>
-            )
+    if (error) {
+        return (<ErrorServer statusError={error.status} textError={error.error} />)
     }
     return (
         <div>

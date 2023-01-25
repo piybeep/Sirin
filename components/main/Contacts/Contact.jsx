@@ -7,9 +7,11 @@ import Header from './Header/Header';
 import s from './Contact.module.scss'
 
 const Contact = ({ contacts, error }) => {
-    let phoneOne = contacts && contacts[0]?.data
-    let phoneTwo = contacts && contacts[0]?.data
     let email = 'ef.sirin@mail.ru'
+
+    const phones = contacts && contacts?.map(current => {
+        return <a key={current.id} href={`tel: ${current.data}`} className={s.contact__text}>{current.data}</a>
+    })
 
     return (
         <div className={s.contact}>
@@ -38,8 +40,7 @@ const Contact = ({ contacts, error }) => {
                                     </div>
                                     :
                                     <>
-                                        <a href={`tel: ${phoneOne}`} className={s.contact__text}>{phoneOne}</a>
-                                        <a href={`tel: ${phoneTwo}`} className={s.contact__text}>{phoneTwo}</a>
+                                        {phones}
                                     </>
                                 }
                             </div>

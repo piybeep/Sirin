@@ -33,14 +33,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
     store.dispatch(getReviews.initiate())
     const [reviews] = await Promise.all(store.dispatch(reviewsAPI.util.getRunningQueriesThunk()))
 
-    if (team.isError || contacts.isError || reviews.isError){
-      return{
-        props: {teamError: team.error, contactsError: contacts.error, reviewsError: contacts.error}
+    return {
+      props: {
+        team: !team.isError && team.data, contacts: !contacts.isError && contacts.data, reviews: !reviews.isError && reviews.data,
+        teamError: team.isError && team.error, contactsError: contacts.isError && contacts.error, reviewsError: contacts.isError && contacts.error
       }
-    }
-
-    return{
-      props: {team: team.data, contacts: contacts.data, reviews: reviews.data}
     }
   }
 )
@@ -56,7 +53,7 @@ export default function Home({ team, contacts, reviews, teamError, contactsError
       {/* <Video /> */}
       <Team team={team} error={teamError}/>
       <Reviews reviews={reviews} error={reviewsError}/>
-      <Contact contacts={contacts} error={contactsError}/>
+      <Contact contacts={contacts} error={contactsError} />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { wrapper } from '../../src/store/store';
 import Info from '../../components/NewsItem/Info/Info';
 import Slider from '../../components/NewsItem/Slider/Slider';
 import AllNews from '../../components/NewsItem/AllNews/AllNews';
+import ErrorServer from '../../components/ErrorServer/ErrorServer';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -45,13 +46,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 const id = ({ currentNews, allNews, error }) => {
 
     if (error) {
-        return (
-            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', rowGap: '20px', height: '100vh', justifyContent: 'center' }}>
-                <h2>Произошла ошибка, сообщите нам и мы её решим</h2>
-                <p>{error.status}</p>
-                <p>{error.error}</p>
-            </div>
-        )
+        return (<ErrorServer statusError={error.status} textError={error.error} />)
     }
 
     return (

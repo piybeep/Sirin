@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 // img
 import vk from '../../public/svg/footer/vk.svg'
