@@ -9,12 +9,13 @@ import img from '../../../public/images/news/preview.png'
 import s from './Preview.module.scss'
 
 const Preview = ({previewNews}) => {
+    console.log(previewNews)
     return (
         <div className={s.preview}>
             <img className={s.preview__img} src={img.src} alt="Картинка" />
             <div className={s.preview__info}>
                 <h2 className={s.preview__date}>{format(new Date (previewNews?.createdAt), 'P', {locale: ru})}</h2>
-                <h2 className={s.preview__text}>{previewNews?.text}</h2>
+                <h2 className={s.preview__text}>{previewNews?.title}</h2>
                 <Link href={`/news/${previewNews?.id}`} className={s.preview__button}>ПОДРОБНЕЕ</Link>
             </div>
         </div>
