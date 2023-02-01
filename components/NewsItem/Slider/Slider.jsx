@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,9 +10,42 @@ import img2 from '../../../public/images/news/slider/slider2.png'
 // Style
 import s from './Slider.module.scss'
 
-const Slider = () => {
+const Slider = ({ currentNews }) => {
+
+    if (currentNews.images.length <= 0) {
+        return (
+            <div className={s.slider}>
+                <h2>фотографий пока нет</h2>
+            </div>
+        )
+    }
 
     const swiperRef = useRef()
+
+    // Для отступа у слайдера
+    const [windowWidth, setWindowWidth] = useState(0)
+
+    const windowScreen = () => {
+        if (window.screen.width < 1920 && window.screen.width > 1420) {
+            setWindowWidth(30)
+        }
+        else if (window.screen.width < 1420 && window.screen.width > 1024) {
+            setWindowWidth(23)
+        }
+        else if (window.screen.width < 1024 && window.screen.width > 768) {
+            setWindowWidth(15)
+        }
+        else if (window.screen.width < 768 && window.screen.width > 420) {
+            setWindowWidth(17)
+        }
+        else {
+            setWindowWidth(13)
+        }
+    }
+
+    useEffect(() => {
+        windowScreen()
+    }, [])
 
     const data = [
         {
@@ -33,7 +66,7 @@ const Slider = () => {
         }
     ]
 
-    const resultData = data.map(current => {
+    const resultData = currentNews.images.map(current => {
         return (
             <SwiperSlide key={current.id}>
                 <img className={s.slider__img} src={current.img.src} alt="Картинка" />
@@ -53,7 +86,7 @@ const Slider = () => {
                     swiperRef.current = swiper
                 }}
                 slidesPerView={2}
-                spaceBetween={30}
+                spaceBetween={windowWidth}
                 pagination={{
                     clickable: true,
                 }}

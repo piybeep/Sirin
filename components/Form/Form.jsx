@@ -56,7 +56,7 @@ const Form = () => {
                     dispatch(setOpen(false))
                 })
                 .catch = (error) => {
-                    console.log(error)
+                    console.error(error)
                 }
 
             ref.current.checked = true

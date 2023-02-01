@@ -11,12 +11,20 @@ import { format } from 'date-fns';
 const AllNews = ({ allNews }) => {
     const swiperRef = useRef()
 
+    if (allNews.data.length <= 0) {
+        return (
+            <div className={s.allNews}>
+                <h2 className={s.allNews__title}>Новостей нет</h2>
+            </div>
+        )
+    }
+
     const resultData = allNews && allNews.data?.map(current => {
         return (
             <SwiperSlide className={s.allNews__slide} key={current.id}>
                 <Link href={`/news/${current.id}`}>
                     {/* <img className={s.allNews__img} src={current.img.src} alt="Картинка" /> */}
-                    <p className={s.allNews__date}>{current && format(new Date(current.createdAt), 'P', {locale: ru})}</p>
+                    <p className={s.allNews__date}>{current && format(new Date(current.createdAt), 'P', { locale: ru })}</p>
                     <h2 className={s.allNews__text}>{current.title}</h2>
                 </Link>
             </SwiperSlide >

@@ -36,7 +36,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
             }
         }
 
-
         return {
             props: { currentNews: currentNews.data, id: context.params.id, allNews: allNews.data }
         }
@@ -52,7 +51,7 @@ const id = ({ currentNews, allNews, error }) => {
     return (
         <div>
             <Info currentNews={currentNews} />
-            <Slider />
+            <Slider currentNews={currentNews}/>
             <AllNews allNews={allNews} />
         </div>
     );
