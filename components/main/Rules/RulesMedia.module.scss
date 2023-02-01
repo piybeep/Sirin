@@ -1,4 +1,4 @@
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1600px) {
     .rules {
         display: flex;
         flex-direction: column;
@@ -6,7 +6,7 @@
         row-gap: 50px;
 
         &__subtitle {
-            max-width: 600px;
+            max-width: unset;
         }
     }
 }

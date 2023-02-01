@@ -1,4 +1,4 @@
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1600px) {
     .team {
 
         margin-top: 110px;
@@ -11,13 +11,6 @@
         &__list {
             gap: 23px;
         }
-    }
-}
-
-
-@media screen and (max-width: 1300px) {
-    .team {
-        padding: 0px 24px;
     }
 }
 
@@ -72,33 +65,7 @@
     }
 }
 
-@media screen and (max-width: 550px) {
-    .team {
-        padding: 0px 16px;
-
-        &__list {
-            justify-content: center;
-        }
-    }
-
-    .teachers {
-        min-height: unset;
-
-        max-width: 184px;
-        height: 284px;
-
-        &__name {
-            left: 20px;
-            bottom: 17px;
-
-            font-size: 18px;
-
-            max-width: 100px;
-        }
-    }
-}
-
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 600px) {
     .team {
 
         &__header {
@@ -121,9 +88,37 @@
     }
 }
 
+@media screen and (max-width: 550px) {
+    .team {
+        &__list {
+            justify-content: center;
+        }
+    }
+
+    .teachers {
+        min-height: unset;
+
+        max-width: 184px;
+        height: 284px;
+
+        &__name {
+            left: 20px;
+            bottom: 17px;
+
+            font-size: 18px;
+
+            max-width: 100px;
+        }
+    }
+}
+
 @media screen and (max-width: 420px) {
     .team {
         margin-top: 84px;
+
+        &__info{
+            padding: 0px 16px;
+        }
 
         &__list{
             margin-bottom: 84px;
