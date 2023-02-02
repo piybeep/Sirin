@@ -45,6 +45,49 @@ a {
   transition: .3s;
 }
 
+// Для ant design pagination\\
+.ant-pagination-item-active {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.ant-pagination-item {
+  position: relative;
+
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.ant-pagination-item a {
+  opacity: 0.5;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #000000;
+}
+
+.ant-pagination-item a:hover {
+  opacity: 1;
+}
+
+.ant-pagination-item-active a {
+  color: #000 !important;
+
+  opacity: 1;
+}
+
+// Для ant design pagination\\
+
 @font-face {
   font-family: Indycton Ucs;
   src: url(./public/fonts/Indycton-Ucs.ttf);

@@ -23,7 +23,7 @@ const AllNews = ({ allNews }) => {
         return (
             <SwiperSlide className={s.allNews__slide} key={current.id}>
                 <Link href={`/news/${current.id}`}>
-                    {/* <img className={s.allNews__img} src={current.img.src} alt="Картинка" /> */}
+                    <img className={s.allNews__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.pre_images[0].filename} alt="Картинка" />
                     <p className={s.allNews__date}>{current && format(new Date(current.createdAt), 'P', { locale: ru })}</p>
                     <h2 className={s.allNews__text}>{current.title}</h2>
                 </Link>

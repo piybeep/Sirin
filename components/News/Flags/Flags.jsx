@@ -20,6 +20,7 @@ const Flags = ({count}) => {
                 total={count}
                 pageSize={12}
                 showSizeChanger={false}
+                showTitle={false}
                 responsive={true}
                 defaultCurrent={router.query.page}
                 onChange={(numberPage) => handleChangePagination(numberPage)}
