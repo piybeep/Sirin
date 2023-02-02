@@ -46,6 +46,10 @@ a {
 }
 
 // Для ant design pagination\\
+.ant-pagination-next :hover, .ant-pagination-prev :hover{
+  // border: 1px solid red;
+  background: transparent !important;
+}
 .ant-pagination-item-active {
   background: transparent !important;
   border-color: transparent !important;

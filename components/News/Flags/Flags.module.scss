@@ -8,34 +8,6 @@
 
     display: flex;
     justify-content: flex-end;
-
-    // &__pagination {
-
-    //     li {
-    //         position: relative;
-
-    //         >a {
-    //             position: absolute;
-    //             left: 50%;
-    //             top: 50%;
-
-    //             transform: translate(-50%, -50%);
-    //             font-family: 'Montserrat';
-    //             font-style: normal;
-    //             font-weight: 500;
-    //             font-size: 18px;
-    //             line-height: 22px;
-
-    //             color: #000000;
-
-    //             cursor: pointer;
-    //         }
-
-    //         &-active{
-    //             border: 1px solid red !important;
-    //         }
-    //     }
-    // }
 }
 
 @import './FlagsMedia.module.scss';
