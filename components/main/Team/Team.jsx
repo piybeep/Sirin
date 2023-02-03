@@ -39,11 +39,7 @@ const Team = ({ team, error }) => {
                 </header>
                 {
                     error ?
-                        <div className={s.error}>
-                            <h2>Произошла ошибка на сервере, свяжитесь с нами и мы её решим</h2>
-                            <p>{error.status}</p>
-                            <p>{error.error}</p>
-                        </div>
+                        console.error(error.status)
                         :
                         <div className={s.team__list}>
                             {resultTeachers}

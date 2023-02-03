@@ -42,11 +42,7 @@ const Reviews = ({ reviews, error }) => {
                 <h2 className={s.reviews__title}>о нас <span className={s.reviews__title_span}>говорят</span></h2>
                 {
                     error ?
-                        <div className={s.error}>
-                            <h2>Произошла ошибка на сервере, свяжитесь с нами и мы её решим</h2>
-                            <h2>{error.status}</h2>
-                            <h2>{error.error}</h2>
-                        </div>
+                        console.error(error.status)
                         :
                         reviews[0].length > 0 ?
                             <div className={s.reviews__wrapper}>

@@ -5,7 +5,6 @@ import { wrapper } from '../../src/store/store';
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
@@ -32,7 +31,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 const news = ({ allNews, previewNews, error }) => {
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<>  </>)
     }
     return (
         <div>

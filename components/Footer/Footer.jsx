@@ -21,11 +21,7 @@ const Footer = () => {
         )
     })
         :
-        <div className={s.error}>
-            <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
-            <p>{error && error.status}</p>
-            <p>{error && error.error}</p>
-        </div>
+        console.error(error)
 
     const links = [
         {

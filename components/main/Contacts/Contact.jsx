@@ -33,11 +33,7 @@ const Contact = ({ contacts, error }) => {
                             <h2 className={s.contact__title}>НОМЕР ДЛЯ СВЯЗИ</h2>
                             <div className={s.contact__subtitle}>
                                 {error ?
-                                    <div>
-                                        <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
-                                        <p>{error.status}</p>
-                                        <p>{error.error}</p>
-                                    </div>
+                                    console.error(error.status)
                                     :
                                     <>
                                         {phones}

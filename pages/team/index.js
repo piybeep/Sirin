@@ -5,7 +5,6 @@ import List from '../../components/Team/List/List'
 // for SSR
 import { fetchAllTeam, teamAPI } from '../../src/team/teamService'
 import { wrapper } from '../../src/store/store';
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -27,7 +26,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 const index = ({ data, error }) => {
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<></>)
     }
     return (
         <div>
