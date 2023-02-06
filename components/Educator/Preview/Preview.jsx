@@ -12,7 +12,7 @@ const Preview = ({ personInfo }) => {
                 {
                     personInfo ?
                         <>
-                            < img className={s.preview__img} src={currentImg.src} alt="" />
+                            < img className={s.preview__img} src={process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename} alt="" />
                             <h2 className={s.preview__title}>{personInfo.fullname}</h2>
                             <p className={s.preview__text}>{personInfo.vacancy}</p>
                         </>

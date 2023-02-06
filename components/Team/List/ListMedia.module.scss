@@ -81,5 +81,10 @@
         flex-direction: column;
         align-items: center;
         row-gap: 30px;
+
+        &__img{
+            max-width: 160px;
+            max-height: 180px;
+        }
     }
 }

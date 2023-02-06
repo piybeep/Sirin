@@ -1,6 +1,11 @@
 @media screen and (max-width: 1420px){
     .slider{
         max-width: 1050px;
+
+        &__img{
+            max-height: 268px;
+            min-height: 268px;
+        }
     }
 }
 
@@ -9,6 +14,11 @@
         max-width: unset;
 
         padding: 0px 24px;
+
+        &__img{
+            max-height: 247px;
+            min-height: 247px;
+        }
     }
 }
 
@@ -17,6 +27,16 @@
 
         &__button{
             display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .slider{
+
+        &__img{
+            min-height: 177px;
+            max-height: 177px;
         }
     }
 }
@@ -36,6 +56,8 @@
         padding: 0px 16px;
         &__img{
             min-width: 274px;
+
+            min-height: 194px;
         }
     }
 }
@@ -45,6 +67,16 @@
 
         &__swiper{
             min-width: 550px;
+        }
+    }
+}
+
+@media screen and (max-width: 320px){
+    .slider{
+
+        &__img{
+            min-height: 154px;
+            max-height: 154px;
         }
     }
 }

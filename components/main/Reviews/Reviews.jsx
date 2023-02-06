@@ -26,7 +26,7 @@ const Reviews = ({ reviews, error }) => {
             <div key={current.text} className={s.item}>
                 <p className={s.item__text}>{current.text}</p>
                 <div className={s.item__info}>
-                    <img className={s.item__img} src={img.src} alt="" />
+                    <img className={s.item__img} src={current?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename : img.src} alt='Картинка' />
                     <h2 className={s.item__name}>{current.fullname}</h2>
                     <p className={s.item__post}>{current.vacancy}</p>
                 </div>

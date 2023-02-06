@@ -13,7 +13,7 @@ const Info = ({ personInfo }) => {
         <div className={s.wrapper}>
             <div className={s.person}>
                 <div className={s.person__info}>
-                    <img className={s.person__img} src={person.src} alt='фотография' />
+                    <img className={s.person__img} src={process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename} alt='фотография' />
                     <h2 className={s.person__title}>{personInfo?.fullname}</h2>
                 </div>
                 <p className={s.person__text}>{personInfo?.vacancy}</p>

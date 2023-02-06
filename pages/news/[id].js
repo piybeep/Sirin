@@ -27,7 +27,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         }
 
         if (allNews.data.count == Number(id) || allNews.data.count - 1 == Number(id) || allNews.data.count <= 12) {
-            store.dispatch(fetchAllNews.initiate({ page: Math.floor(id / 12) }))
+            store.dispatch(fetchAllNews.initiate({page: Math.floor(id / 12) === 0 ? 1 : Math.floor(id / 12) }))
             const [otherNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
 
             return {

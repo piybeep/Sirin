@@ -21,7 +21,7 @@ const Team = ({ team, error }) => {
     const resultTeachers = teachers && teachers?.map((current, index) => {
         return (
             <div key={current.id} className={[s.teachers, index === 0 ? s.teachers_first : '', index === 5 ? s.teachers_last : ''].join(' ')}>
-                <img className={s.teachers__img} src={alex.src} alt="" />
+                <img className={s.teachers__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename} alt="" />
                 <h2 className={s.teachers__name}>{current.fullname}</h2>
             </div>
         )

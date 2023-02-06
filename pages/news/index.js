@@ -37,7 +37,7 @@ const news = ({ allNews, previewNews, error }) => {
     return (
         <div>
             <Preview previewNews={previewNews.data[0]} />
-            <List news={allNews.data} />
+            <List previewNews={previewNews.data[0]} news={allNews.data} />
             <Flags count={allNews.count} />
         </div>
     );

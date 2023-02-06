@@ -39,7 +39,7 @@ const id = ({ person, error }) => {
             <Info
                 personInfo={person}
             />
-            <Slider />
+            <Slider images={person.images}/>
         </>
     );
 };

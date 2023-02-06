@@ -4,9 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-// img
-import img1 from '../../../public/images/news/slider/slider1.png'
-import img2 from '../../../public/images/news/slider/slider2.png'
 // Style
 import s from './Slider.module.scss'
 
@@ -15,7 +12,6 @@ const Slider = ({ currentNews }) => {
     if (currentNews.images.length <= 0) {
         return (
             <div className={s.slider}>
-                <h2>фотографий пока нет</h2>
             </div>
         )
     }
@@ -47,29 +43,10 @@ const Slider = ({ currentNews }) => {
         windowScreen()
     }, [])
 
-    const data = [
-        {
-            id: 0,
-            img: img1
-        },
-        {
-            id: 1,
-            img: img2
-        },
-        {
-            id: 2,
-            img: img1
-        },
-        {
-            id: 3,
-            img: img2
-        }
-    ]
-
     const resultData = currentNews.images.map(current => {
         return (
             <SwiperSlide key={current.id}>
-                <img className={s.slider__img} src={current.img.src} alt="Картинка" />
+                <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
             </SwiperSlide>
         )
     })

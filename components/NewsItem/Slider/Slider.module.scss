@@ -36,7 +36,12 @@
     }
 
     &__img{
-        width: inherit;
+        width: 100%;
+
+        min-height: 338px;
+        max-height: 338px;
+
+        object-fit: cover;
 
         border-radius: 20px;
     }

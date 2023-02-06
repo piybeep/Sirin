@@ -35,6 +35,12 @@
 
         width: 100%;
         max-width: 285px;
+        
+        max-height: 285px;
+        min-height: 285px;
+        
+        object-fit: cover;
+        object-position: top;
 
         border-radius: 50%;
     }

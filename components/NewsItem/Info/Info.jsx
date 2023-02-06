@@ -13,7 +13,7 @@ const Info = ({currentNews}) => {
                 <h2 className={s.info__title}>{currentNews?.title}</h2>
                 <p className={s.info__date}>{currentNews && format(new Date(currentNews?.createdAt), 'P', {locale: ru})}</p>
             </div>
-            <img className={s.info__img} src={process.env.NEXT_PUBLIC_STATIC_URL + currentNews.pre_images[0].filename} alt="картинка" />
+            <img className={s.info__img} src={process.env.NEXT_PUBLIC_STATIC_URL + currentNews?.pre_images[0]?.filename} alt="картинка" />
             <div className={s.info__list}>
                 <h2 className={s.info__text}>{currentNews?.text}</h2>
             </div>

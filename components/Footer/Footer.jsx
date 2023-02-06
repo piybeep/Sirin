@@ -14,14 +14,18 @@ import { useFetchContactQuery } from '../../src/contacts/contacts';
 
 const Footer = () => {
     const { data, error } = useFetchContactQuery()
+    let phones
 
-    let phones = data ? data.map(current => {
-        return (
-            <a key={current.id} className={s.footer__text} href={`tel: ${current.data}`}>{current.data}</a>
-        )
-    })
-        :
+    if (error) {
         console.error(error)
+    }
+    else {
+        phones = data && data.map(current => {
+            return (
+                current.type === 'phone' && <a key={current.id} className={s.footer__text} href={`tel: ${current.data}`}>{current.data}</a>
+            )
+        })
+    }
 
     const links = [
         {

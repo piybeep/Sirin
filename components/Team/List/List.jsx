@@ -12,7 +12,7 @@ const List = ({ data, text }) => {
     const resultData = data?.map(current => {
         return (
             <div key={current.id} className={s.item}>
-                <img className={s.item__img} src={img.src} />
+                <img className={s.item__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename} />
                 <div className={s.item__info}>
                     <h2 className={s.item__title}>{current.fullname}</h2>
                     <h3 className={s.item__subtitle}>{current.vacancy}</h3>
