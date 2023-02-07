@@ -50,7 +50,7 @@ export default function Home({ team, contacts, reviews, teamError, contactsError
       <About />
       <Advantages />
       <Rules />
-      <Video />
+      {/* <Video /> */}
       <Team team={team} error={teamError}/>
       <Reviews reviews={reviews} error={reviewsError}/>
       <Contact contacts={contacts} error={contactsError} />
