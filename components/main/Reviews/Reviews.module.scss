@@ -142,6 +142,8 @@
         border-radius: 50%;
 
         grid-area: img;
+
+        object-fit: cover;
     }
 
     &__name {
