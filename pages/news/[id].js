@@ -5,6 +5,7 @@ import { wrapper } from '../../src/store/store';
 import Info from '../../components/NewsItem/Info/Info';
 import Slider from '../../components/NewsItem/Slider/Slider';
 import AllNews from '../../components/NewsItem/AllNews/AllNews';
+import Head from 'next/head';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -50,6 +51,9 @@ const id = ({ currentNews, allNews, error }) => {
 
     return (
         <div>
+            <Head>
+            <meta property="og:title" content={currentNews.title} key="title" />
+            </Head>
             <Info currentNews={currentNews} />
             <Slider currentNews={currentNews}/>
             <AllNews allNews={allNews} />

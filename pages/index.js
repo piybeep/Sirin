@@ -20,6 +20,7 @@ import { wrapper } from '../src/store/store'
 import { fetchAllTeam, teamAPI } from '../src/team/teamService'
 import { contactsAPI, fetchContact } from '../src/contacts/contacts'
 import { getReviews, reviewsAPI } from '../src/reviews/reviews'
+import Head from 'next/head'
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -45,14 +46,17 @@ export const getServerSideProps = wrapper.getServerSideProps(
 export default function Home({ team, contacts, reviews, teamError, contactsError, reviewsError }) {
   return (
     <div className='component'>
+      <Head>
+        <meta property="og:title" content="Сирин - образцовый хореографический ансамбль" key="title" />
+      </Head>
       <Menu />
       <Preview />
       <About />
       <Advantages />
       <Rules />
       <Video />
-      <Team team={team} error={teamError}/>
-      <Reviews reviews={reviews} error={reviewsError}/>
+      <Team team={team} error={teamError} />
+      <Reviews reviews={reviews} error={reviewsError} />
       <Contact contacts={contacts} error={contactsError} />
     </div>
   )

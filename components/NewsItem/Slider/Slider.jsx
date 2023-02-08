@@ -45,7 +45,7 @@ const Slider = ({ currentNews }) => {
 
     const resultData = currentNews.images.map(current => {
         return (
-            <SwiperSlide key={current.id}>
+            <SwiperSlide key={current.filename}>
                 <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
             </SwiperSlide>
         )

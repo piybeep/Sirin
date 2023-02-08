@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import Error from '../components/Error/Error';
 import SecHeader from '../components/SecHeader/SecHeader';
@@ -11,6 +12,9 @@ export default function custom404() {
 custom404.getLayout = function getLayout(page) {
     return (
         <>
+            <Head>
+                <meta property="og:title" content="Страница не найдена" key="title" />
+            </Head>
             <SecHeader />
             {page}
         </>

@@ -6,6 +6,7 @@ import { fetchCurrentTeam, teamAPI } from '../../src/team/teamService';
 import Preview from '../../components/Educator/Preview/Preview';
 import Info from '../../components/Educator/Info/Info';
 import Slider from '../../components/Educator/Slider/Slider'
+import Head from 'next/head';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
@@ -33,6 +34,9 @@ const id = ({ person, error }) => {
 
     return (
         <>
+        <Head>
+        <meta property="og:title" content={`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`} key="title" />
+        </Head>
             <Preview
                 personInfo={person}
             />

@@ -5,6 +5,7 @@ import List from '../../components/Team/List/List'
 // for SSR
 import { fetchAllTeam, teamAPI } from '../../src/team/teamService'
 import { wrapper } from '../../src/store/store';
+import Head from 'next/head';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -31,6 +32,9 @@ const index = ({ data, error }) => {
     }
     return (
         <div>
+            <Head>
+            <meta property="og:title" content="Ансамбль Сирин - Наша команда" key="title" />
+            </Head>
             <Preview title='познакомьтесь' textOne='c' titleSpan='нашей' textTwo='командой' />
             <List text='узнать лучше' data={data} />
         </div>

@@ -5,6 +5,7 @@ import { wrapper } from '../../src/store/store';
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
+import Head from 'next/head';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
@@ -36,6 +37,9 @@ const news = ({ allNews, previewNews, error }) => {
     }
     return (
         <div>
+            <Head>
+            <meta property="og:title" content="Ансамбль Сирин - Новости" key="title" />
+            </Head>
             <Preview previewNews={previewNews.data[0]} />
             <List previewNews={previewNews.data[0]} news={allNews.data} />
             <Flags count={allNews.count} />
