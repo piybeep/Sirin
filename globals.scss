@@ -45,6 +45,19 @@ a {
   transition: .3s;
 }
 
+// swiper - dots
+.swiper-pagination{
+  bottom: 0px !important;
+}
+.swiper-pagination-bullet{
+  background-color: #fff !important;
+
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap,7px) !important;
+}
+
+// swiper - dots
+
+
 // Для ant design pagination\\
 .ant-pagination-next :hover, .ant-pagination-prev :hover{
   // border: 1px solid red;

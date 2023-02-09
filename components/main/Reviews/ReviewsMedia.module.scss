@@ -18,6 +18,10 @@
 
         &__wrapper {
             justify-content: center;
+
+            max-width: 800px;
+
+            margin: 0 auto;
         }
 
         &__slider {
@@ -28,6 +32,10 @@
 
     .item {
         padding: 30px 31px;
+    }
+
+    .swiper{
+        max-width: 800px;
     }
 }
 
@@ -66,7 +74,7 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
     .reviews {
         margin-top: 84px;
 

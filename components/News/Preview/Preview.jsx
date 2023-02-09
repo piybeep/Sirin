@@ -3,13 +3,15 @@ import { ru } from 'date-fns/locale';
 import Link from 'next/link';
 import React from 'react';
 
+import error from '../../../public/images/news/error/errorNewsBig.png'
+
 // Style
 import s from './Preview.module.scss'
 
 const Preview = ({previewNews}) => {
     return (
         <div className={s.preview}>
-            <img className={s.preview__img} src={process.env.NEXT_PUBLIC_STATIC_URL + previewNews?.pre_images[0]?.filename} alt="Картинка" />
+            <img className={s.preview__img} src={previewNews?.pre_images[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + previewNews.pre_images[0].filename : error.src} alt="Картинка" />
             <div className={s.preview__info}>
                 <h2 className={s.preview__date}>{format(new Date (previewNews?.createdAt), 'P', {locale: ru})}</h2>
                 <h2 className={s.preview__text}>{previewNews?.title}</h2>

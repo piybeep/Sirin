@@ -1,7 +1,7 @@
-.error{
+.error {
     display: flex;
-    flex-direction:column;
-    row-gap:20px;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .reviews {
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
 
-    &__none{
+    &__none {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -168,6 +168,11 @@
 
         color: #000000;
     }
+}
+
+.swiper {
+    max-width: 600px;
+    padding-bottom: 32px
 }
 
 @import './ReviewsMedia.module.scss';

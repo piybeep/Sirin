@@ -8,6 +8,8 @@ import s from './AllNews.module.scss'
 import { ru } from 'date-fns/locale';
 import { format } from 'date-fns';
 
+import error from '../../../public/images/news/error/errorNewsMini.png'
+
 const AllNews = ({ allNews }) => {
     const swiperRef = useRef()
 
@@ -22,7 +24,7 @@ const AllNews = ({ allNews }) => {
         return (
             <SwiperSlide className={s.allNews__slide} key={current.id}>
                 <Link href={`/news/${current.id}`}>
-                    <img className={s.allNews__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current?.pre_images[0]?.filename} alt="Картинка" />
+                    <img className={s.allNews__img} src={current?.pre_images[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.pre_images[0].filename : error.src} alt="Картинка" />
                     <p className={s.allNews__date}>{current && format(new Date(current.createdAt), 'P', { locale: ru })}</p>
                     <h2 className={s.allNews__text}>{current.title}</h2>
                 </Link>
@@ -64,7 +66,7 @@ const AllNews = ({ allNews }) => {
                     pagination={{
                         clickable: true,
                     }}
-                    loop={true}
+                    loop={allNews.data.length < 4 ? false : true}
                     className={s.allNews__swiper}
                 >
                     {resultData}

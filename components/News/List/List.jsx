@@ -3,6 +3,8 @@ import { ru } from 'date-fns/locale';
 import Link from 'next/link';
 import React from 'react';
 
+import error from '../../../public/images/news/error/errorNewsMini.png'
+
 // Style
 import s from './List.module.scss'
 
@@ -10,7 +12,7 @@ const List = ({ news, previewNews }) => {
     const resultData = news?.map(current => {
         return (
             <Link key={current.id} href={`/news/${current.id}`} className={s.item}>
-                <img className={s.item__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current?.pre_images[0]?.filename} alt="Картинка" />
+                <img className={s.item__img} src={current.pre_images[0].filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.pre_images[0].filename : error.src} alt="Картинка" />
                 <p className={s.item__date}>{format(new Date(current.createdAt), 'P', {locale: ru})}</p>
                 <h2 className={s.item__text}>{current.title}</h2>
             </Link>

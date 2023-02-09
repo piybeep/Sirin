@@ -3,6 +3,8 @@ import React from 'react';
 // img
 import person from '../../../public/images/educator/current.png'
 
+import error from '../../../public/images/team/error/errorTeamMini.png'
+
 // Style
 import s from './Info.module.scss'
 
@@ -13,7 +15,7 @@ const Info = ({ personInfo }) => {
         <div className={s.wrapper}>
             <div className={s.person}>
                 <div className={s.person__info}>
-                    <img className={s.person__img} src={process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename} alt='фотография' />
+                    <img className={s.person__img} src={personInfo?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename : error.src} alt='фотография' />
                     <h2 className={s.person__title}>{personInfo?.fullname}</h2>
                 </div>
                 <p className={s.person__text}>{personInfo?.vacancy}</p>
