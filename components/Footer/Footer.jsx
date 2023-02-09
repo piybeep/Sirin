@@ -13,6 +13,7 @@ import s from './Footer.module.scss'
 import { useFetchContactQuery } from '../../src/contacts/contacts';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear()
     const { data, error } = useFetchContactQuery()
     let phones
 
@@ -128,7 +129,10 @@ const Footer = () => {
                 </div>
                 <div className={s.footer__root}>
                     <span>
-                        © 2011-2022 Ансамбль Сирин. Все права защищены
+                        <p>
+                        Ансамбль «Сирин», © 2011—{currentYear}. 
+                        </p>
+                        Все права защищены
                     </span>
                     <a target='_blank' href="https://piybeep.com" className={s.footer__piybeep}>Сделано в студии <span className={s.footer__piybeep_span}>Piybeep</span></a>
                 </div>
