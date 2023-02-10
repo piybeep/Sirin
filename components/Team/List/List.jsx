@@ -1,14 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Пока хардкод картинка
-import img from '../../../public/images/team/image.png'
 // components
 import CustomButton from '../../CustomButton/CustomButton'
 // Style
 import s from './List.module.scss'
 
-import error from '../../../public/images/team/error/errorTeamMini.png'
+import error from '../../../public/images/team/errorTeamMini.png'
 
 const List = ({ data, text }) => {
     const resultData = data?.map(current => {

@@ -3,7 +3,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
-import error from '../../../public/images/news/error/errorNewsBig.png'
+import error from '../../../public/images/news/errorNewsBig.png'
 
 // Style
 import s from './Info.module.scss'

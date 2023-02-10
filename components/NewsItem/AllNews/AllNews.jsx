@@ -8,7 +8,7 @@ import s from './AllNews.module.scss'
 import { ru } from 'date-fns/locale';
 import { format } from 'date-fns';
 
-import error from '../../../public/images/news/error/errorNewsMini.png'
+import error from '../../../public/images/news/errorNewsMini.png'
 
 const AllNews = ({ allNews }) => {
     const swiperRef = useRef()
@@ -66,7 +66,7 @@ const AllNews = ({ allNews }) => {
                     pagination={{
                         clickable: true,
                     }}
-                    loop={allNews.data.length < 4 ? false : true}
+                    loop
                     className={s.allNews__swiper}
                 >
                     {resultData}

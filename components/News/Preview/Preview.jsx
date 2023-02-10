@@ -3,7 +3,7 @@ import { ru } from 'date-fns/locale';
 import Link from 'next/link';
 import React from 'react';
 
-import error from '../../../public/images/news/error/errorNewsBig.png'
+import error from '../../../public/images/news/errorNewsBig.png'
 
 // Style
 import s from './Preview.module.scss'

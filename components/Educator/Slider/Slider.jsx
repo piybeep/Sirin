@@ -3,9 +3,6 @@ import React, { useRef } from 'react';
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-// img
-import slide1 from '../../../public/images/educator/slider1.png'
-import slide2 from '../../../public/images/educator/slider2.png'
 // Style
 import s from './Slider.module.scss'
 // Component
