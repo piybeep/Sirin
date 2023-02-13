@@ -74,6 +74,12 @@
     }
 }
 
+@media screen and (max-width: 604px){
+    .item{
+        min-height: 420px !important;
+    }
+}
+
 @media screen and (max-width: 450px) {
     .reviews {
         margin-top: 84px;
@@ -133,6 +139,21 @@
             max-width: 90px;
 
             max-height: 88px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px){
+    .swiper {
+        padding-bottom: 32px;
+    }
+    
+    .pagination{
+        column-gap: 14px;
+
+        &__bullet{
+            width: 6px;
+            height: 6px;
         }
     }
 }

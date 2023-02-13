@@ -14,7 +14,10 @@ const Reviews = ({ reviews, error }) => {
 
     const pagination = {
         clickable: true,
-    };
+        horizontalClass: s.pagination,
+        bulletClass: s.pagination__bullet,
+        bulletActiveClass: s.pagination__bullet_active,
+    }
 
     const resultData = reviews && reviews[0]?.map(current => {
         return (
@@ -55,7 +58,7 @@ const Reviews = ({ reviews, error }) => {
                                     }}
                                     spaceBetween={30}
                                     loop={true}
-                                    pagination={pagination}
+                                    pagination={{...pagination}}
                                     modules={[Pagination]}
                                 >
                                     {resultData}

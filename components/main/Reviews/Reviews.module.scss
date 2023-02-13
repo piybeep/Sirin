@@ -172,7 +172,34 @@
 
 .swiper {
     max-width: 600px;
-    padding-bottom: 32px
+    padding-bottom: 30px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+
+    bottom: 0px !important;
+
+    &__bullet{
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+
+        background-color: #fff;
+
+        opacity: 0.5;
+
+        transition: .5s;
+
+        cursor: pointer;
+        
+        &_active{
+            opacity: 1;
+        }
+    }
 }
 
 @import './ReviewsMedia.module.scss';
