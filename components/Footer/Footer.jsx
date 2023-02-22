@@ -71,7 +71,7 @@ const Footer = () => {
         {
             id: 0,
             img: vk,
-            href: 'https://www.vk.com/'
+            href: 'https://vk.com/sirin.moscow'
         },
         {
             id: 1,
@@ -81,17 +81,17 @@ const Footer = () => {
         {
             id: 2,
             img: telegram,
-            href: 'https://web.telegram.org/z/'
+            href: 'https://t.me/we_are_sirin'
         },
         {
             id: 3,
             img: youtube,
-            href: 'https://youtube.com'
+            href: 'https://youtube.com/@Sirin_Moscow'
         },
         {
             id: 4,
             img: instagram,
-            href: 'https://instagram.ru'
+            href: 'https://instagram.com/we_are_sirin'
         },
     ]
 

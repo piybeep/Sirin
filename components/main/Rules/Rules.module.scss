@@ -15,8 +15,9 @@
         'title subtitle'
         'title button';
     column-gap: 30px;
+    row-gap: 40px;
 
-    align-items: center;
+    align-items: end;
 
     &__title {
         font-family: 'Montserrat';
