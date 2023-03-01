@@ -6,10 +6,8 @@ import error from '../../../public/images/team/errorTeamMini.png'
 import s from './Info.module.scss'
 
 const Info = ({ personInfo }) => {
-    const achievements = personInfo?.achievements?.split(';').filter(current => current != '')
+    const achievements = personInfo?.achievements?.split(';')
     const education = personInfo?.education?.split(';').filter(current => current != '')
-
-    console.log(achievements)
 
     return (
         <div className={s.wrapper}>
@@ -42,9 +40,7 @@ const Info = ({ personInfo }) => {
                         <h2 className={s.info__title}>ДОСТИЖЕНИЯ</h2>
                         <ul className={s.info__list}>
                             {
-                                achievements.length <= 1
-                                    ? <p className={s.info__text}>{achievements}</p>
-                                    : achievements?.map(current => { return <li key={current} className={s.info__li}>{current}</li> })
+                                    achievements?.map(current => { return <li key={current} className={s.info__li}>{current}</li> })
                             }
                         </ul>
                     </div>
