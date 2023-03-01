@@ -15,7 +15,10 @@ const Info = ({ personInfo }) => {
                     <img className={s.person__img} src={personInfo?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename : error.src} alt='фотография' />
                     <h2 className={s.person__title}>{personInfo?.fullname}</h2>
                 </div>
-                <p className={s.person__text}>{personInfo?.vacancy}</p>
+                <p className={s.person__text}>
+                    <span className={s.person__text}>{personInfo?.vacancy}</span>
+                    <span className={s.person__text}>{personInfo?.sub_vacancy}</span>
+                </p>
             </div>
 
             <div className={s.info}>

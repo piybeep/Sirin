@@ -13,7 +13,10 @@ const Preview = ({ personInfo }) => {
                         <>
                             < img className={s.preview__img} src={personInfo?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename : error.src} alt="" />
                             <h2 className={s.preview__title}>{personInfo.fullname}</h2>
-                            <p className={s.preview__text}>{personInfo.vacancy}</p>
+                            <p className={s.preview__text}>
+                                <span className={s.preview__text}>{personInfo.vacancy}</span>
+                                <span className={s.preview__text}>{personInfo.sub_vacancy}</span>
+                            </p>
                         </>
                         :
                         <h2>Загрузка...</h2>
