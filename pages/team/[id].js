@@ -34,16 +34,18 @@ const id = ({ person, error }) => {
 
     return (
         <>
-        <Head>
-        <meta property="og:title" content={`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`} key="title" />
-        </Head>
+            <Head>
+                {/* Пока тест */}
+                {/* <meta property="og:title" content={`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`} key="title" /> */}
+                <title>{`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`}</title>
+            </Head>
             <Preview
                 personInfo={person}
             />
             <Info
                 personInfo={person}
             />
-            <Slider images={person.images}/>
+            <Slider images={person.images} />
         </>
     );
 };

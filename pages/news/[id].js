@@ -28,7 +28,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         }
 
         if (allNews.data.count == Number(id) || allNews.data.count - 1 == Number(id) || allNews.data.count <= 12) {
-            store.dispatch(fetchAllNews.initiate({page: Math.floor(id / 12) === 0 ? 1 : Math.floor(id / 12) }))
+            store.dispatch(fetchAllNews.initiate({ page: Math.floor(id / 12) === 0 ? 1 : Math.floor(id / 12) }))
             const [otherNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
 
             return {
@@ -52,10 +52,12 @@ const id = ({ currentNews, allNews, error }) => {
     return (
         <div>
             <Head>
-            <meta property="og:title" content={currentNews.title} key="title" />
+                {/* Пока тест */}
+                {/* <meta property="og:title" content={currentNews.title} key="title" /> */}
+                <title>{currentNews.title}</title>
             </Head>
             <Info currentNews={currentNews} />
-            <Slider currentNews={currentNews}/>
+            <Slider currentNews={currentNews} />
             <AllNews allNews={allNews} />
         </div>
     );

@@ -13,7 +13,9 @@ custom404.getLayout = function getLayout(page) {
     return (
         <>
             <Head>
-                <meta property="og:title" content="Страница не найдена" key="title" />
+                {/* Пока тест */}
+                {/* <meta property="og:title" content="Страница не найдена" key="title" /> */}
+                <title>Страница не найдена</title>
             </Head>
             <SecHeader />
             {page}

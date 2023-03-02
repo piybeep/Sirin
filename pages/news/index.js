@@ -9,7 +9,7 @@ import Head from 'next/head';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
-        store.dispatch(fetchAllNews.initiate({page: context.query.page ?? 1}));
+        store.dispatch(fetchAllNews.initiate({ page: context.query.page ?? 1 }));
         store.dispatch(fetchPreviewNews.initiate())
 
         const [allNews, previewNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
@@ -38,7 +38,9 @@ const news = ({ allNews, previewNews, error }) => {
     return (
         <div>
             <Head>
-            <meta property="og:title" content="Ансамбль Сирин - Новости" key="title" />
+                {/* Пока тест */}
+                {/* <meta property="og:title" content="Ансамбль Сирин - Новости" key="title" /> */}
+                <title>Ансамбль Сирин - Новости</title>
             </Head>
             <Preview previewNews={previewNews.data[0]} />
             <List previewNews={previewNews.data[0]} news={allNews.data} />

@@ -47,7 +47,9 @@ export default function Home({ team, contacts, reviews, teamError, contactsError
   return (
     <div className='component'>
       <Head>
-        <meta property="og:title" content="Сирин - образцовый хореографический ансамбль" key="title" />
+        {/* Пока тест */}
+        {/* <meta property="og:title" content="Сирин - образцовый хореографический ансамбль" key="title" /> */}
+        <title>Сирин - образцовый хореографический ансамбль</title>
       </Head>
       <Menu />
       <Preview />

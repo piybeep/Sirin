@@ -33,7 +33,9 @@ const index = ({ data, error }) => {
     return (
         <div>
             <Head>
-            <meta property="og:title" content="Ансамбль Сирин - Наша команда" key="title" />
+                {/* Пока тест */}
+                {/* <meta property="og:title" content="Ансамбль Сирин - Наша команда" key="title" /> */}
+                <title>Ансамбль Сирин - Наша команда</title>
             </Head>
             <Preview title='познакомьтесь' textOne='c' titleSpan='нашей' textTwo='командой' />
             <List text='узнать лучше' data={data} />
