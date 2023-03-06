@@ -52,8 +52,6 @@ const id = ({ currentNews, allNews, error }) => {
     return (
         <div>
             <Head>
-                {/* Пока тест */}
-                {/* <meta property="og:title" content={currentNews.title} key="title" /> */}
                 <title>{currentNews.title}</title>
             </Head>
             <Info currentNews={currentNews} />

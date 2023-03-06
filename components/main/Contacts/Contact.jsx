@@ -27,7 +27,7 @@ const Contact = ({ contacts, error }) => {
                         </div>
 
                         <div className={[s.contact__item, s.contact__item_phone].join(' ')}>
-                            <h2 className={s.contact__title}>НОМЕР ДЛЯ СВЯЗИ</h2>
+                            <h2 className={s.contact__title}>НОМЕРА ДЛЯ СВЯЗИ</h2>
                             <div className={s.contact__subtitle}>
                                 {error ?
                                     console.error(error.status)

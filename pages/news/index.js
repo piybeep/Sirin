@@ -38,8 +38,6 @@ const news = ({ allNews, previewNews, error }) => {
     return (
         <div>
             <Head>
-                {/* Пока тест */}
-                {/* <meta property="og:title" content="Ансамбль Сирин - Новости" key="title" /> */}
                 <title>Ансамбль Сирин - Новости</title>
             </Head>
             <Preview previewNews={previewNews.data[0]} />

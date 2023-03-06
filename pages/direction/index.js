@@ -35,8 +35,6 @@ const direction = () => {
     return (
         <div>
             <Head>
-                {/* Пока тест */}
-                {/* <meta property="og:title" content="Ансамбль Сирин - Направления обучения" key="title" /> */}
                 <title>Ансамбль Сирин - Направления обучения</title>
             </Head>
             <Preview title='направления' titleSpan='обучения' />

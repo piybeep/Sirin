@@ -35,8 +35,6 @@ const id = ({ person, error }) => {
     return (
         <>
             <Head>
-                {/* Пока тест */}
-                {/* <meta property="og:title" content={`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`} key="title" /> */}
                 <title>{`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`}</title>
             </Head>
             <Preview
