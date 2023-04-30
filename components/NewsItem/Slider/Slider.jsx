@@ -1,42 +1,52 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-// img
-import img1 from '../../../public/images/news/slider/slider1.png'
-import img2 from '../../../public/images/news/slider/slider2.png'
 // Style
 import s from './Slider.module.scss'
 
-const Slider = () => {
+const Slider = ({ currentNews }) => {
+
+    if (currentNews.images.length <= 0) {
+        return (
+            <div className={s.slider}>
+            </div>
+        )
+    }
 
     const swiperRef = useRef()
 
-    const data = [
-        {
-            id: 0,
-            img: img1
-        },
-        {
-            id: 1,
-            img: img2
-        },
-        {
-            id: 2,
-            img: img1
-        },
-        {
-            id: 3,
-            img: img2
-        }
-    ]
+    // Для отступа у слайдера
+    const [windowWidth, setWindowWidth] = useState(0)
 
-    const resultData = data.map(current => {
+    const windowScreen = () => {
+        if (window.screen.width < 1920 && window.screen.width > 1420) {
+            setWindowWidth(30)
+        }
+        else if (window.screen.width < 1420 && window.screen.width > 1024) {
+            setWindowWidth(23)
+        }
+        else if (window.screen.width < 1024 && window.screen.width > 768) {
+            setWindowWidth(15)
+        }
+        else if (window.screen.width < 768 && window.screen.width > 420) {
+            setWindowWidth(17)
+        }
+        else {
+            setWindowWidth(13)
+        }
+    }
+
+    useEffect(() => {
+        windowScreen()
+    }, [])
+
+    const resultData = currentNews.images.map(current => {
         return (
-            <SwiperSlide key={current.id}>
-                <img className={s.slider__img} src={current.img.src} alt="Картинка" />
+            <SwiperSlide key={current.filename}>
+                <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
             </SwiperSlide>
         )
     })
@@ -53,7 +63,7 @@ const Slider = () => {
                     swiperRef.current = swiper
                 }}
                 slidesPerView={2}
-                spaceBetween={30}
+                spaceBetween={windowWidth}
                 pagination={{
                     clickable: true,
                 }}

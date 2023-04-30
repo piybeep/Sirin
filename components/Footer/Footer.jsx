@@ -13,19 +13,20 @@ import s from './Footer.module.scss'
 import { useFetchContactQuery } from '../../src/contacts/contacts';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear()
     const { data, error } = useFetchContactQuery()
+    let phones
 
-    let phones = data ? data.map(current => {
-        return (
-            <a key={current.id} className={s.footer__text} href={`tel: ${current.data}`}>{current.data}</a>
-        )
-    })
-        :
-        <div className={s.error}>
-            <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
-            <p>{error && error.status}</p>
-            <p>{error && error.error}</p>
-        </div>
+    if (error) {
+        console.error(error)
+    }
+    else {
+        phones = data && data.map(current => {
+            return (
+                current.type === 'phone' && <a key={current.id} className={s.footer__text} href={`tel: ${current.data}`}>{current.data}</a>
+            )
+        })
+    }
 
     const links = [
         {
@@ -70,7 +71,7 @@ const Footer = () => {
         {
             id: 0,
             img: vk,
-            href: 'https://www.vk.com/'
+            href: 'https://vk.com/sirin.moscow'
         },
         {
             id: 1,
@@ -80,17 +81,17 @@ const Footer = () => {
         {
             id: 2,
             img: telegram,
-            href: 'https://web.telegram.org/z/'
+            href: 'https://t.me/we_are_sirin'
         },
         {
             id: 3,
             img: youtube,
-            href: 'https://youtube.com'
+            href: 'https://youtube.com/@Sirin_Moscow'
         },
         {
             id: 4,
             img: instagram,
-            href: 'https://instagram.ru'
+            href: 'https://instagram.com/we_are_sirin'
         },
     ]
 
@@ -128,7 +129,10 @@ const Footer = () => {
                 </div>
                 <div className={s.footer__root}>
                     <span>
-                        © 2011-2022 Ансамбль Сирин. Все права защищены
+                        <p>
+                        Ансамбль «Сирин», © 2011—{currentYear}. 
+                        </p>
+                        Все права защищены
                     </span>
                     <a target='_blank' href="https://piybeep.com" className={s.footer__piybeep}>Сделано в студии <span className={s.footer__piybeep_span}>Piybeep</span></a>
                 </div>

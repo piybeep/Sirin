@@ -1,28 +1,35 @@
 import React from 'react';
 
-// img
-import person from '../../../public/images/educator/current.png'
+import error from '../../../public/images/team/errorTeamMini.png'
 
 // Style
 import s from './Info.module.scss'
 
 const Info = ({ personInfo }) => {
     const achievements = personInfo?.achievements?.split(';')
+    const education = personInfo?.education?.split(';').filter(current => current != '')
 
     return (
         <div className={s.wrapper}>
             <div className={s.person}>
                 <div className={s.person__info}>
-                    <img className={s.person__img} src={person.src} alt='фотография' />
+                    <img className={s.person__img} src={personInfo?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + personInfo.photo[0].filename : error.src} alt='фотография' />
                     <h2 className={s.person__title}>{personInfo?.fullname}</h2>
                 </div>
-                <p className={s.person__text}>{personInfo?.vacancy}</p>
+                <p className={s.person__text}>
+                    <span className={s.person__text}>{personInfo?.vacancy}</span>
+                    <span className={s.person__text}>{personInfo?.sub_vacancy}</span>
+                </p>
             </div>
 
             <div className={s.info}>
                 <div className={s.info__item}>
                     <h2 className={s.info__title}>ОБРАЗОВАНИЕ</h2>
-                    <p className={s.info__text}>{personInfo?.education}</p>
+                    {
+                        education.length <= 1
+                            ? <p className={s.info__text}>{education}</p>
+                            : education.map(current => { return <li key={current} className={s.info__li}>{current}</li> })
+                    }
                 </div>
                 <div className={s.info__item}>
                     <h2 className={s.info__title}>СТАЖ РАБОТЫ</h2>
@@ -32,16 +39,14 @@ const Info = ({ personInfo }) => {
                     <div className={s.info__item}>
                         <h2 className={s.info__title}>ДОСТИЖЕНИЯ</h2>
                         <ul className={s.info__list}>
-                            {achievements?.map(current => {
-                                return (
-                                    <li key={current} className={s.info__li}>{current}</li>
-                                )
-                            })}
+                            {
+                                    achievements?.map(current => { return <li key={current} className={s.info__li}>{current}</li> })
+                            }
                         </ul>
                     </div>
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

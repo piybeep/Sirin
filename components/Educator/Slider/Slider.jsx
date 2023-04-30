@@ -3,46 +3,24 @@ import React, { useRef } from 'react';
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-// img
-import slide1 from '../../../public/images/educator/slider1.png'
-import slide2 from '../../../public/images/educator/slider2.png'
 // Style
 import s from './Slider.module.scss'
 // Component
 import CustomButton from '../../CustomButton/CustomButton'
 
-const Slider = () => {
-
+const Slider = ({images}) => {
     const swiperRef = useRef()
+    if (images.length <= 0){
+        return <></>
+    }
 
-    const data = [
-        {
-            id: 0,
-            img: slide1
-        },
-        {
-            id: 1,
-            img: slide2
-        },
-        {
-            id: 2,
-            img: slide1
-        },
-        {
-            id: 3,
-            img: slide2
-        }
-    ]
-
-    const resultData = data.map(current => {
+    const resultData = images && images.map(current => {
         return (
             <SwiperSlide key={current.id}>
-                <img className={s.slider__img} src={current.img.src} alt="Картинка" />
+                <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
             </SwiperSlide>
         )
     })
-
-    // window.screen.width > 1420 ? 30 : window.screen.width > 768 ? 20 : 15
 
     return (
         <div className={s.slider}>

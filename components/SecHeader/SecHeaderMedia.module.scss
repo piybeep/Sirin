@@ -6,7 +6,7 @@
         }
 
         &__nav{
-            max-width: 599px;
+            max-width: 640px;
         }
     }
 }
@@ -18,7 +18,6 @@
             row-gap: 16px;
         }
 
-        // padding: 13px 0px;
         padding-top: 13px;
     }
 }
@@ -32,15 +31,25 @@
     }
 }
 
-@media screen and (max-width: 570px){
+@media screen and (max-width: 650px){
+    .SecHeader{
+
+        &__nav{
+            overflow-x: auto;
+            
+            padding-bottom: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
     .SecHeader{
 
         &__nav{
             column-gap: 14px;
 
-            overflow-x: auto;
-            
-            padding-bottom: 14px;
+            padding-left: 16px;
+            padding-right: 16px;
         }
     }
 }

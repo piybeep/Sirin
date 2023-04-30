@@ -8,14 +8,16 @@
 
     min-width: 320px;
     width: 100%;
-    max-width: 1230px;
+    max-width: 1278px;
 
     display: grid;
     grid-template-areas:
         'title subtitle'
         'title button';
+    column-gap: 30px;
+    row-gap: 40px;
 
-    align-items: center;
+    align-items: end;
 
     &__title {
         font-family: 'Montserrat';

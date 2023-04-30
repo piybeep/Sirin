@@ -5,7 +5,7 @@ import { wrapper } from '../../src/store/store';
 import Info from '../../components/NewsItem/Info/Info';
 import Slider from '../../components/NewsItem/Slider/Slider';
 import AllNews from '../../components/NewsItem/AllNews/AllNews';
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
+import Head from 'next/head';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -27,15 +27,14 @@ export const getServerSideProps = wrapper.getServerSideProps(
             }
         }
 
-        if (allNews.data.count == Number(id) || allNews.data.count - 1 == Number(id)) {
-            store.dispatch(fetchAllNews.initiate({ page: 1 }))
+        if (allNews.data.count == Number(id) || allNews.data.count - 1 == Number(id) || allNews.data.count <= 12) {
+            store.dispatch(fetchAllNews.initiate({ page: Math.floor(id / 12) === 0 ? 1 : Math.floor(id / 12) }))
             const [otherNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
 
             return {
                 props: { currentNews: currentNews.data, id: context.params.id, allNews: otherNews.data }
             }
         }
-
 
         return {
             props: { currentNews: currentNews.data, id: context.params.id, allNews: allNews.data }
@@ -46,13 +45,17 @@ export const getServerSideProps = wrapper.getServerSideProps(
 const id = ({ currentNews, allNews, error }) => {
 
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<>  </>)
     }
 
     return (
         <div>
+            <Head>
+                <title>{currentNews.title}</title>
+            </Head>
             <Info currentNews={currentNews} />
-            <Slider />
+            <Slider currentNews={currentNews} />
             <AllNews allNews={allNews} />
         </div>
     );

@@ -1,4 +1,4 @@
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1600px) {
     .team {
 
         margin-top: 110px;
@@ -6,18 +6,12 @@
         &__header {
             display: flex;
             flex-direction: column;
+            align-items: unset;
         }
 
         &__list {
             gap: 23px;
         }
-    }
-}
-
-
-@media screen and (max-width: 1300px) {
-    .team {
-        padding: 0px 24px;
     }
 }
 
@@ -72,10 +66,8 @@
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
     .team {
-        padding: 0px 16px;
-
         &__list {
             justify-content: center;
         }
@@ -84,7 +76,7 @@
     .teachers {
         min-height: unset;
 
-        max-width: 184px;
+        max-width: 200px;
         height: 284px;
 
         &__name {
@@ -98,7 +90,7 @@
     }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 600px) {
     .team {
 
         &__header {
@@ -125,13 +117,17 @@
     .team {
         margin-top: 84px;
 
-        &__list{
+        &__info {
+            padding: 0px 16px;
+        }
+
+        &__list {
             margin-bottom: 84px;
         }
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
     .teachers {
 
         max-width: 136px;

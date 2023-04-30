@@ -45,7 +45,8 @@
         width: 100%;
 
         display: flex;
-        justify-content: space-between;
+
+        column-gap: 47px;
     }
 
     &__link {

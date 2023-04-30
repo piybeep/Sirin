@@ -126,10 +126,10 @@ const Preview = () => {
                     showStatus={false}
                     // Убрать вывод фоток слева снизу
                     showThumbs={false}
-                    // Автоматическое прокручивание раз в 2.5с
-                    autoPlay={true} interval={2500}
+                    // Автоматическое прокручивание раз в 5с
+                    autoPlay={true} interval={5000}
                     // Время на прокрутку в 1с
-                    transitionTime={1000}>
+                    transitionTime={500}>
                     {resultImg}
                 </Carousel>
             </div>

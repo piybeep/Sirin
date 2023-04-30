@@ -1,18 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Пока хардкод картинка
-import img from '../../../public/images/team/image.png'
 // components
 import CustomButton from '../../CustomButton/CustomButton'
 // Style
 import s from './List.module.scss'
 
+import error from '../../../public/images/team/errorTeamMini.png'
+
 const List = ({ data, text }) => {
     const resultData = data?.map(current => {
         return (
             <div key={current.id} className={s.item}>
-                <img className={s.item__img} src={img.src} />
+                <img className={s.item__img} src={current?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename : error.src} />
                 <div className={s.item__info}>
                     <h2 className={s.item__title}>{current.fullname}</h2>
                     <h3 className={s.item__subtitle}>{current.vacancy}</h3>

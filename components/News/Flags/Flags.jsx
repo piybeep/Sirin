@@ -18,8 +18,10 @@ const Flags = ({count}) => {
         <div className={s.wrapper}>
             <Pagination
                 total={count}
+                className={s.wrapper__pagination}
                 pageSize={12}
                 showSizeChanger={false}
+                showTitle={false}
                 responsive={true}
                 defaultCurrent={router.query.page}
                 onChange={(numberPage) => handleChangePagination(numberPage)}

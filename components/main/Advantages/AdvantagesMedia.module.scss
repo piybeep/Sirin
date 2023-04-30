@@ -1,8 +1,19 @@
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1600px) {
     .item {
 
         &__img {
             max-width: 198px;
+        }
+    }
+}
+
+@media screen and (max-width: 1600px){
+    .advantages{
+
+        &__list{
+            column-gap: 100px;
+
+            justify-content: center;
         }
     }
 }
@@ -40,6 +51,10 @@
     .advantages{
         padding-top: 60px;
         padding-bottom: 60px;
+
+        &__info{
+            row-gap: 80px;
+        }
     }
 }
 
@@ -84,6 +99,13 @@
     .advantages{
         padding-top: 48px;
         padding-bottom: 48px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+        &__info{
+            row-gap: 48px;
+        }
     }
 }
 

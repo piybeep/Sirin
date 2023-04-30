@@ -1,40 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-// slick
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
-
+import "swiper/css";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 // img
-import img from '../../../public/images/main/reviews/elena.png'
+import img from '../../../public/images/main/reviews/noneImg.png'
 // Style
 import s from './Reviews.module.scss'
 
 const Reviews = ({ reviews, error }) => {
-    // Настройки слайдера
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false
-    };
+    const swiperRef = useRef()
+
+    const pagination = {
+        clickable: true,
+        horizontalClass: s.pagination,
+        bulletClass: s.pagination__bullet,
+        bulletActiveClass: s.pagination__bullet_active,
+    }
 
     const resultData = reviews && reviews[0]?.map(current => {
         return (
-            <div key={current.text} className={s.item}>
-                <p className={s.item__text}>{current.text}</p>
-                <div className={s.item__info}>
-                    <img className={s.item__img} src={img.src} alt="" />
-                    <h2 className={s.item__name}>{current.fullname}</h2>
-                    <p className={s.item__post}>{current.vacancy}</p>
+            <SwiperSlide key={current.id} className={s.swiper__slide}>
+                <div className={s.item}>
+                    <p className={s.item__text}>{current.text}</p>
+                    <div className={s.item__info}>
+                        <img className={s.item__img} src={current?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename : img.src} alt='Картинка' />
+                        <h2 className={s.item__name}>{current.fullname}</h2>
+                        <p className={s.item__post}>{current.vacancy}</p>
+                    </div>
                 </div>
-            </div>
+            </SwiperSlide>
         )
     })
-
-    const sliderRef = React.createRef()
 
     return (
         <div className={s.reviews}>
@@ -42,15 +40,11 @@ const Reviews = ({ reviews, error }) => {
                 <h2 className={s.reviews__title}>о нас <span className={s.reviews__title_span}>говорят</span></h2>
                 {
                     error ?
-                        <div className={s.error}>
-                            <h2>Произошла ошибка на сервере, свяжитесь с нами и мы её решим</h2>
-                            <h2>{error.status}</h2>
-                            <h2>{error.error}</h2>
-                        </div>
+                        console.error(error.status)
                         :
                         reviews[0].length > 0 ?
                             <div className={s.reviews__wrapper}>
-                                <button onClick={() => sliderRef.current.slickPrev()} className={s.reviews__button}>
+                                <button onClick={() => swiperRef.current.slidePrev()} className={s.reviews__button}>
                                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="path-1-inside-1_1_118" fill="white">
                                             <path d="M0 17.021L17.0208 0.000160876L34.6985 17.6778L17.6777 34.6987L0 17.021Z" />
@@ -58,10 +52,18 @@ const Reviews = ({ reviews, error }) => {
                                         <path d="M0 17.021L-2.12132 14.8997L-4.24264 17.021L-2.12132 19.1423L0 17.021ZM2.12132 19.1423L19.1422 2.12148L14.8995 -2.12116L-2.12132 14.8997L2.12132 19.1423ZM19.799 32.5773L2.12132 14.8997L-2.12132 19.1423L15.5563 36.82L19.799 32.5773Z" fill="white" mask="url(#path-1-inside-1_1_118)" />
                                     </svg>
                                 </button>
-                                <Slider ref={sliderRef} className={s.reviews__slider} {...settings}>
+                                <Swiper className={s.swiper}
+                                    onSwiper={(swiper) => {
+                                        swiperRef.current = swiper
+                                    }}
+                                    spaceBetween={30}
+                                    loop={true}
+                                    pagination={{...pagination}}
+                                    modules={[Pagination]}
+                                >
                                     {resultData}
-                                </Slider>
-                                <button onClick={() => sliderRef.current.slickNext()} className={s.reviews__button}>
+                                </Swiper>
+                                <button onClick={() => swiperRef.current.slideNext()} className={s.reviews__button}>
                                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="path-1-inside-1_1_119" fill="white">
                                             <path d="M34.6992 17.6777L17.6784 34.6986L0.000714305 17.0209L17.0215 6.51479e-05L34.6992 17.6777Z" />

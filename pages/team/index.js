@@ -5,7 +5,7 @@ import List from '../../components/Team/List/List'
 // for SSR
 import { fetchAllTeam, teamAPI } from '../../src/team/teamService'
 import { wrapper } from '../../src/store/store';
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
+import Head from 'next/head';
 
 // SSR
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -27,10 +27,14 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 const index = ({ data, error }) => {
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<></>)
     }
     return (
         <div>
+            <Head>
+                <title>Ансамбль Сирин - Наша команда</title>
+            </Head>
             <Preview title='познакомьтесь' textOne='c' titleSpan='нашей' textTwo='командой' />
             <List text='узнать лучше' data={data} />
         </div>

@@ -1,7 +1,7 @@
-.error{
+.error {
     display: flex;
-    flex-direction:column;
-    row-gap:20px;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .reviews {
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
 
-    &__none{
+    &__none {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -29,7 +29,7 @@
 
     &__info {
         width: 100%;
-        max-width: 1280px;
+        max-width: 1278px;
 
         display: flex;
     }
@@ -142,6 +142,8 @@
         border-radius: 50%;
 
         grid-area: img;
+
+        object-fit: cover;
     }
 
     &__name {
@@ -165,6 +167,38 @@
         line-height: 22px;
 
         color: #000000;
+    }
+}
+
+.swiper {
+    max-width: 600px;
+    padding-bottom: 30px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+
+    bottom: 0px !important;
+
+    &__bullet{
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+
+        background-color: #fff;
+
+        opacity: 0.5;
+
+        transition: .5s;
+
+        cursor: pointer;
+        
+        &_active{
+            opacity: 1;
+        }
     }
 }
 

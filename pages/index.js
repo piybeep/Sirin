@@ -20,6 +20,7 @@ import { wrapper } from "../src/store/store";
 import { fetchAllTeam, teamAPI } from "../src/team/teamService";
 import { contactsAPI, fetchContact } from "../src/contacts/contacts";
 import { getReviews, reviewsAPI } from "../src/reviews/reviews";
+import Head from "next/head";
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -62,6 +63,9 @@ export default function Home({
 }) {
 	return (
 		<div className="component">
+			<Head>
+				<title>Сирин - образцовый хореографический ансамбль</title>
+			</Head>
 			<Menu />
 			<Preview />
 			<About />

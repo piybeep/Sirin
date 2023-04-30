@@ -6,7 +6,7 @@ import { fetchCurrentTeam, teamAPI } from '../../src/team/teamService';
 import Preview from '../../components/Educator/Preview/Preview';
 import Info from '../../components/Educator/Info/Info';
 import Slider from '../../components/Educator/Slider/Slider'
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
+import Head from 'next/head';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
@@ -28,18 +28,22 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 const id = ({ person, error }) => {
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<></>)
     }
 
     return (
         <>
+            <Head>
+                <title>{`Ансамбль Сирин - ${person.vacancy} - ${person.fullname}`}</title>
+            </Head>
             <Preview
                 personInfo={person}
             />
             <Info
                 personInfo={person}
             />
-            <Slider />
+            <Slider images={person.images} />
         </>
     );
 };

@@ -89,7 +89,12 @@
         width: 100%;
         max-width: 284px;
 
-        object-fit: contain;
+        min-height: 200px;
+        max-height: 200px;
+
+        object-fit: cover;
+
+        border-radius: 20px;
     }
 
     &__date {

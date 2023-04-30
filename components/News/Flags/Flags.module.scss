@@ -10,45 +10,4 @@
     justify-content: flex-end;
 }
 
-.flags {
-    display: flex;
-    align-items: center;
-    column-gap: 12px;
-
-    &__button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 20px;
-        height: 20px;
-
-        cursor: pointer;
-
-        border: none;
-        background-color: transparent;
-
-        transition: .3s;
-
-        &:hover {
-            opacity: 0.5;
-        }
-    }
-
-    &__number {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-
-        color: #000000;
-
-        width: 20px;
-        text-align: center;
-
-        cursor: pointer;
-    }
-}
-
 @import './FlagsMedia.module.scss';

@@ -5,11 +5,11 @@ import { wrapper } from '../../src/store/store';
 import Preview from '../../components/News/Preview/Preview';
 import List from '../../components/News/List/List';
 import Flags from '../../components/News/Flags/Flags';
-import ErrorServer from '../../components/ErrorServer/ErrorServer';
+import Head from 'next/head';
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
-        store.dispatch(fetchAllNews.initiate({page: context.query.page ?? 1}));
+        store.dispatch(fetchAllNews.initiate({ page: context.query.page ?? 1 }));
         store.dispatch(fetchPreviewNews.initiate())
 
         const [allNews, previewNews] = await Promise.all(store.dispatch(newsAPI.util.getRunningQueriesThunk()));
@@ -32,12 +32,16 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
 const news = ({ allNews, previewNews, error }) => {
     if (error) {
-        return (<ErrorServer statusError={error.status} textError={error.error} />)
+        console.error(error)
+        return (<>  </>)
     }
     return (
         <div>
+            <Head>
+                <title>Ансамбль Сирин - Новости</title>
+            </Head>
             <Preview previewNews={previewNews.data[0]} />
-            <List news={allNews.data} />
+            <List previewNews={previewNews.data[0]} news={allNews.data} />
             <Flags count={allNews.count} />
         </div>
     );

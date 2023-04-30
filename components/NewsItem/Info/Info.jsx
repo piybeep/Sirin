@@ -3,8 +3,8 @@ import React from 'react';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
-// img
-import img from '../../../public/images/news/newsInfo.png'
+import error from '../../../public/images/news/errorNewsBig.png'
+
 // Style
 import s from './Info.module.scss'
 
@@ -15,7 +15,7 @@ const Info = ({currentNews}) => {
                 <h2 className={s.info__title}>{currentNews?.title}</h2>
                 <p className={s.info__date}>{currentNews && format(new Date(currentNews?.createdAt), 'P', {locale: ru})}</p>
             </div>
-            <img className={s.info__img} src={img.src} alt="картинка" />
+            <img className={s.info__img} src={currentNews?.pre_images[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + currentNews.pre_images[0].filename : error.src} alt="картинка" />
             <div className={s.info__list}>
                 <h2 className={s.info__text}>{currentNews?.text}</h2>
             </div>

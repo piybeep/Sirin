@@ -36,7 +36,12 @@
     &__img {
         grid-area: img;
 
+        width: 100%;
         max-width: 240px;
+        height: 270px;
+
+        object-fit: cover;
+        object-position: top;
 
         border-radius: 20px;
     }

@@ -1,4 +1,4 @@
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
     .reviews {
 
         padding-left: 24px;
@@ -18,6 +18,10 @@
 
         &__wrapper {
             justify-content: center;
+
+            max-width: 800px;
+
+            margin: 0 auto;
         }
 
         &__slider {
@@ -28,6 +32,10 @@
 
     .item {
         padding: 30px 31px;
+    }
+
+    .swiper{
+        max-width: 800px;
     }
 }
 
@@ -66,7 +74,13 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 604px){
+    .item{
+        min-height: 420px !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
     .reviews {
         margin-top: 84px;
 
@@ -125,6 +139,21 @@
             max-width: 90px;
 
             max-height: 88px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px){
+    .swiper {
+        padding-bottom: 32px;
+    }
+    
+    .pagination{
+        column-gap: 14px;
+
+        &__bullet{
+            width: 6px;
+            height: 6px;
         }
     }
 }

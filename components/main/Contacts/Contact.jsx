@@ -7,11 +7,8 @@ import Header from './Header/Header';
 import s from './Contact.module.scss'
 
 const Contact = ({ contacts, error }) => {
-    let email = 'ef.sirin@mail.ru'
-
-    const phones = contacts && contacts?.map(current => {
-        return <a key={current.id} href={`tel: ${current.data}`} className={s.contact__text}>{current.data}</a>
-    })
+    const phones = contacts && contacts?.filter(current => current.type === 'phone')
+    const email = contacts && contacts?.filter(current => current.type === 'email')
 
     return (
         <div className={s.contact}>
@@ -30,17 +27,15 @@ const Contact = ({ contacts, error }) => {
                         </div>
 
                         <div className={[s.contact__item, s.contact__item_phone].join(' ')}>
-                            <h2 className={s.contact__title}>НОМЕР ДЛЯ СВЯЗИ</h2>
+                            <h2 className={s.contact__title}>НОМЕРА ДЛЯ СВЯЗИ</h2>
                             <div className={s.contact__subtitle}>
                                 {error ?
-                                    <div>
-                                        <h2>Произошла ошибка, свяжитесь с нами и мы её решим</h2>
-                                        <p>{error.status}</p>
-                                        <p>{error.error}</p>
-                                    </div>
+                                    console.error(error.status)
                                     :
                                     <>
-                                        {phones}
+                                        {phones.map(current => {
+                                            return <a key={current.id} href={`tel: ${current.data}`} className={s.contact__text}>{current.data}</a>
+                                        })}
                                     </>
                                 }
                             </div>
@@ -49,7 +44,15 @@ const Contact = ({ contacts, error }) => {
                         <div className={[s.contact__item, s.contact__item_email].join(' ')}>
                             <h2 className={s.contact__title}>ЭЛЕКТРОННЫЙ АДРЕC</h2>
                             <div className={s.contact__subtitle}>
-                                <a href={`mailto: ${email}`} className={[s.contact__text, s.contact__text_email].join(' ')}>{email}</a>
+                                {error ?
+                                    console.error(error.status)
+                                    :
+                                    <>
+                                        {email.map(current => {
+                                            return <a key={current.id} href={`mailto: ${current.data}`} className={[s.contact__text, s.contact__text_email].join(' ')}>{current.data}</a>
+                                        })}
+                                    </>
+                                }
                             </div>
                         </div>
                     </div>
