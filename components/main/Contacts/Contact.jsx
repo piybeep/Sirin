@@ -57,7 +57,7 @@ const Contact = ({ contacts, error }) => {
                         </div>
                     </div>
                     <div className={s.contact__map}>
-                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4b8024d849e5a7252a08035c6da79236144fd9d5a90ae7ee7190e2468c315fe5&amp;source=constructor" width="100%" height="100%" frameBorder="0"></iframe>
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A728d506d6c745f25c8cff26a9acd19d836b64dd7de09faeb997d905986ada744&amp;source=constructor" width="100%" height="100%" frameBorder="0"></iframe>
                     </div>
                 </div>
             </div>

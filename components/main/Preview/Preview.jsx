@@ -35,7 +35,7 @@ const Preview = () => {
         {
             id: 4,
             text: 'Контакты',
-            link: '/#contacts'
+            link: '/contacts'
         },
         {
             id: 5,

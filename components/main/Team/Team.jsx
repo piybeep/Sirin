@@ -12,14 +12,12 @@ import s from './Team.module.scss'
 const Team = ({ team, error }) => {
     const teachers = team && team?.slice(0, 6)
 
-    console.log(team)
-    console.log(teachers)
-
     const resultTeachers = teachers && teachers?.map((current, index) => {
+        let removePatronymic = (current.fullname).split(' ').slice(0, 2).join(' ')
         return (
             <Link href={`/team/${current.id}`} key={current.id} className={[s.teachers, index === 0 ? s.teachers_first : '', index === 5 ? s.teachers_last : ''].join(' ')}>
                 <img className={s.teachers__img} src={current?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename : errorImg.src} alt="" />
-                <h2 className={s.teachers__name}>{current.fullname}</h2>
+                <h2 className={s.teachers__name}>{removePatronymic}</h2>
             </Link>
         )
     })

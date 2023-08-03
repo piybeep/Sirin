@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 // Style
@@ -25,7 +24,7 @@ const Menu = () => {
         {
             id: 3,
             text: 'Контакты',
-            link: '/#contacts'
+            link: '/contacts'
         },
         {
             id: 4,

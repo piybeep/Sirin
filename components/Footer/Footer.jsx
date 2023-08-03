@@ -47,12 +47,12 @@ const Footer = () => {
         {
             id: 3,
             text: 'Расписание',
-            link: '/timing'
+            href: '/timing'
         },
         {
             id: 4,
             text: 'Контакты',
-            link: '/#contacts'
+            href: '/contacts'
         },
         {
             id: 5,
