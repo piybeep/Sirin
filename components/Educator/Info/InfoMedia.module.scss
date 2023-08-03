@@ -1,5 +1,5 @@
-@media screen and (max-width: 1420px){
-    .wrapper{
+@media screen and (max-width: 1420px) {
+    .wrapper {
         max-width: 996px;
     }
 }
@@ -11,6 +11,10 @@
 
         padding: 0px 24px;
         padding-left: 44px;
+    }
+
+    .info {
+        padding: unset;
     }
 }
 
@@ -58,16 +62,16 @@
     }
 }
 
-@media screen and (max-width: 420px){
-    .wrapper{
+@media screen and (max-width: 420px) {
+    .wrapper {
         margin-top: 16px;
     }
 }
 
-@media screen and (max-width: 340px){
-    .person{
+@media screen and (max-width: 340px) {
+    .person {
 
-        &__img{
+        &__img {
             max-width: 88px;
             max-height: 88px;
             min-height: 88px;

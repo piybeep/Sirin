@@ -29,6 +29,11 @@ const Menu = () => {
         },
         {
             id: 4,
+            text: 'Расписание',
+            link: '/timing'
+        },
+        {
+            id: 5,
             text: 'О нас',
             link: '/#about'
         },

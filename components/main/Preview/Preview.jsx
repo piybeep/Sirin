@@ -29,11 +29,16 @@ const Preview = () => {
         },
         {
             id: 3,
+            text: 'Расписание',
+            link: '/timing'
+        },
+        {
+            id: 4,
             text: 'Контакты',
             link: '/#contacts'
         },
         {
-            id: 4,
+            id: 5,
             text: 'О нас',
             link: '/#about'
         },

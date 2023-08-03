@@ -27,9 +27,10 @@
 
     cursor: default;
 
-    &__info{
+    &__info {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         row-gap: 29px;
     }
 
@@ -38,7 +39,9 @@
 
         width: 100%;
         max-width: 240px;
-        height: 270px;
+
+        height: auto;
+        max-height: 300px;
 
         object-fit: cover;
         object-position: top;

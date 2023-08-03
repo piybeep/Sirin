@@ -46,16 +46,21 @@ const Footer = () => {
         },
         {
             id: 3,
-            text: 'контакты',
-            href: '/#contacts'
+            text: 'Расписание',
+            link: '/timing'
         },
         {
             id: 4,
-            text: 'НОВОСТИ',
-            href: '/news'
+            text: 'Контакты',
+            link: '/#contacts'
         },
         {
             id: 5,
+            text: 'О нас',
+            link: '/#about'
+        },
+        {
+            id: 6,
             text: 'Устав Сирин',
             href: '/info'
         }
@@ -130,7 +135,7 @@ const Footer = () => {
                 <div className={s.footer__root}>
                     <span>
                         <p>
-                        Ансамбль «Сирин», © 2011—{currentYear}. 
+                            Ансамбль «Сирин», © 2011—{currentYear}.
                         </p>
                         Все права защищены
                     </span>

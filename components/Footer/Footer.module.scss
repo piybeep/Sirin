@@ -1,4 +1,4 @@
-.error{
+.error {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -46,10 +46,10 @@
         // column-gap: 30px;
 
         display: grid;
-        grid-template-columns: repeat(3, min-content);
+        grid-template-columns: repeat(3, auto);
         column-gap: 46px;
         row-gap: 30px;
-        grid-template-rows: min-content;
+        grid-template-rows: repeat(3, min-content);
     }
 
     &__link {
@@ -151,9 +151,9 @@
         justify-content: space-between;
     }
 
-    &__piybeep{
+    &__piybeep {
 
-        &_span{
+        &_span {
             text-decoration: underline;
         }
     }

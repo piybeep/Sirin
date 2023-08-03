@@ -31,13 +31,19 @@ const SecHeader = () => {
         },
         {
             id: 3,
+            text: 'Расписание',
+            href: '/timing',
+            active: false
+        },
+        {
+            id: 4,
             text: 'Контакты',
             href: '/',
             to: 'contacts',
             active: false
         },
         {
-            id: 4,
+            id: 5,
             text: 'О нас',
             href: '/about',
             to: 'about',
