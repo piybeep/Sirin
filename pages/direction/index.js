@@ -3,8 +3,12 @@ import Preview from '../../components/Direction/Preview/Preview';
 import List from '../../components/Direction/List/List'
 
 // Img
-import test1 from '../../public/images/direction/1.png'
-import test2 from '../../public/images/direction/2.png'
+import test1 from '../../public/svg/directions/1.svg'
+import test2 from '../../public/svg/directions/2.svg'
+import test3 from '../../public/svg/directions/3.svg'
+import test4 from '../../public/svg/directions/4.svg'
+import test5 from '../../public/svg/directions/5.svg'
+import test6 from '../../public/svg/directions/6.svg'
 import Head from 'next/head';
 
 const direction = () => {
@@ -22,13 +26,23 @@ const direction = () => {
         },
         {
             id: 2,
-            img: test1,
-            title: 'Основы классического танца'
+            img: test3,
+            title: 'Партерная гимнастика'
         },
         {
             id: 3,
-            img: test2,
-            title: 'Народно-сценический танец'
+            img: test4,
+            title: 'Эстрадный танец'
+        },
+        {
+            id: 4,
+            img: test5,
+            title: 'Акробатика'
+        },
+        {
+            id: 5,
+            img: test6,
+            title: 'Ритмика'
         }
     ]
 

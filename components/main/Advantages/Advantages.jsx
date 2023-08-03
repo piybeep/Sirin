@@ -1,12 +1,12 @@
 import React from 'react';
 
 // img
-import img1 from '../../../public/images/main/advantages/1.png'
-import img2 from '../../../public/images/main/advantages/2.png'
-import img3 from '../../../public/images/main/advantages/3.png'
-import img4 from '../../../public/images/main/advantages/4.png'
-import img5 from '../../../public/images/main/advantages/5.png'
-import img6 from '../../../public/images/main/advantages/6.png'
+import img1 from '../../../public/svg/advantages/1.svg'
+import img2 from '../../../public/svg/advantages/2.svg'
+import img3 from '../../../public/svg/advantages/3.svg'
+import img4 from '../../../public/svg/advantages/4.svg'
+import img5 from '../../../public/svg/advantages/5.svg'
+import img6 from '../../../public/svg/advantages/6.svg'
 // Style
 import s from './Advantages.module.scss'
 
@@ -55,7 +55,7 @@ const Advantages = () => {
             </div>
         )
     })
-    
+
     return (
         <div className={s.advantages}>
             <div className={s.advantages__info}>
