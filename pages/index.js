@@ -11,7 +11,6 @@ import Contact from "../components/main/Contacts/Contact";
 import Footer from "../components/Footer/Footer";
 import Menu from "../components/main/Menu/Menu";
 // Form
-import Form from "../components/Form/Form";
 import { Provider } from "react-redux";
 import { setupStore } from "../src/store/store";
 
@@ -21,6 +20,7 @@ import { fetchAllTeam, teamAPI } from "../src/team/teamService";
 import { contactsAPI, fetchContact } from "../src/contacts/contacts";
 import { getReviews, reviewsAPI } from "../src/reviews/reviews";
 import Head from "next/head";
+import FormWrapper from "../components/FormWrapper/FormWrapper";
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -75,6 +75,7 @@ export default function Home({
 			<Team team={team} error={teamError} />
 			<Reviews reviews={reviews} error={reviewsError} />
 			<Contact contacts={contacts} error={contactsError} />
+			<FormWrapper />
 		</div>
 	);
 }
@@ -84,7 +85,6 @@ Home.getLayout = function PageLayout(page) {
 	return (
 		<Provider store={store}>
 			<Header />
-			<Form />
 			{page}
 			<Footer />
 		</Provider>

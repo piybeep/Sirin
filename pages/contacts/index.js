@@ -6,6 +6,10 @@ import { wrapper } from "../../src/store/store";
 import { contactsAPI, fetchContact } from "../../src/contacts/contacts";
 import Head from "next/head";
 import Find from '../../components/Find/Find';
+import Form from '../../components/Form/Form';
+
+import s from './index.module.scss'
+import ContactsInfo from '../../components/ContactsInfo/ContactsInfo';
 
 
 // SSR for team
@@ -26,6 +30,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
 );
 
 const index = ({ contacts, contactsError }) => {
+    const [adress, setAdress] = React.useState({
+        isShow: false,
+        number: null,
+    })
+
     return (
         <div>
             <Head>
@@ -33,7 +42,11 @@ const index = ({ contacts, contactsError }) => {
             </Head>
 
             <PreviewContacts contacts={contacts} error={contactsError} />
-            <Find />
+            <Find setAdress={setAdress} />
+            <div className={s.form}>
+                <Form />
+            </div>
+            <ContactsInfo adress={adress} setAdress={setAdress} />
         </div>
     );
 };

@@ -1,29 +1,21 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
-import { setOpen } from '../../src/form/form';
 // Style
 import s from './Form.module.scss'
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const Form = () => {
-    const open = useAppSelector(state => state.openSlice.value)
-    const dispatch = useAppDispatch()
-
     const ref = React.createRef()
-    const refForm = React.createRef()
+
+    const route = useRouter()
 
     let [placeholder, setPlaceholder] = useState('');
     useEffect(() => {
-        window.screen.width > 420 ? setPlaceholder('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL') : setPlaceholder('НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL')
-    }, [open])
-
-    useEffect(() => {
-        if (open === true) refForm.current.scrollTo({
-            top: 0,
-        })
-    }, [open])
+        if (window)
+            window.screen.width > 420 ? setPlaceholder('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL') : setPlaceholder('НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL')
+    }, [])
 
     const SignupSchema = Yup.object().shape({
         applicant: Yup.string().trim().required('Вы не ввели имя'),
@@ -71,9 +63,15 @@ const Form = () => {
     })
 
     return (
-        <div ref={refForm} className={[s.form, open && s.form_open].join(' ')} onClick={() => dispatch(setOpen(false))}>
-            <div className={s.form__wrapper} onClick={(e) => e.stopPropagation()}>
-                <h2 className={s.form__header}><span className={s.form__header_span}>заявка</span>  на обучение</h2>
+        <div className={s.form} onClick={e => e.stopPropagation()}>
+            <div className={[s.form__wrapper, route.pathname === '/contacts' && s.form__wrapper_shadow].join(' ')}>
+                {
+                    route.pathname === '/contacts'
+                        ?
+                        <h2 className={[s.form__header_row, s.form__header].join(' ')}>Запишись на курсы</h2>
+                        :
+                        <h2 className={s.form__header}><span className={s.form__header_span}>заявка</span>  на обучение</h2>
+                }
                 <form onSubmit={formik.handleSubmit} className={s.form__info}>
                     <div className={s.form__list}>
                         <div className={[s.form__item, s.form__item_applicant].join(' ')}>

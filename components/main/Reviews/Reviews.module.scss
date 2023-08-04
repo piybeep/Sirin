@@ -121,6 +121,8 @@
         line-height: 135%;
 
         color: #000000;
+
+        white-space: pre-wrap;
     }
 
     &__info {
@@ -175,14 +177,14 @@
     padding-bottom: 30px;
 }
 
-.pagination{
+.pagination {
     display: flex;
     justify-content: center;
     column-gap: 20px;
 
     bottom: 0px !important;
 
-    &__bullet{
+    &__bullet {
         width: 8px;
         height: 8px;
 
@@ -195,8 +197,8 @@
         transition: .5s;
 
         cursor: pointer;
-        
-        &_active{
+
+        &_active {
             opacity: 1;
         }
     }

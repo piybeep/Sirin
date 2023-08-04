@@ -38,6 +38,7 @@
     border-radius: 20px;
 
     background: url('../../public/images/find/background.png');
+    background-position: center;
 
     &__large {
         max-width: 810px;
@@ -72,5 +73,7 @@
         padding: 11px 0px;
 
         background-color: transparent;
+
+        cursor: pointer;
     }
 }

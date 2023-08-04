@@ -38,7 +38,7 @@ const SecHeader = () => {
         {
             id: 4,
             text: 'Контакты',
-            href: '/contacnts',
+            href: '/contacts',
             active: false
         },
         {
