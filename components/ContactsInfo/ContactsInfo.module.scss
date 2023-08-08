@@ -41,6 +41,8 @@
         border-radius: 20px;
 
         cursor: auto;
+
+        position: relative;
     }
 }
 
@@ -67,6 +69,8 @@
     width: 100%;
     max-width: 585px;
 
+    position: relative;
+
     &__title {
         padding: 19px 21px;
 
@@ -84,6 +88,34 @@
         border: 3px solid #1491FF;
 
         width: fit-content;
+    }
+
+}
+
+.close {
+    display: none;
+
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    color: rgba($color: #1491FF, $alpha: .6);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    transition: .3s;
+
+    &:hover {
+        color: #1491FF;
     }
 }
 
@@ -164,5 +196,93 @@
         &:hover {
             opacity: .5;
         }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        overflow-y: scroll;
+
+        display: grid;
+
+        padding: 30px;
+
+        &__info {
+            display: grid;
+            grid-template-areas:
+                'info'
+                'swiper'
+                'pagination';
+        }
+    }
+
+    .close {
+        display: unset;
+    }
+
+    .slider {
+        grid-area: swiper;
+
+        width: 100%;
+        max-width: unset;
+
+        &__img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+
+            border-radius: 20px;
+        }
+    }
+
+    .info {
+        grid-area: info;
+
+        max-width: unset;
+    }
+
+    .pagination {
+        grid-area: pagination;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info {
+
+        &__title {
+            font-size: 20px;
+        }
+    }
+
+    .wrapper {
+
+        &__info {
+            padding: 30px;
+            padding-top: 60px;
+        }
+    }
+
+    .list {
+
+        &__title {
+            font-size: 20px;
+        }
+
+        &__text {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .info {
+        &__title {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+
+    .wrapper {
+        padding: 16px;
     }
 }

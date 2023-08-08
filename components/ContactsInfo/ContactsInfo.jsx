@@ -74,6 +74,7 @@ const ContactsInfo = ({ adress, setAdress }) => {
             {
                 data && data.map(current => (
                     <div onClick={e => e.stopPropagation()} key={current.id} className={s.wrapper__info}>
+                        <button className={s.close} onClick={() => setAdress({ ...adress, isShow: false })}>Закрыть</button>
                         <Swiper className={s.slider}
                             onSwiper={swiper => {
                                 setSwiperState(swiper)

@@ -1,4 +1,14 @@
 .form {
-    margin-top: 166px;
     margin-bottom: 100px;
+
+    width: 100%;
+    max-width: 1275px;
+
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        margin-top: -150px;
+    }
 }

@@ -46,13 +46,11 @@ const index = ({ contacts, contactsError }) => {
             </Head>
 
             <PreviewContacts contacts={contacts} error={contactsError} />
-            {/* 
             <Find setAdress={setAdress} />
             <div className={s.form}>
                 <Form />
             </div>
-            <ContactsInfo adress={adress} setAdress={setAdress} /> 
-            */}
+            <ContactsInfo adress={adress} setAdress={setAdress} />
         </div>
     );
 };
