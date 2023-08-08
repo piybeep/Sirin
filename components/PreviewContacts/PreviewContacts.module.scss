@@ -57,7 +57,24 @@
     }
 }
 
+
 .contacts {
+
+    &__wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        width: 100%;
+        max-width: 1430px;
+
+        transform: translate(-50%, -50%);
+
+        pointer-events: none;
+
+        margin-left: 100px;
+    }
+
     display: flex;
     flex-direction: column;
     row-gap: 45px;
@@ -71,9 +88,13 @@
     width: 100%;
     max-width: 675px;
 
-    position: absolute;
-    top: 130px;
-    left: 270px;
+    pointer-events: auto;
+
+    transform: translateX(-75px);
+
+    // position: absolute;
+    // top: 130px;
+    // left: 270px;
 
     &__item {
         display: flex;
@@ -128,3 +149,5 @@
         }
     }
 }
+
+@import './PreviewContactsMedia.module.scss';

@@ -30,7 +30,8 @@
     &__info {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
+        row-gap: 30px;
     }
 
     &__img {
@@ -79,6 +80,8 @@
 
     &__button {
         grid-area: button;
+
+        margin-top: auto
     }
 }
 

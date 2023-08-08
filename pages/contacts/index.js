@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PreviewContacts from '../../components/PreviewContacts/PreviewContacts';
 
 // for SSR
@@ -35,6 +35,10 @@ const index = ({ contacts, contactsError }) => {
         number: null,
     })
 
+    useEffect(() => {
+        adress.isShow ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
+    }, [adress])
+
     return (
         <div>
             <Head>
@@ -42,11 +46,13 @@ const index = ({ contacts, contactsError }) => {
             </Head>
 
             <PreviewContacts contacts={contacts} error={contactsError} />
+            {/* 
             <Find setAdress={setAdress} />
             <div className={s.form}>
                 <Form />
             </div>
-            <ContactsInfo adress={adress} setAdress={setAdress} />
+            <ContactsInfo adress={adress} setAdress={setAdress} /> 
+            */}
         </div>
     );
 };

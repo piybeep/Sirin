@@ -1,19 +1,19 @@
 @media screen and (max-width: 1420px) {
-    .SecHeader{
+    .SecHeader {
 
-        &__wrapper{
+        &__wrapper {
             justify-content: center;
         }
 
-        &__nav{
+        &__nav {
             max-width: 640px;
         }
     }
 }
 
-@media screen and (max-width: 960px){
-    .SecHeader{
-        &__wrapper{
+@media screen and (max-width: 1250px) {
+    .SecHeader {
+        &__wrapper {
             flex-direction: column;
             row-gap: 16px;
         }
@@ -22,30 +22,30 @@
     }
 }
 
-@media screen and (max-width: 768px){
-    .SecHeader{
+@media screen and (max-width: 768px) {
+    .SecHeader {
 
-        &__nav{
+        &__nav {
             padding: 0px 24px;
         }
     }
 }
 
-@media screen and (max-width: 650px){
-    .SecHeader{
+@media screen and (max-width: 900px) {
+    .SecHeader {
 
-        &__nav{
+        &__nav {
             overflow-x: auto;
-            
+
             padding-bottom: 14px;
         }
     }
 }
 
 @media screen and (max-width: 450px) {
-    .SecHeader{
+    .SecHeader {
 
-        &__nav{
+        &__nav {
             column-gap: 14px;
 
             padding-left: 16px;
@@ -54,10 +54,10 @@
     }
 }
 
-@media screen and (max-width: 420px){
-    .SecHeader{
+@media screen and (max-width: 420px) {
+    .SecHeader {
 
-        &__nav{
+        &__nav {
             padding-left: 16px;
             padding-right: 16px;
         }

@@ -8,45 +8,47 @@ const PreviewContacts = ({ contacts, error }) => {
 
     const Contacts = () => {
         return (
-            <div className={s.contacts} >
-                <div className={s.contacts__item}>
-                    <h2 className={s.contacts__title}>Мы находимся</h2>
-                    <div className={s.contacts__subtitle}>
-                        <p className={[s.contacts__text, s.contacts__text_adress].join(' ')}>ул. Земляной Вал, д.27, стр.3, метро Курская</p>
-                        <p className={[s.contacts__text, s.contacts__text_adress].join(' ')}>ул. Чечулина д.10, ГБУ ЦКС «Южное Измайлово»</p>
+            <div className={s.contacts__wrapper}>
+                <div className={s.contacts} >
+                    <div className={s.contacts__item}>
+                        <h2 className={s.contacts__title}>Мы находимся</h2>
+                        <div className={s.contacts__subtitle}>
+                            <p className={[s.contacts__text, s.contacts__text_adress].join(' ')}>ул. Земляной Вал, д.27, стр.3, метро Курская</p>
+                            <p className={[s.contacts__text, s.contacts__text_adress].join(' ')}>ул. Чечулина д.10, ГБУ ЦКС «Южное Измайлово»</p>
+                        </div>
                     </div>
-                </div>
 
-                <div className={s.contacts__item}>
-                    <h2 className={s.contacts__title}>Номера для связи</h2>
-                    <div className={s.contacts__subtitle}>
-                        {error ?
-                            console.error(error.status)
-                            :
-                            <>
-                                {phones.map(current => {
-                                    return <a key={current.id} href={`tel: ${current.data}`} className={s.contacts__text}>{current.data}</a>
-                                })}
-                            </>
-                        }
+                    <div className={s.contacts__item}>
+                        <h2 className={s.contacts__title}>Номера для связи</h2>
+                        <div className={s.contacts__subtitle}>
+                            {error ?
+                                console.error(error.status)
+                                :
+                                <>
+                                    {phones.map(current => {
+                                        return <a key={current.id} href={`tel: ${current.data}`} className={s.contacts__text}>{current.data}</a>
+                                    })}
+                                </>
+                            }
+                        </div>
                     </div>
-                </div>
 
-                <div className={s.contacts__item}>
-                    <h2 className={s.contacts__title}>Эллектронный адрес</h2>
-                    <div className={s.contacts__subtitle}>
-                        {error ?
-                            console.error(error.status)
-                            :
-                            <>
-                                {email.map(current => {
-                                    return <a key={current.id} href={`mailto: ${current.data}`} className={[s.contacts__text, s.contacts__text_email].join(' ')}>{current.data}</a>
-                                })}
-                            </>
-                        }
+                    <div className={s.contacts__item}>
+                        <h2 className={s.contacts__title}>Эллектронный адрес</h2>
+                        <div className={s.contacts__subtitle}>
+                            {error ?
+                                console.error(error.status)
+                                :
+                                <>
+                                    {email.map(current => {
+                                        return <a key={current.id} href={`mailto: ${current.data}`} className={[s.contacts__text, s.contacts__text_email].join(' ')}>{current.data}</a>
+                                    })}
+                                </>
+                            }
+                        </div>
                     </div>
-                </div>
-            </div >
+                </div >
+            </div>
         )
     }
 
