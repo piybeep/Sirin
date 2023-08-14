@@ -94,7 +94,7 @@ const Form = () => {
                                 type='text'
                                 name='student'
                                 value={formik.values.student}
-                                // onBlur={formik.handleBlur}
+                                onBlur={formik.handleBlur}
                                 placeholder='ВВЕДИТЕ ФИО ОБУЧАЮЩЕГОСЯ' />
                         </div>
 
@@ -120,7 +120,6 @@ const Form = () => {
                                 value={formik.values.contact}
                                 onBlur={formik.handleBlur}
                                 placeholder={placeholder}
-                            // placeholder={window.screen.width > 420 ? 'ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL' : ' НОМЕР ТЕЛЕФОНА ИЛИ E-MAIL'} 
                             />
                         </div>
 
