@@ -12,7 +12,7 @@ export const contactsAPI = createApi({
     endpoints: (build) => ({
         fetchContact: build.query({
             query: () => ({
-                url: '/contacts',
+                url: 'contacts',
             })
         })
     }),

@@ -13,12 +13,12 @@ export const teamAPI = createApi({
     endpoints: (build) => ({
         fetchAllTeam: build.query<ITeam[], number>({
             query: () => ({
-                url: '/crew',
+                url: 'crew',
             })
         }),
         fetchCurrentTeam: build.query({
             query: (id: number) => ({
-                url: `/crew/${id}`
+                url: `crew/${id}`
             })
         })
     })

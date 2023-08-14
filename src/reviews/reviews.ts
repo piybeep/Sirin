@@ -12,7 +12,7 @@ export const reviewsAPI = createApi({
     endpoints: (build) => ({
         getReviews: build.query({
             query: () => ({
-                url: '/reviews',
+                url: 'reviews',
             })
         })
     }),

@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 
-interface fetchAllNewsProps{
+interface fetchAllNewsProps {
     page?: number,
-    start?:number
+    start?: number
 }
 
 export const newsAPI = createApi({
@@ -16,9 +16,9 @@ export const newsAPI = createApi({
     },
     endpoints: (build) => ({
         fetchAllNews: build.query({
-            query: ({page, start}: fetchAllNewsProps) => {
+            query: ({ page, start }: fetchAllNewsProps) => {
                 return ({
-                    url: `/news`,
+                    url: `news`,
                     params: {
                         count: 12,
                         start: start ?? (((page ?? 0) - 1) * 12) + 1,
@@ -28,11 +28,11 @@ export const newsAPI = createApi({
         }),
 
         fetchCurrentNews: build.query({
-            query: (id) => `/news/${id}`
+            query: (id) => `news/${id}`
         }),
 
         fetchPreviewNews: build.query({
-            query:() => '/news?count=1'
+            query: () => 'news?count=1'
         })
     })
 })
