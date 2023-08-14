@@ -199,6 +199,21 @@
     }
 }
 
+@media screen and (max-height:950px) {
+    .wrapper {
+        overflow-y: scroll;
+        align-items: unset;
+
+        &__info {
+            min-height: 900px;
+        }
+    }
+
+    .close {
+        display: unset;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .wrapper {
         overflow-y: scroll;
@@ -213,6 +228,8 @@
                 'info'
                 'swiper'
                 'pagination';
+
+            min-height: unset;
         }
     }
 
