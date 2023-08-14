@@ -8,6 +8,7 @@ const Video = () => {
 		<div className={s.video}>
 			<iframe
 				className={s.video__iframe}
+				loading='lazy'
 				width="1864"
 				height="808"
 				src="https://www.youtube.com/embed/N9Slx5bHF8s"

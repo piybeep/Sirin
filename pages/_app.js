@@ -11,6 +11,7 @@ import "swiper/css";
 
 // Style
 import '../globals.scss'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   const store = setupStore()
@@ -21,6 +22,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <SecHeader />
       <div className='component'>
         <Component {...pageProps} />
