@@ -135,6 +135,10 @@
 
         background-color: #DBE0E3;
 
+        &::-webkit-inner-spin-button {
+            appearance: none;
+        }
+
         &_error {
             border-color: red;
             color: red;

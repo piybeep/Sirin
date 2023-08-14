@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Pagination } from 'swiper/modules';
 // img
 import img from '../../../public/images/main/reviews/noneImg.png'
 // Style
@@ -58,7 +58,7 @@ const Reviews = ({ reviews, error }) => {
                                     }}
                                     spaceBetween={30}
                                     loop={true}
-                                    pagination={{...pagination}}
+                                    pagination={{ ...pagination }}
                                     modules={[Pagination]}
                                 >
                                     {resultData}

@@ -1,4 +1,4 @@
-.slider{
+.slider {
     min-width: 320px;
     width: 100%;
     max-width: 1300px;
@@ -11,7 +11,7 @@
     align-items: center;
     column-gap: 30px;
 
-    &__button{
+    &__button {
         border: none;
         background-color: transparent;
 
@@ -26,20 +26,23 @@
 
         transition: .3s;
 
-        &:hover{
+        &:hover {
             opacity: 0.3;
+        }
+
+        &_none {
+            display: none;
         }
     }
 
-    &__swiper{
+    &__swiper {
         // Пока ничего нет
+        width: fit-content;
     }
 
-    &__img{
+    &__img {
         width: 100%;
-
-        min-height: 338px;
-        max-height: 338px;
+        height: auto;
 
         object-fit: cover;
 

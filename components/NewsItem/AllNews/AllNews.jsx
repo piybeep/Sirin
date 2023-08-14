@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 // Style
 import s from './AllNews.module.scss'
 import { ru } from 'date-fns/locale';

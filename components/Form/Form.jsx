@@ -3,13 +3,18 @@ import * as Yup from 'yup';
 import React, { useEffect, useState } from 'react';
 // Style
 import s from './Form.module.scss'
+
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useAppDispatch } from '../../src/hooks/redux';
+import { setOpen } from '../../src/form/form';
 
 const Form = () => {
     const ref = React.createRef()
 
     const route = useRouter()
+
+    const dispatch = useAppDispatch()
 
     let [placeholder, setPlaceholder] = useState('');
     useEffect(() => {
@@ -20,8 +25,8 @@ const Form = () => {
     const SignupSchema = Yup.object().shape({
         applicant: Yup.string().trim().required('Вы не ввели имя'),
         student: Yup.string().trim().required('Вы не ввели имя ученика'),
-        age: Yup.string().required('Вы не ввели возраст'),
-        contact: Yup.string().matches(/^(\s*)?(\+7|7|8)+([- _():=+]?\d[- _():=+]?){10}(\s*)|[a-z0-9]+@[a-z]+\.[a-z]{2,3}?$/, 'Телефон или email не подходит').required('Вы не ввели контакт'),
+        age: Yup.number().required('Вы не ввели возраст'),
+        contact: Yup.string().matches(/^(\s*)?(\+7|7|8)+([- _():=+]?\d[- _():=+]?){10}(\s*)|[a-z0-9]+@[a-z]+\.[a-z]{2,5}?$/, 'Телефон или email не подходит').required('Вы не ввели контакт'),
     });
 
 
@@ -100,10 +105,10 @@ const Form = () => {
 
                         <div className={[s.form__item, s.form__item_age].join(' ')}>
                             <h2 className={s.form__title}>ВОЗРАСТ ОБУЧАЮЩЕГОСЯ</h2>
-                            <input className={[s.form__input, formik.touched.age && formik.touched.age && s.form__input_error].join(' ')}
+                            <input className={[s.form__input, formik.touched.age && formik.errors.age && s.form__input_error].join(' ')}
                                 autoComplete='off'
                                 onChange={(formik.handleChange)}
-                                type='text'
+                                type='number'
                                 name='age'
                                 value={formik.values.age}
                                 onBlur={formik.handleBlur}

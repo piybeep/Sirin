@@ -6,6 +6,8 @@ import SecHeader from '../components/SecHeader/SecHeader'
 import Footer from '../components/Footer/Footer'
 // form 
 import Form from '../components/Form/Form'
+// swiper
+import "swiper/css";
 
 // Style
 import '../globals.scss'

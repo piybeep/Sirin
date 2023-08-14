@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 // Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Style
 import s from './Slider.module.scss'
+import classNames from 'classnames';
 
 const Slider = ({ currentNews }) => {
+
+    const [windowSize, setWindowSize] = useState(1920)
+
+    useEffect(() => {
+        if (window) {
+            setWindowSize(window.innerWidth)
+        }
+    }, [])
 
     if (currentNews.images.length <= 0) {
         return (
@@ -45,15 +53,19 @@ const Slider = ({ currentNews }) => {
 
     const resultData = currentNews.images.map(current => {
         return (
-            <SwiperSlide key={current.filename}>
+            <SwiperSlide key={current.filename} className={s.slider__slide}>
                 <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
             </SwiperSlide>
         )
     })
 
     return (
-        <div className={s.slider}>
-            <button onClick={() => swiperRef.current.slidePrev()} className={s.slider__button} >
+        <div className={classNames(s.slider, {
+            [s.slider__more]: currentNews.images.length > 1
+        })}>
+            <button onClick={() => swiperRef.current.slidePrev()} className={classNames(s.slider__button, {
+                [s.slider__button_none]: currentNews.images.length <= 1
+            })} >
                 <svg width="20" height="35" viewBox="0 0 20 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M17.0208 0L0 17.0208L17.6777 34.6985L19.799 32.5772L4.24264 17.0208L19.1422 2.12132L17.0208 0Z" fill="black" />
                 </svg>
@@ -62,17 +74,16 @@ const Slider = ({ currentNews }) => {
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper
                 }}
-                slidesPerView={2}
+                slidesPerView={currentNews.images.length <= 1 ? 1 : 2}
                 spaceBetween={windowWidth}
-                pagination={{
-                    clickable: true,
-                }}
-                loop={true}
+                centeredSlides={windowSize < 600 ? true : false}
                 className={s.slider__swiper}
             >
                 {resultData}
             </Swiper>
-            <button onClick={() => swiperRef.current.slideNext()} className={s.slider__button}>
+            <button onClick={() => swiperRef.current.slideNext()} className={classNames(s.slider__button, {
+                [s.slider__button_none]: currentNews.images.length <= 1
+            })}>
                 <svg width="21" height="35" viewBox="0 0 21 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M3.57698 34.6985L20.5978 17.6777L2.92015 0L0.798828 2.12132L16.3552 17.6777L1.45566 32.5772L3.57698 34.6985Z" fill="black" />
                 </svg>
