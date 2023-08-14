@@ -32,7 +32,7 @@ const SecHeader = () => {
         {
             id: 3,
             text: 'Расписание',
-            href: '/timing',
+            href: process.env.NEXT_PUBLIC_SCHEDULE_URL,
             active: false
         },
         {
@@ -63,7 +63,7 @@ const SecHeader = () => {
 
         return (
             !current.to ?
-                <Link key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
+                <Link key={current.text} target={current.text === 'Расписание' ? '_blank' : '_parent'} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')} href={current.href}>{current.text}</Link>
                 :
                 <a href={'/#' + current.to} key={current.text} className={[s.SecHeader__link, current.active && s.SecHeader__link_active].join(' ')}>{current.text}</a>
         )

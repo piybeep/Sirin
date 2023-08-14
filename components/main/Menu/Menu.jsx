@@ -29,7 +29,7 @@ const Menu = () => {
         {
             id: 4,
             text: 'Расписание',
-            link: '/timing'
+            link: process.env.NEXT_PUBLIC_SCHEDULE_URL
         },
         {
             id: 5,
@@ -40,7 +40,7 @@ const Menu = () => {
 
     const resultLink = link.map(current => {
         return (
-            <a key={current.text} className={s.menu__link} href={current.link}>{current.text}</a>
+            <a key={current.text} target={current.text === 'Расписание' ? '_blank' : '_parent'} className={s.menu__link} href={current.link}>{current.text}</a>
         )
     })
 

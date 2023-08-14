@@ -47,7 +47,7 @@ const Footer = () => {
         {
             id: 3,
             text: 'Расписание',
-            href: '/timing'
+            href: process.env.NEXT_PUBLIC_SCHEDULE_URL
         },
         {
             id: 4,
@@ -62,13 +62,13 @@ const Footer = () => {
         {
             id: 6,
             text: 'Устав Сирин',
-            href: '/info'
+            href: '/ustav.pdf'
         }
     ]
 
     const resultLinks = links.map(current => {
         return (
-            <a key={current.id} href={current.href} className={s.footer__link}>{current.text}</a>
+            <a key={current.id} href={current.href} target={current.text === 'Расписание' || current.text === 'Устав Сирин' ? '_blank' : '_parent'} className={s.footer__link}>{current.text}</a>
         )
     })
 

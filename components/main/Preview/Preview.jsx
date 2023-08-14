@@ -30,7 +30,7 @@ const Preview = () => {
         {
             id: 3,
             text: 'Расписание',
-            link: '/timing'
+            link: process.env.NEXT_PUBLIC_SCHEDULE_URL
         },
         {
             id: 4,
@@ -46,7 +46,7 @@ const Preview = () => {
 
     const resultLink = link.map(current => {
         return (
-            <a key={current.text} className={s.preview__link} href={current.link}>{current.text}</a>
+            <a key={current.text} target={current.text === 'Расписание' ? '_blank' : '_parent'} className={s.preview__link} href={current.link}>{current.text}</a>
         )
     })
 
