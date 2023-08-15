@@ -16,7 +16,9 @@ const FormWrapper = () => {
 
     return (
         <div ref={refForm} className={[s.wrapper, open && s.wrapper__open].join(' ')} onClick={() => dispatch(setOpen(false))}>
-            <Form />
+            <div className={s.wrapper__info}>
+                <Form />
+            </div>
         </div>
     );
 };

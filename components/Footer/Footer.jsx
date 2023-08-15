@@ -78,11 +78,11 @@ const Footer = () => {
             img: vk,
             href: 'https://vk.com/sirin.moscow'
         },
-        {
-            id: 1,
-            img: facebook,
-            href: 'https://www.facebook.com.vn'
-        },
+        // {
+        //     id: 1,
+        //     img: facebook,
+        //     href: 'https://www.facebook.com.vn'
+        // },
         {
             id: 2,
             img: telegram,

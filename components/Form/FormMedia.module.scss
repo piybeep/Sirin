@@ -4,9 +4,6 @@
 
         &__wrapper {
             max-width: 976px;
-
-            margin-top: 150px;
-            margin-bottom: 90px;
         }
 
         &__info {
@@ -45,8 +42,6 @@
         &__wrapper {
             margin-left: 0px;
             margin-right: 0px;
-            margin-top: 196px;
-            margin-bottom: 116px;
 
             padding-bottom: 64px;
         }
@@ -140,10 +135,6 @@
 
 @media screen and (max-width: 320px) {
     .form {
-
-        &__wrapper {
-            margin-bottom: 115px;
-        }
 
         &__button {
             font-size: 14px;
