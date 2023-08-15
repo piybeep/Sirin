@@ -7,17 +7,22 @@ import error from '../../../public/images/news/errorNewsBig.png'
 
 // Style
 import s from './Info.module.scss'
+import { LinkItEmail, LinkItUrl } from 'react-linkify-it';
 
-const Info = ({currentNews}) => {
+const Info = ({ currentNews }) => {
     return (
         <div className={s.info}>
             <div className={s.info__header}>
                 <h2 className={s.info__title}>{currentNews?.title}</h2>
-                <p className={s.info__date}>{currentNews && format(new Date(currentNews?.createdAt), 'P', {locale: ru})}</p>
+                <p className={s.info__date}>{currentNews && format(new Date(currentNews?.createdAt), 'P', { locale: ru })}</p>
             </div>
             <img className={s.info__img} src={currentNews?.pre_images[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + currentNews.pre_images[0].filename : error.src} alt="картинка" />
             <div className={s.info__list}>
-                <h2 className={s.info__text}>{currentNews?.text}</h2>
+                <LinkItUrl>
+                    <LinkItEmail>
+                        <p className={s.info__text}>{currentNews?.text}</p>
+                    </LinkItEmail>
+                </LinkItUrl>
             </div>
         </div>
     );
