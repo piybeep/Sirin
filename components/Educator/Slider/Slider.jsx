@@ -3,22 +3,26 @@ import React, { useRef } from 'react';
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+
+import Link from 'next/link';
 // Style
 import s from './Slider.module.scss'
 // Component
 import CustomButton from '../../CustomButton/CustomButton'
 
-const Slider = ({images}) => {
+const Slider = ({ images }) => {
     const swiperRef = useRef()
-    if (images.length <= 0){
+    if (images.length <= 0) {
         return <></>
     }
 
     const resultData = images && images.map(current => {
         return (
-            <SwiperSlide key={current.id}>
-                <img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
-            </SwiperSlide>
+            <SwiperSlide key={current.id} className={s.slider__slide}>
+                <Link href={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} target='_blank'>
+                    < img className={s.slider__img} src={process.env.NEXT_PUBLIC_STATIC_URL + current.filename} alt="Картинка" />
+                </Link>
+            </SwiperSlide >
         )
     })
 
@@ -34,12 +38,15 @@ const Slider = ({images}) => {
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper
                     }}
-                    slidesPerView={2}
-                    spaceBetween={30}
-                    loop={true}
+                    breakpoints={{
+                        800: { centeredSlides: false, spaceBetween: 30, slidesPerView: 2 },
+                    }}
+                    centeredSlides={true}
+                    slidesPerView={1}
+                    spaceBetween={15}
                     pagination={{
                         clickable: true,
-                      }}
+                    }}
                     className={s.slider__swiper}
                 >
                     {resultData}
