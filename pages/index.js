@@ -75,7 +75,6 @@ export default function Home({
 			<Team team={team} error={teamError} />
 			<Reviews reviews={reviews} error={reviewsError} />
 			<Contact contacts={contacts} error={contactsError} />
-			<FormWrapper />
 		</div>
 	);
 }
@@ -85,6 +84,7 @@ Home.getLayout = function PageLayout(page) {
 	return (
 		<Provider store={store}>
 			<Header />
+			<FormWrapper />
 			{page}
 			<Footer />
 		</Provider>

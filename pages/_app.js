@@ -12,6 +12,7 @@ import "swiper/css";
 // Style
 import '../globals.scss'
 import Head from 'next/head'
+import FormWrapper from '../components/FormWrapper/FormWrapper'
 
 function MyApp({ Component, pageProps }) {
   const store = setupStore()
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/favicon.png" />
       </Head>
+      <FormWrapper />
       <SecHeader />
       <div className='component'>
         <Component {...pageProps} />

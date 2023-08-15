@@ -2,24 +2,23 @@ import React, { useEffect } from 'react';
 
 import s from './FormWrapper.module.scss'
 import Form from '../Form/Form';
-import { useAppDispatch, useAppSelector } from '../../src/hooks/redux';
-import { setOpen } from '../../src/form/form';
+import { useRouter } from 'next/router';
 
 const FormWrapper = () => {
-    const open = useAppSelector(state => state.openSlice.value)
-    const dispatch = useAppDispatch()
-    const refForm = React.createRef()
+    const route = useRouter()
 
     useEffect(() => {
-        if (open === true) refForm.current.scrollTo({ top: 0, })
-    }, [open])
+        route.query.form === 'open' ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset'
+    }, [route])
 
     return (
-        <div ref={refForm} className={[s.wrapper, open && s.wrapper__open].join(' ')} onClick={() => dispatch(setOpen(false))}>
+        <div className={[s.wrapper, route.query.form === 'open' && s.wrapper__open].join(' ')}
+            onClick={() => route.push(route.asPath.replace('?form=open', ''), undefined, { scroll: false })}
+        >
             <div className={s.wrapper__info}>
                 <Form />
             </div>
-        </div>
+        </div >
     );
 };
 
