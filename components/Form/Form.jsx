@@ -6,15 +6,11 @@ import s from './Form.module.scss'
 
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { useAppDispatch } from '../../src/hooks/redux';
-import { setOpen } from '../../src/form/form';
 
 const Form = () => {
     const ref = React.createRef()
 
     const route = useRouter()
-
-    const dispatch = useAppDispatch()
 
     let [placeholder, setPlaceholder] = useState('');
     useEffect(() => {
@@ -50,7 +46,7 @@ const Form = () => {
                 place: values.adress
             })
                 .then((responce) => {
-                    dispatch(setOpen(false))
+                    route.push(route.asPath.replace('?form=open', ''), undefined, { scroll: false })
                 })
                 .catch = (error) => {
                     console.error(error)

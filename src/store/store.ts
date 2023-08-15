@@ -3,7 +3,6 @@ import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/
 import { teamAPI } from '../team/teamService'
 import { newsAPI } from "../news/newsService";
 
-import openSlice from '../form/form'
 import { contactsAPI } from "../contacts/contacts";
 import { reviewsAPI } from "../reviews/reviews";
 
@@ -12,8 +11,6 @@ const rootReducer = combineReducers({
     [newsAPI.reducerPath]: newsAPI.reducer,
     [contactsAPI.reducerPath]: contactsAPI.reducer,
     [reviewsAPI.reducerPath]: reviewsAPI.reducer,
-
-    openSlice: openSlice,
 })
 
 export const setupStore = () => {
