@@ -21,6 +21,7 @@ import { contactsAPI, fetchContact } from "../src/contacts/contacts";
 import { getReviews, reviewsAPI } from "../src/reviews/reviews";
 import Head from "next/head";
 import FormWrapper from "../components/FormWrapper/FormWrapper";
+import { fetchHomeVideo, homeAPI } from "../src/home/home";
 
 // SSR for team
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -40,6 +41,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
 			store.dispatch(reviewsAPI.util.getRunningQueriesThunk()),
 		);
 
+		store.dispatch(fetchHomeVideo.initiate())
+		const [homeVideo] = await Promise.all(
+			store.dispatch(homeAPI.util.getRunningQueriesThunk())
+		)
+
 		return {
 			props: {
 				team: !team.isError && team.data,
@@ -48,6 +54,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 				teamError: team.isError && team.error,
 				contactsError: contacts.isError && contacts.error,
 				reviewsError: contacts.isError && contacts.error,
+				homeVideo: !homeVideo.isError && homeVideo.data[0]
 			},
 		};
 	},
@@ -60,6 +67,7 @@ export default function Home({
 	teamError,
 	contactsError,
 	reviewsError,
+	homeVideo
 }) {
 	return (
 		<div className="component">
@@ -71,7 +79,10 @@ export default function Home({
 			<About />
 			<Advantages />
 			<Rules />
-			<Video />
+			{
+				homeVideo.url_video &&
+				<Video url={homeVideo.url_video} />
+			}
 			<Team team={team} error={teamError} />
 			<Reviews reviews={reviews} error={reviewsError} />
 			<Contact contacts={contacts} error={contactsError} />
