@@ -11,6 +11,11 @@ import error from '../../../public/images/news/errorNewsMini.png'
 
 const AllNews = ({ allNews }) => {
     const swiperRef = useRef()
+    const [windowWidth, setWindowWidth] = useState(0)
+
+    useEffect(() => {
+        windowScreen()
+    }, [])
 
     if (allNews.data.length <= 0) {
         return (
@@ -31,8 +36,6 @@ const AllNews = ({ allNews }) => {
         )
     })
 
-    const [windowWidth, setWindowWidth] = useState(0)
-
     const windowScreen = () => {
         if (window.screen.width < 1421 && window.screen.width > 1024) {
             setWindowWidth(57)
@@ -41,10 +44,6 @@ const AllNews = ({ allNews }) => {
             setWindowWidth(27)
         }
     }
-
-    useEffect(() => {
-        windowScreen()
-    }, [])
 
 
     return (

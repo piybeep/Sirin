@@ -58,9 +58,9 @@ const Slider = ({ images }) => {
                 </button>
             </div>
             <div className={s.slider__back}>
-                <a className={s.slider__link} href="/team">
+                <Link className={s.slider__link} href="/team">
                     <CustomButton text='вся команда' />
-                </a>
+                </Link>
             </div>
         </div>
     );
