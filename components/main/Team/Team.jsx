@@ -10,7 +10,7 @@ import errorImg from '../../../public/images/team/errorTeamMini.png'
 import s from './Team.module.scss'
 
 const Team = ({ team, error }) => {
-    const teachers = team && team?.slice(0, 6)
+    const teachers = team && team.map(i => i).sort((a, b) => a.position - b.position)?.slice(0, 6)
 
     const resultTeachers = teachers && teachers?.map((current, index) => {
         let removePatronymic = (current.fullname).split(' ').slice(0, 2).join(' ')

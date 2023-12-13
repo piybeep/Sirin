@@ -9,7 +9,8 @@ import s from './List.module.scss'
 import error from '../../../public/images/team/errorTeamMini.png'
 
 const List = ({ data, text }) => {
-    const resultData = data?.map(current => {
+    const dataSort = data.map(i => i).sort((a, b) => a.position - b.position)
+    const resultData = dataSort?.map(current => {
         return (
             <div key={current.id} className={s.item}>
                 <img className={s.item__img} src={current?.photo[0]?.filename ? process.env.NEXT_PUBLIC_STATIC_URL + current.photo[0].filename : error.src} />
