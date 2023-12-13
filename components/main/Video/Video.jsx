@@ -3,7 +3,7 @@ import React from "react";
 // Style
 import s from "./Video.module.scss";
 
-const Video = () => {
+const Video = ({ url }) => {
 	return (
 		<div className={s.video}>
 			<iframe
@@ -11,7 +11,7 @@ const Video = () => {
 				loading='lazy'
 				width="1864"
 				height="808"
-				src="https://www.youtube.com/embed/N9Slx5bHF8s"
+				src={url}
 				title="Танцевальный спектакль | Царевна-лягушка"
 				frameBorder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

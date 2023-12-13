@@ -5,8 +5,6 @@ import error from '../../../public/images/team/errorTeamMini.png'
 import s from './Preview.module.scss'
 
 const Preview = ({ personInfo }) => {
-
-    console.log(personInfo)
     return (
         <div className={s.preview} style={{ backgroundImage: personInfo?.banner[0]?.filename && `url(${process.env.NEXT_PUBLIC_STATIC_URL + personInfo?.banner[0]?.filename})` }}>
             <div className={s.preview__info}>
