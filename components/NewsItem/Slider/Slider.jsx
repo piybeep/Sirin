@@ -11,7 +11,14 @@ const Slider = ({ currentNews }) => {
 
     const [windowSize, setWindowSize] = useState(1920)
 
+    const swiperRef = useRef()
+
+    // Для отступа у слайдера
+    const [windowWidth, setWindowWidth] = useState(0)
+
     useEffect(() => {
+        windowScreen()
+
         if (window) {
             setWindowSize(window.innerWidth)
         }
@@ -23,11 +30,6 @@ const Slider = ({ currentNews }) => {
             </div>
         )
     }
-
-    const swiperRef = useRef()
-
-    // Для отступа у слайдера
-    const [windowWidth, setWindowWidth] = useState(0)
 
     const windowScreen = () => {
         if (window.screen.width < 1920 && window.screen.width > 1420) {
@@ -46,10 +48,6 @@ const Slider = ({ currentNews }) => {
             setWindowWidth(13)
         }
     }
-
-    useEffect(() => {
-        windowScreen()
-    }, [])
 
     const resultData = currentNews.images.map(current => {
         return (

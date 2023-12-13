@@ -29,7 +29,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     },
 );
 
-const index = ({ contacts, contactsError }) => {
+const ContactsPage = ({ contacts, contactsError }) => {
     const [adress, setAdress] = React.useState({
         isShow: false,
         number: null,
@@ -55,4 +55,4 @@ const index = ({ contacts, contactsError }) => {
     );
 };
 
-export default index;
+export default ContactsPage;
